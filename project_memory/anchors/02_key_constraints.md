@@ -1,0 +1,18 @@
+# 关键约束
+
+- 当前处理明确不做坐标旋转、WPL 修正、频率修正和空气密度或摩尔密度换算，因此结果应解释为当前坐标和当前单位下的运动学通量，而不是已经换算到常规 \(\mu mol\,m^{-2}\,s^{-1}\) 的 CO2 通量。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
+- 本项目所有需要按本地时间对齐的数据表，时间列读取时应优先按字符读入，再显式按 `Asia/Shanghai` 解析或赋予时区。不要让 `data.table::fread()`、`read.csv()` 或类似函数自动把 `block_start`、`block_end`、`TIMESTAMP` 等列推断成 UTC/POSIX 时间，否则可能造成 `8 h` 错位。这个约束适用于后续 raw-w、风场、FL 位置、气象和廓线数据的合并。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R]
+- `CVT 2025-03-23` AP 廓线的第七层即 `valve_number = 7/c32` 在 `2025-03-23 17:53:30` 之后必须筛除。当前上游脚本已将该时刻之后的 `CVT c32` 置为缺测并按 complete-case 排除不完整廓线轮次；因此全天图中 `CVT 2025-03-23 18:00` 之后不应再解释 AP/profile CO2 结构。 [来源: 用户当前对话 2026-05-25] [已核验: project_memory/evidence/verifications/2026-05-25_cvt0323_c32_profile_qc.md]
+- 当前气体测量量被视为摩尔分数，且用户明确说“不需要密度修正”。如果后续要与常规 EC 碳通量单位比较，需要另行加入空气摩尔密度或干空气摩尔密度换算。 [来源: 用户当前对话 2026-05-18]
+- 因为不做坐标旋转，`w'` 是仪器坐标下去除 30 min 平均后的垂直风脉动，不应直接解释为严格地形法向风或完整平均垂直平流。这个边界会影响对山谷站上升/下沉事件的物理解释。 [来源: 用户当前对话 2026-05-18]
+- 当前 metadata 约束下的 time lag 搜索范围是实际管长推导后的窄范围：`MT` 和 `FL` 为 10 Hz、±2 个样本，`CVT` 为 20 Hz、±4 个样本，均对应约 ±0.2 s。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_lag_config.csv]
+- 当前 raw `w` CO2 总输送结果几乎完全由 `F_mean_window` 控制，平均流项在平均绝对分量中占比约为 `0.9980` 到 `0.9995`。因此 raw-w 总输送应解释为原始仪器坐标下平均垂直风携带 CO2 的结果，而不是直接等同于生态系统 CO2 交换强度。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_total_transport\EA_raw_w_CO2_figures\EA_raw_w_CO2_site_window_summary.csv] [推断：基于当前未做坐标旋转的处理边界整理]
+- FL 平台实时调平使 `pitch/roll/yaw` 姿态修正暂不作为当前首要误差源，但这不等于 raw `w` 已经是地理垂直风；sonic 坐标、north offset、流线倾斜、水平风混入和平台运动方向仍需要通过风向扇区、`w_mean ~ u_mean + v_mean` 和移动方向分组诊断排查。 [来源: 用户当前对话 2026-05-20] [推断：基于当前 raw-w 处理边界整理]
+- 三站水平风比较不能直接使用原始 `Ux/Uy` 分量互比；当前已采用 north_offset 做水平坐标统一，并对 `FL` 按轨道方向做小车速度矢量修正。该处理适合比较水平风速、风向和同步性，但它不是完整三维坐标旋转，也不能单独替代正式 EA/TEA、垂直平流或水平平流计算。 [来源: thread 019e261a-fe4c-7602-b59e-5d4f48e5ddbf] [已核验: D:\00 博士阶段\博一\05 Project\com_3sites_horizontal\OUTPUT\north_offset_coordinates\validation_summary_30min.csv] [已核验: D:\00 博士阶段\博一\05 Project\com_3sites_horizontal\OUTPUT\fl_motion_correction\fl_motion_correction_summary.csv]
+- 当前三站水平风图件的 `window_time` 使用窗口起点；解释日出、风向切换或风速增强相位时，`30min` 图上 `06:30` 点应理解为 `06:30-07:00` 窗口，而不是瞬时 `06:30`。 [已核验: D:\00 博士阶段\博一\05 Project\com_3sites_horizontal\COMPUTE\01_basic_highfreq_wind_qc_3sites.R] [已核验: D:\00 博士阶段\博一\05 Project\com_3sites_horizontal\OUTPUT\wind_speed_faceted_by_window\run_notes.txt]
+- 当前经验倾斜修正不是实测安装几何修正，而是用 30 min 风场块拟合 `w_mean ~ u_mean + v_mean` 后扣除线性偏差。它能显著降低站点长期平均 raw-w 总输送，但可能同时移除真实地形平均垂直运动，因此只能作为诊断分支使用。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_raw_w_total_transport_tilt_corrected.R] [推断：基于 metadata 缺少 pitch/roll 字段和当前经验模型整理]
+- 截至 2026-05-19，用户明确决定暂不采用经验倾斜修正结果。当前解释和下一步分析应回到未修正 raw `w` CO2 总输送；修正分支只作为已尝试但暂停使用的诊断输出保留。 [来源: 用户当前对话 2026-05-19]
+
+- `com_rotation` 分支不同于此前未旋转 raw-w 主线：该分支专门用于比较 `none/dr/pf/spf` 四种坐标旋转或拟合处理后的固定站点 EC 结果。后续引用该分支时，应明确它是坐标旋转敏感性诊断，不应与未旋转 raw `w` 总输送口径混写。 [来源: 用户当前对话 2026-06-01] [已核验: project_memory/evidence/verifications/2026-06-01_common_rotation_sensitivity_analysis.md]
+- 在当前 `ecpreproc` 修复中，`H2O_mixratio` 到 `mmol/m3` 的转换只用于空气物性计算，不覆盖原始 `h2o` 列；因为最终 `h2o_flux/LE` 的协方差计算仍依赖原混合比口径。后续若改公式或单位，应重新核验 `LE` 和水汽通量的单位一致性。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\R\phys_units.R] [推断：基于当前修复边界整理]
+- 2026-06-01 之前生成的 `CVT` 四方法全量输出中存在 `co2_flux/H/LE/Tau` 全为 `NA` 的问题；后续分析应使用刷新后的 `D:\00 博士阶段\博一\05 Project\com_rotation\results\rotation_flux_all_common_periods.csv` 和 `results\analysis`，不要回用旧 NA 结果。 [已核验: project_memory/evidence/verifications/2026-06-01_common_rotation_sensitivity_analysis.md]

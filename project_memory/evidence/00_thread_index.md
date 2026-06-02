@@ -1,0 +1,17 @@
+# 证据索引
+
+- `verifications/2026-05-18_EA_calculation_and_visualization.md` 记录当前对话中完成的 EA 计算、可视化、CO2 上升/下沉气团分析和本地文件核验结果。 [来源: 用户当前对话 2026-05-18]
+- `verifications/2026-05-18_raw_w_CO2_total_transport.md` 记录当前对话中新增的 raw `w` CO2 总输送脚本、5 min/30 min 输出文件和公式闭合核验结果。 [来源: 用户当前对话 2026-05-18]
+- `verifications/2026-05-19_raw_w_CO2_visualization_analysis.md` 记录 raw `w` CO2 总输送结果的可视化脚本、输出图表、站点窗口汇总和初步解释边界。 [来源: 用户当前对话 2026-05-19]
+- `verifications/2026-05-19_raw_w_CO2_empirical_tilt_correction.md` 记录 raw `w` CO2 总输送的经验倾斜/坐标偏差修正尝试、修正系数、输出文件和解释边界。 [来源: 用户当前对话 2026-05-19]
+- `verifications/2026-05-19_raw_w_mainline_after_correction_pause.md` 记录用户决定暂不采用经验修正结果，并将当前分析主线回到未修正 raw `w` CO2 总输送。 [来源: 用户当前对话 2026-05-19]
+- `verifications/2026-05-20_raw_w_CO2_analysis_focus.md` 记录未修正 raw `w` CO2 总输送的后续分析重点、推荐可视化、重点时段和气象归因因素。 [来源: 用户当前对话 2026-05-20]
+- `verifications/2026-05-20_raw_w_mean_flow_local_circulation_hypothesis.md` 记录 `F_mean` 主导 `F_total` 的物理解释、站点地形背景、局地环流工作假说、下一步诊断计算和数据补充需求。 [来源: 用户当前对话 2026-05-20]
+- `verifications/2026-05-20_FL_track_geometry_for_raw_w_diagnosis.md` 记录用户补充的 FL 轨道位置含义、时间同步、实时调平约束，以及从旧项目脚本核验到的轨道端点坐标和 south-to-north 方位角。 [来源: 用户当前对话 2026-05-20]
+- `verifications/2026-05-20_raw_w_local_circulation_diagnostics.md` 记录新增 raw `w` 局地环流诊断脚本、输出目录、窗口风场表、FL 位置分箱表、`w_mean ~ u_mean + v_mean` 回归和关键结果核查。 [来源: 用户当前对话 2026-05-20]
+- `verifications/2026-05-25_cvt0323_c32_profile_qc.md` 记录从 `04 Lee` 项目记忆追溯到的 `CVT 2025-03-23 valve_number = 7/c32` 质量控制约束、当前 `com_260507` 未截断源文件的核验、上游脚本修正、重跑结果和对全天/事件窗口解释的影响。 [来源: 用户当前对话 2026-05-25]
+- `verifications/2026-05-21_raw_w_up_down_CO2_structure_and_interpretation.md` 记录当前窗口中 raw-w 上升/下沉气团 CO2 浓度结构、空气量与浓度异常分解、图件输出位置、关键 30 min 结果和初步物理解释。 [来源: 用户当前对话 2026-05-21] [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_up_down_airmass_details]
+- `thread 019e261a-fe4c-7602-b59e-5d4f48e5ddbf` / `verifications/2026-05-21_three_site_horizontal_wind_thread_019e261a.md` 记录三站水平风 thread 和本地计算核验，包括 `CVT/MT/FL` 高频风 QC、north_offset 坐标统一、`FL` 小车速度矢量修正、四天风向/风速分面图和窗口起点时间口径。 [来源: thread 019e261a-fe4c-7602-b59e-5d4f48e5ddbf] [已核验: D:\00 博士阶段\博一\05 Project\com_3sites_horizontal]
+- `verifications/2026-06-01_common_rotation_sensitivity_analysis.md` 记录 `D:\00 博士阶段\博一\05 Project\com_rotation` 中 `CVT/MT` 两个公共时段、四种坐标旋转方法的全量合并结果、CVT 气体列名与水汽单位修复、初步统计图表输出位置和坐标旋转敏感性结论。 [来源: 用户当前对话 2026-06-01] [已核验: project_memory/evidence/verifications/2026-06-01_common_rotation_sensitivity_analysis.md]
+- `verifications/2026-06-02_regov_fixed_visual_style.md` 记录用户要求将 `EA_raw_w_CO2_decomposition_components_30min.png` 的作图风格和三个站点固定配色写入 REgov，并同步为当前项目后续 EA/raw-w/FL 诊断图默认风格。 [来源: 用户当前对话 2026-06-02]
+- `verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md` 记录 `D:\00 博士阶段\博一\05 Project\com_rotation` 中四种 rotation 下 `w_mean/sigma_w` 机制诊断、时间相位修正、风向扇区和风向箭矢图、稳定度 relative range 截断解释、日出窗口 caveat，以及 `H/LE` 离群点处理边界。 [来源: 用户当前对话 2026-06-02] [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md]

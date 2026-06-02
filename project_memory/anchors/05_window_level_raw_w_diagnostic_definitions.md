@@ -1,0 +1,7 @@
+# 窗口内 raw `w` 诊断定义锚点
+
+- 当前局地环流诊断中的窗口内 `u_mean_valid` 和 `v_mean_valid` 是在同一窗口内用同时具有有限 `u`、`v` 的样本平均得到；`w_mean_window` 是 `sum(w * dt_sec) / window_sec`，不是只除以有效样本持续时间。因此在覆盖率高时它与普通 `mean(w)` 接近，有缺测时则保留完整窗口分母的约束。[已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R]
+- 当前 `w_mean ~ u_mean + v_mean` 诊断按 `site + window_label` 单独拟合，形式为 `w_mean_window.wind = a + b * u_mean_valid + c * v_mean_valid + residual`。`w_resid_uv` 是从 raw `w_mean_window` 中扣除线性 `u/v` 拟合值后的残差，不是正式坐标旋转或严格的 tilt correction。[已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R] [推断: 基于当前方法边界整理]
+- 当前 30 min 结果显示 `F_total` 几乎完全由 `F_mean` 控制，而 `F_mean` 又几乎完全由 `w_mean` 控制；因此 raw-w CO2 总输送图首先应解释为 raw 坐标平均垂直风信号，而不是生态系统 CO2 源汇。[已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_local_circulation_diagnostics\raw_w_transport_with_wind_context_all_windows.csv] [推断: 基于当前本地核算整理]
+- 当前 30 min 回归显示 `FL` 和 `MT` 的 raw `w_mean` 与 sonic 坐标水平风关系很强，`R2` 分别约 `0.890` 和 `0.750`，`CVT` 约 `0.296`。因此后续解释必须保留“真实局地环流”和“坐标/流线倾斜或水平风投影”两种可能，不应直接把 raw `w_mean` 写成地理垂直速度。[已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_local_circulation_diagnostics\w_mean_uv_regression_coefficients.csv] [推断: 基于当前未做坐标旋转的处理边界整理]
+- FL 位置诊断使用 `0 m = MT 起点`、约 `122.5 m = CVT 正上方`、`245 m = 轨道终点` 的几何约束。当前 30 min 白天结果显示 FL 轨道高度整体偏上升，两端强、中部弱，但 CVT 正上方中段没有转为负 `w`。[来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_local_circulation_diagnostics\FL_position_binned_raw_w_30min.csv]

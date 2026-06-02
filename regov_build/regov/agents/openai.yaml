@@ -1,0 +1,4 @@
+interface:
+  display_name: "REgov"
+  short_description: "Research evidence governance for long-running projects"
+  default_prompt: "Use REgov to govern long-running research memory, evidence, theory checks, workstreams, and project progress visualization."
