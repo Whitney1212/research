@@ -24,6 +24,9 @@ The goal of this repository is to make the project readable by both humans and m
 - `regov_dashboard/`  
   Prebuilt project dashboard and test version of the workstream map.
 
+- `analysis_snapshot.md`  
+  Compact summary of the most stable numerical results and interpretation boundaries.
+
 ## Reading order
 
 If you want to understand the project quickly, read in this order:
@@ -42,6 +45,7 @@ If you want to understand the project quickly, read in this order:
 12. `regov_memory/07_data_inventory.md`
 13. `regov_memory/08_method_menu.md`
 14. `regov_memory/theory_cards/README.md`
+15. `analysis_snapshot.md`
 
 ## Notes
 

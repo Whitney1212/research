@@ -23,6 +23,10 @@ This file maps the repository into a few layers that a model can read quickly.
 - `project_memory/workstreams/_index.md`
 - `project_memory/workstreams/W1_EA_EC_flux.md`
 
+## Repository-level analysis snapshot
+
+`analysis_snapshot.md` collects the most stable numerical results and interpretation boundaries in one place.
+
 ## Layer 2: Research context
 
 `regov_memory/` contains the broader research background and methodology context.
