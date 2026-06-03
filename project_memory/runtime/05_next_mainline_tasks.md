@@ -23,6 +23,7 @@
 5. 固定方法边界。当前主线继续使用未旋转 raw `w` 作为诊断口径；经验倾斜修正、`w_mean ~ u + v` 残差和其他旋转版本只作为敏感性检验，不能在缺乏安装几何证据时替代主线解释。[来源: 用户当前对话 2026-05-21] [已核验: project_memory/runtime/02_open_questions.md]
 6. 增加风向扇区和峰后去向检验。围绕每个次峰事件，将峰前输入、峰值和峰后下降分成若干窗口，比较 corrected wind sector、风速、三站 CO2 同步性、标准 EC `F_EC_cov`、`c_up-c_down`、`w_mean` 和 FL 位置形态；如果峰后下降主要由负 EC 通量和低 CO2 上升气团解释，则偏向吸收/垂直混合；如果主要由增风、稳定风向和三站同步下降解释，则偏向通风或平流带走。[来源: 用户当前对话 2026-05-26] [推断: 基于当前归因目标整理]
 7. 增加局地环流稳定性检验。对 `CVT/MT/FL` 的日出后窗口按风向扇区分组，或使用 `w_mean ~ u_mean + v_mean` 残差作为敏感性结果，检查 `CVT` 负、`MT/FL` 正的垂直运动结构是否独立于水平风投影。如果该结构只在特定风向或强水平风条件下出现，应优先讨论流线倾斜或地形导流；如果跨风向稳定存在，则局地次级环流解释更有价值。[来源: 用户当前对话 2026-05-26] [推断: 基于当前 raw-w 方法边界整理]
+8. FL moving-transect anomaly transport 的第一阶段可行性计算和三张核心结构图已经完成，后续不需要重复生成同一批 `position × time` 热图。下一最小步应基于 `FL_position_time_pass_bin_diagnostics.csv` 和三组 profile 汇总，按日期、移动方向、风向扇区或关键事件窗口检查 `F_anom(x)` 结构是否仍稳定，并优先使用 `non_lambda_extreme` 作为稳健性筛选组；`non_air_imbalance` 暂只作为敏感性或警示组。 [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md] [推断: 基于本轮 FL position-time 结构诊断结果整理]
 
 ## 验证完成标准
 

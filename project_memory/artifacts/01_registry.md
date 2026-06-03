@@ -43,3 +43,11 @@
 - `D:\00 博士阶段\博一\05 Project\com_rotation\scripts\06_initial_stats_visuals.R` 是四方法结果的初步统计和可视化脚本。 [已核验: D:\00 博士阶段\博一\05 Project\com_rotation\scripts\06_initial_stats_visuals.R]
 - `D:\00 博士阶段\博一\05 Project\com_rotation\results\rotation_flux_all_common_periods.csv` 是当前四方法全量合并主结果。 [已核验: D:\00 博士阶段\博一\05 Project\com_rotation\results\rotation_flux_all_common_periods.csv]
 - `D:\00 博士阶段\博一\05 Project\com_rotation\results\analysis` 保存当前初步统计报告、表格和图件。 [已核验: D:\00 博士阶段\博一\05 Project\com_rotation\results\analysis]
+
+## 2026-06-03 FL moving-transect anomaly transport
+
+- `D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_pass_anomaly_transport_feasibility.R` 是 FL moving-transect anomaly transport 第一阶段 pass-level 可行性诊断脚本。它复用移动位置匹配逻辑，按移动单程计算 `F_raw`、`F_mean`、`F_turb`、`F_anom_pass_ref`、`A_up/A_down/I_A/lambda` 和 QC 标记。 [已核验: D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_pass_anomaly_transport_feasibility.R]
+- `D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_position_time_core_plots.R` 是 FL position-time 核心图脚本。它把高频点重新插值到小车位置，按 `10 m` position bin 计算 `F_anom` 和 `w_mean`，并输出三张结构稳定性图。 [已核验: D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_position_time_core_plots.R]
+- `D:\00 博士阶段\博一\05 Project\com_mass_balance\FL_pass_anomaly_transport_feasibility.csv` 是 pass-level 主诊断表；`FL_pass_anomaly_transport_daily_summary.csv` 和 `FL_pass_anomaly_transport_flag_summary.csv` 分别保存日尺度汇总和质量标记汇总。 [已核验: D:\00 博士阶段\博一\05 Project\com_mass_balance\FL_pass_anomaly_transport_feasibility.csv]
+- `D:\00 博士阶段\博一\05 Project\com_mass_balance\FL_position_time_pass_bin_diagnostics.csv`、`FL_position_profile_group_summary.csv` 和 `FL_position_profile_stability_summary.csv` 是 position-time 分箱诊断、三组 profile 汇总和结构稳定性汇总表。 [已核验: D:\00 博士阶段\博一\05 Project\com_mass_balance\FL_position_time_pass_bin_diagnostics.csv]
+- `D:\00 博士阶段\博一\05 Project\com_mass_balance\figures\fig04_position_time_F_anom_heatmap.png`、`fig05_position_time_w_mean_heatmap.png` 和 `fig06_F_anom_position_group_comparison.png` 是本轮要求输出的三张核心图。 [已核验: D:\00 博士阶段\博一\05 Project\com_mass_balance\figures\fig04_position_time_F_anom_heatmap.png]

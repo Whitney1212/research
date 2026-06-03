@@ -53,3 +53,11 @@
 当前已进一步补充四种 rotation 下的 `w_mean` 与 `sigma_w` 诊断，并输出风向扇区、时间轴风向箭矢、稳定度分组和日出窗口的优先级分析。新的核心判断是：rotation 对 `w_mean` 的影响最强，double rotation 会把窗口内 `w_mean` 强制压到接近 `0`；planar fit 与 sector-wise planar fit 则通过长期流面约束减小残余 `w_mean`；no rotation 保留了仪器坐标与局地流线倾斜中的平均垂直分量。相比之下，`sigma_w` 的 rotation 敏感性较低，方法间中位相对 range 约为 `8-10%`，相对 double rotation 的相关性通常高于 `0.98`。这说明当前 rotation 差异主要来自平均流线约束和协方差投影，而不是垂直湍流强度被整体重写。 [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md] [推断：基于 `w_mean/sigma_w` 诊断和四方法 rotation 定义整理]
 
 下一步围绕 `com_rotation` 的最小分析重点应是风向依赖的不确定性来源。初步结果显示 `MT` 的 `w_mean` rotation 敏感性在约 `090-150°` 及相邻扇区更集中，`CVT` 相对分散但也存在高敏感扇区；这支持后续把 sector-wise planar fit、风向扇区和地形流线解释放在同一张方法不确定性图景中。`H/LE` 的大离群点不能简单删掉，应同时保留 all-data 诊断、QC-screened 图和 robust/缩放图；正式解释 `H/LE` 时应使用变量特异 QC。日出窗口分析暂时受 `MT` metadata 经纬度可能不准确的限制，如果要正式解释 `MT` 日出窗口结果，需要先修正坐标再重跑。 [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md] [推断：基于风向、稳定度、日出窗口和离群点诊断整理]
+
+## 2026-06-03 FL moving-transect anomaly transport 进展
+
+当前已在 `D:\00 博士阶段\博一\05 Project\com_mass_balance` 完成 FL moving-transect anomaly transport 第一阶段可行性计算和三张核心结构图。pass-level 主表共有 `193` 个移动单程，轻量高频匹配表共有 `3,381,493` 行；`low_n`、`low_updown` 和 `single_sign` 均为 `0`，说明样本量和正负 `w` 基本满足第一步诊断需要，但 `lambda_extreme` 为 `76`、`air_imbalance` 为 `174`，说明空气量平衡仍是后续解释的主要质量约束。 [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md]
+
+position-time 分箱诊断共 `4751` 行，覆盖 `193` 个 pass 和 `25` 个 `10 m` 位置 bin。`F_anom(x)` profile 稳定性显示，`all_pass` 与 `non_lambda_extreme` 的 median profile 相关系数为 `0.8209436`，而 `all_pass` 与 `non_air_imbalance` 的相关系数为 `0.2275509`。因此当前更适合把 `non_lambda_extreme` 作为稳健性筛选组，`non_air_imbalance` 由于样本少且形态变化大，应作为敏感性或警示组，而不是主结论依据。 [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md] [推断：基于三组 profile 对比和样本量整理]
+
+本轮还修复了 `2025-03-20` 在 `position × time` 热图中看似空白的问题。核验表明该日并非缺数据，而是 `geom_tile()` 自动高度被 `1.5 s` 的最小 pass 间隔压得极薄；脚本已固定 `width = 10 m` 和 `height = 0.35 h` 后重新输出 `F_anom` 与 `w_mean` 热图。当前这些图用于检查切面结构稳定性，仍属于原始坐标、原始单位和 pass mean CO2 异常参考下的诊断结果，不能直接解释为最终生态系统 CO2 通量。 [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md]
