@@ -2,12 +2,15 @@
 
 This file collects the current stable results that are most useful for downstream analysis and for model-assisted reading of the repository.
 
+Last repository-level update: 2026-06-04.
+
 ## Current interpretation boundary
 
 - `EA_flux_results.csv` remains the main covariance-style EA result set based on `w'`.
 - The new raw-`w` transport branch is kept as a separate diagnostic path.
 - The empirical tilt-correction branch is retained only as a diagnostic attempt and is not the current interpretation basis.
 - FL remains a cut-plane / cross-section evidence source, not a third mean-flux station.
+- CVT/MT fixed-tower raw `w` does not need to be converted to fixed-tower `F_anom` before the current CO2-event synthesis. That branch is optional and only needed if fixed towers and FL must be compared under the same anomaly-transport reference.
 
 ## Stable numerical results
 
@@ -62,6 +65,45 @@ This file collects the current stable results that are most useful for downstrea
   - `single_sign` segments: `18`
   - `extreme_lambda` segments: `21`
 
+### FL moving-transect anomaly transport
+- Main feasibility branch: `D:\00 博士阶段\博一\05 Project\com_mass_balance`.
+- Pass-level table: `193` moving transect passes.
+- Lightweight high-frequency matched table: `3,381,493` rows.
+- Position-time diagnostic table: `4751` rows.
+- Position bins: `25` bins at `10 m` resolution.
+- Current quality flags:
+  - `low_n = 0`
+  - `low_updown = 0`
+  - `single_sign = 0`
+  - `lambda_extreme = 76`
+  - `air_imbalance = 174`
+- Current profile-stability result:
+  - `all_pass` vs `non_lambda_extreme` median profile correlation: `0.8209436`
+  - `all_pass` vs `non_air_imbalance` median profile correlation: `0.2275509`
+- Current interpretation: use `non_lambda_extreme` as the primary robustness group; keep `non_air_imbalance` as a sensitivity / warning group because it is stricter and changes the profile strongly.
+
+## Current mechanism synthesis
+
+The 2026-06-04 synthesis organizes the CO2 secondary-peak problem as competing hypotheses rather than a single fixed explanation.
+
+### Candidate mechanisms
+- H1: night storage release plus sunrise profile / boundary-layer transition.
+- H2: wind shift or wind-speed increase imports an external high-CO2 air mass.
+- H3: cross-valley local secondary circulation redistributes CO2.
+- H4: post-peak decline is mainly ecosystem uptake plus vertical mixing dilution.
+- H5: post-peak decline is mainly ventilation or horizontal advection away from the control volume.
+- H6: turbulence or thermal variables directly trigger the secondary peak.
+- H7: raw-`w` vertical structure mainly reflects coordinate / streamline projection risk.
+- H8: combined mechanism.
+
+### Current synthesis status
+- H1 is a foundation candidate because `profile switch` and `pre-min` are stable leading signals.
+- H2 and H3 are strong candidates but need event-level wind-sector and FL spatial-pattern labels.
+- H4 and H5 should be separated as competing explanations for post-peak CO2 decline.
+- H6 is currently downgraded to a background or modulating process because turbulence and thermal extrema are not stable pre-peak triggers.
+- H7 is a required method-risk check whenever raw `w_mean` or FL vertical motion is interpreted physically.
+- H8 should wait until H1-H5 are converted into event-level labels.
+
 ## What this supports
 
 These results are enough to support:
@@ -69,6 +111,7 @@ These results are enough to support:
 - continued use of 30 min results for mainline interpretation
 - 5 min results for sunrise / sunset / short-event inspection
 - method-boundary discussion for rotation, PF, and raw-`w` diagnostics
+- event-level mechanism ranking for CO2 secondary-peak source and post-peak decline pathways
 
 ## What still needs caution
 
@@ -76,3 +119,10 @@ These results are enough to support:
 - Do not use the tilt-correction branch as the current mainline interpretation.
 - Do not treat FL as a third mean-flux station.
 - Do not collapse raw-`w`, covariance flux, and concentration-anomaly structure into one quantity.
+- Do not call the secondary peak a storage-release, advection-input, or local-circulation event before the event-level labels connect timing, wind sector, FL spatial pattern, fixed-tower phase, and method risk.
+
+## Next compact outputs
+
+- `CO2_event_lead_lag_table.csv`: profile switch, pre-minimum, peak time, wind shift, wind-speed change, FL anomaly timing, EC / turbulence extrema.
+- `FL_event_spatial_pattern_labels.csv`: whole-track synchronization, one-sided input, CVT-above enhancement, two-ends-strong middle-weak structure, dipole, or unclear.
+- `CO2_event_mechanism_ranking.csv`: H1-H7 support scores plus main mechanism, secondary mechanism, background process, and method-risk labels.

@@ -1,6 +1,6 @@
 # REgov Workstream Dashboard
 
-Generated: 2026-05-27 17:45:55
+Generated: 2026-06-04 15:53:25
 
 ```mermaid
 flowchart TD
@@ -8,7 +8,7 @@ flowchart TD
   R --> P0["Current"]
   P0 --> P0F["当前重点"]
   P0 --> P0N["下一步"]
-  P0 --> P0Q["开放问题: 16"]
+  P0 --> P0Q["开放问题: 19"]
   P0F --> P0F0["当前重点仍是 `W1`。主线现在回到未修正 raw `w` CO2 总输送：旧 `EA_flux_results.csv` 保留为 \(w&#x27;\) 协方差型结果，新 raw-w 分..."]
   P0N --> P0N0["下一最小步应围绕 2026-05-26 收束出的两个方向做归因检验：一方面按风向扇区和事件 lead-lag 检查 CO2 次高峰是否由外来高 CO2 气团输入，并比较峰后下降更..."]
   P0 --> P0W0["W1 EA EC flux"]
@@ -28,7 +28,7 @@ flowchart TD
 
 | Project | Status | Project memory | Workstreams | Open questions |
 |---|---|---|---:|---:|
-| Current | ok | `C:\Users\admin\Documents\New project\project_memory` | 1 | 16 |
+| Current | ok | `C:\Users\admin\Documents\New project\project_memory` | 1 | 19 |
 | 04 Lee | ok | `D:\00 博士阶段\99 Project\04 Lee\project_memory` | 4 | 19 |
 
 ## Workstream Details

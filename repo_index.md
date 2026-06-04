@@ -2,6 +2,17 @@
 
 This file maps the repository into a few layers that a model can read quickly.
 
+## How the memory layers connect
+
+Use `project_memory/` for project-specific evidence and workstream state. Use `regov_memory/` for shared research context, dissertation-level questions, method menus, data inventory, theory cards, and cross-project governance. Root files such as `README.md`, `analysis_snapshot.md`, `data_manifest.md`, and this index are fast-entry views that connect those two memory layers.
+
+## Root entry files
+
+- `README.md`: human-readable entry point and current reading order.
+- `analysis_snapshot.md`: compact current-state snapshot for stable numerical results, interpretation boundaries, and mechanism synthesis.
+- `data_manifest.md`: in-repo and external data / output locations.
+- `repo_index.md`: repository map.
+
 ## Layer 1: Project memory
 
 `project_memory/` contains the current state of the project.
@@ -23,11 +34,18 @@ This file maps the repository into a few layers that a model can read quickly.
 - `project_memory/workstreams/_index.md`
 - `project_memory/workstreams/W1_EA_EC_flux.md`
 
-## Repository-level analysis snapshot
+## Layer 2: Immediate synthesis and next-step plans
 
-`analysis_snapshot.md` collects the most stable numerical results and interpretation boundaries in one place.
+`next_step/` contains working synthesis notes and immediate next-step plans that connect existing evidence into the next analysis action.
 
-## Layer 2: Research context
+### Important files
+- `next_step/01_FL_moving_transect_anomaly_transport_plan.md`
+- `next_step/02_FL_pass_feasibility_result_summary.md`
+- `next_step/2026-06-04_CO2_event_competing_hypotheses_status.md`
+
+The 2026-06-04 file is currently the most important bridge between existing memory and the next analysis step. It organizes the CO2 secondary-peak problem into H1-H8 competing hypotheses and proposes event-level mechanism scoring tables.
+
+## Layer 3: Research context
 
 `regov_memory/` contains the broader research background and methodology context.
 
@@ -48,7 +66,7 @@ This file maps the repository into a few layers that a model can read quickly.
 - `regov_memory/theory_cards/storage_flux.md`
 - `regov_memory/theory_cards/vertical_advection.md`
 
-## Layer 3: REgov skill package
+## Layer 4: REgov skill package
 
 `regov_build/regov/` contains the skill definition and supporting policies.
 
@@ -62,7 +80,7 @@ This file maps the repository into a few layers that a model can read quickly.
 - `regov_build/regov/references/workstream-visualization.md`
 - `regov_build/regov/scripts/build_workstream_map.py`
 
-## Layer 4: Dashboard
+## Layer 5: Dashboard
 
 `regov_dashboard/` contains rendered summary views.
 
@@ -74,3 +92,16 @@ This file maps the repository into a few layers that a model can read quickly.
 
 Some source data, scripts, and verification outputs are stored outside the repo on local drives.
 When that happens, the repo should include a clear path note in a manifest file rather than copying the full data here.
+
+## Current model reading path
+
+For fast orientation, read:
+
+1. `README.md`
+2. `analysis_snapshot.md`
+3. `project_memory/runtime/01_current_snapshot.md`
+4. `project_memory/runtime/05_next_mainline_tasks.md`
+5. `next_step/2026-06-04_CO2_event_competing_hypotheses_status.md`
+6. `regov_memory/06_research_question_map.md`
+7. `regov_memory/07_data_inventory.md`
+8. `regov_memory/08_method_menu.md`
