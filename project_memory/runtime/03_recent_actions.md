@@ -1,5 +1,7 @@
 # 近期动作
 
+- 2026-06-06：根据用户当前对话，重设整个 REgov 项目主线。新增证据记录 `project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md`，明确后续总目标应收束为“复杂地形通量计量修正”，并将 `09:00` CO2 次高峰事件机制分析从项目主线调整为复现和支撑证据分支。五个优先议题同步收束为：EC 何时可信、storage 如何修正、平流/通风/局地环流如何造成解耦、FL 如何提供空间约束、以及是否能形成可迁移的复杂地形通量状态分类。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]
+
 - 2026-06-03：新增并运行 `D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_pass_anomaly_transport_feasibility.R`，完成 FL moving-transect anomaly transport 第一阶段 pass-level 可行性诊断。主表 `FL_pass_anomaly_transport_feasibility.csv` 共 `193` 个 pass，轻量高频匹配表 `FL_pass_matched_points_light.csv` 共 `3,381,493` 行；四天 pass 数为 `50/48/48/47`，`low_n`、`low_updown` 和 `single_sign` 均为 `0`，但 `lambda_extreme` 为 `76`、`air_imbalance` 为 `174`，因此后续需要按 QC 组检查结构稳定性。 [来源: 用户当前对话 2026-06-03] [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md]
 
 - 2026-06-03：新增并运行 `D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_position_time_core_plots.R`，输出 `position × time` 的 `F_anom` 热图、`position × time` 的 `w_mean` 热图，以及 `F_anom(x)` 在 `all_pass`、`non_lambda_extreme` 和 `non_air_imbalance` 三组之间的对比图。分箱诊断表共 `4751` 行、`25` 个 10 m 位置 bin；`all_pass` 与 `non_lambda_extreme` 的 median profile 相关系数为 `0.8209436`，而与 `non_air_imbalance` 的相关系数为 `0.2275509`。本轮还修复了 `2025-03-20` 热图看似空白的问题，原因是自动 tile 高度被 `1.5 s` 的最小 pass 间隔压得过薄，脚本已改为固定 `geom_tile(width = 10, height = 0.35)`。 [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md]

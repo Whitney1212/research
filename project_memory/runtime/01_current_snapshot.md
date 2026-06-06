@@ -2,9 +2,9 @@
 
 ## 当前重点
 
-当前重点仍是 `W1`。主线现在回到未修正 raw `w` CO2 总输送：旧 `EA_flux_results.csv` 保留为 \(w'\) 协方差型结果，新 raw-w 分支保留 5 min 与 30 min 两个窗口；经验倾斜修正分支已经尝试，但暂不作为当前分析依据。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv] [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_total_transport\EA_raw_w_CO2_total_transport_all_windows.csv] [来源: 用户当前对话 2026-05-19]
+当前重点仍是 `W1`，但 2026-06-06 后仓库级主线已经改为**复杂地形通量计量修正**。这意味着 `EA/EC`、storage、三站风场、FL 移动切面、rotation 敏感性和 raw-w 诊断都应优先服务于“EC 何时可信、何时需要修正、何时只能给出风险标记”这一总问题，而不是继续把单个 CO2 事件归因当作主叙事。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]
 
-当前最新阶段已经从“生成对齐图”推进到“基于对齐结果做机制排序”。廓线结构切换判据已从严格 `06:30-11:00` 改为跨日出 `05:30-11:00` 首次负转非负；机制可视化也已从 `F_air/F_conc` 通量分解主线改为气象过程主线。新的主图保留 CO2 廓线均值、廓线差值、风速、`u/v`、声学坐标风向、raw `w_mean`、标准 EC `F_EC_cov`、`sigma_w`、`ustar` 和 `H`。当前最稳链条仍是 `profile switch` 与 `pre-min` 均为 `8/8 before_peak`；气象极值更多表现为背景或伴随过程，尚不能单独写成稳定峰前触发因子。 [已核验: project_memory/evidence/verifications/2026-05-24_cross_sunrise_switch_rerun.md] [已核验: project_memory/evidence/verifications/2026-05-25_meteorology_focused_mechanism_visualization.md] [推断：基于重跑后的事件关键时间表和机制证据矩阵整理]
+因此，现有未修正 raw `w`、CO2 次高峰对齐、FL anomaly transport 和 rotation 分支都保留，但角色发生了变化：`EA_flux_results.csv` 仍是 \(w'\) 协方差型基准；storage 应升为第一优先修正项；raw-w 与 FL 主要承担平流/通风/局地环流和空间异质性诊断；`09:00` 次高峰机制排序降为复现与支撑证据层。 [来源: 用户当前对话 2026-06-06] [推断：基于本轮主线重设和既有结果边界整理]
 
 ## 关键前置提醒
 
@@ -36,11 +36,9 @@
 
 ## 下一最小步
 
-下一最小步应围绕 2026-05-26 收束出的两个方向做归因检验：一方面按风向扇区和事件 lead-lag 检查 CO2 次高峰是否由外来高 CO2 气团输入，并比较峰后下降更像生态吸收、垂直混合稀释还是水平通风带走；另一方面按站点和 FL 位置分箱检查日出后 `CVT` 负 `w_mean` 与 `MT/FL` 正 `w_mean` 是否在扣除水平风或按风向分组后仍稳定存在。 [来源: 用户当前对话 2026-05-26] [推断：基于当前归因问题整理]
+下一最小步不再是继续扩展事件机制打分表，而是先整理一版**复杂地形通量状态框架草表**：把 `EC 可信型`、`储存主导型`、`外来输入型`、`通风带走型`、`横谷再分配型` 和 `方法高不确定型` 逐一写出判别信号、所需数据、推荐修正策略和当前证据缺口。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/runtime/05_next_mainline_tasks.md]
 
-时间线对齐的第一版已经完成，并且机制图已经改为气象过程主线。当前已新增全天 30 min 对齐表和 `04:00-12:00` 事件窗口对齐表；事件窗口固定 `06:30` 为日出参考线，不做 H2O 分析，也不把 FL 缺失 AP 作为待补缺口。下一最小步应从 `event_key_times_0400_1200_30min.csv`、机制证据矩阵和事件窗口图出发，逐日比较风场增强或转向、`u/v`、湍流/热通量背景、廓线结构切换、CO2 前期低点、次高峰和 FL 切面形态之间的先后顺序。 [来源: 用户当前对话 2026-05-25] [已核验: project_memory/evidence/verifications/2026-05-25_meteorology_focused_mechanism_visualization.md]
-
-后续主线任务已单独记录在 `project_memory/runtime/05_next_mainline_tasks.md`。本轮整理明确：FL 的核心价值是切面空间形态证据，不应直接作为第三个平均通量点解释；`c_up-c_down` 与 `F_conc_anom` 用于解释气团浓度结构，raw `F_total` 仍主要作为原始坐标下平均垂直输送诊断量；未旋转 raw `w` 仍为当前主线口径，经验倾斜修正和 `u/v` 残差只作为敏感性检验。 [来源: 用户当前对话 2026-05-21] [已核验: project_memory/runtime/05_next_mainline_tasks.md]
+在这个框架下，事件时间线对齐、`09:00` 次高峰 lead-lag、FL 空间形态和 raw-w 局地环流候选结构都继续保留，但只作为支撑“平流/通风/局地环流何时干扰 EC 解释”的复现案例，而不是单独决定项目主线。 [来源: 用户当前对话 2026-06-06] [推断：基于主线重设与现有事件分支整理]
 
 ## 2026-06-01 坐标旋转敏感性进展
 

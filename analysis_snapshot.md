@@ -2,15 +2,18 @@
 
 This file collects the current stable results that are most useful for downstream analysis and for model-assisted reading of the repository.
 
-Last repository-level update: 2026-06-04.
+Last repository-level update: 2026-06-06.
 
 ## Current interpretation boundary
 
+- Repository-level mainline now targets complex-terrain flux correction and state classification rather than a single CO2-event explanation.
 - `EA_flux_results.csv` remains the main covariance-style EA result set based on `w'`.
+- storage is now the first-priority correction branch.
 - The new raw-`w` transport branch is kept as a separate diagnostic path.
 - The empirical tilt-correction branch is retained only as a diagnostic attempt and is not the current interpretation basis.
 - FL remains a cut-plane / cross-section evidence source, not a third mean-flux station.
 - CVT/MT fixed-tower raw `w` does not need to be converted to fixed-tower `F_anom` before the current CO2-event synthesis. That branch is optional and only needed if fixed towers and FL must be compared under the same anomaly-transport reference.
+- The CO2 secondary-peak synthesis is retained as a reproduction / support branch for the broader flux-correction framework.
 
 ## Stable numerical results
 
@@ -82,9 +85,9 @@ Last repository-level update: 2026-06-04.
   - `all_pass` vs `non_air_imbalance` median profile correlation: `0.2275509`
 - Current interpretation: use `non_lambda_extreme` as the primary robustness group; keep `non_air_imbalance` as a sensitivity / warning group because it is stricter and changes the profile strongly.
 
-## Current mechanism synthesis
+## Supporting event synthesis
 
-The 2026-06-04 synthesis organizes the CO2 secondary-peak problem as competing hypotheses rather than a single fixed explanation.
+The 2026-06-04 synthesis organizes the CO2 secondary-peak problem as competing hypotheses rather than a single fixed explanation. After the 2026-06-06 mainline reset, this branch is kept as support evidence for when storage, advection, ventilation, and local circulation may disrupt EC interpretation.
 
 ### Candidate mechanisms
 - H1: night storage release plus sunrise profile / boundary-layer transition.
@@ -107,11 +110,13 @@ The 2026-06-04 synthesis organizes the CO2 secondary-peak problem as competing h
 ## What this supports
 
 These results are enough to support:
+- a state-oriented complex-terrain flux-correction framework
+- separation of baseline EC interpretation, storage correction, and advection / circulation risk
 - separation of air-mass transport and concentration-anomaly interpretation
 - continued use of 30 min results for mainline interpretation
 - 5 min results for sunrise / sunset / short-event inspection
 - method-boundary discussion for rotation, PF, and raw-`w` diagnostics
-- event-level mechanism ranking for CO2 secondary-peak source and post-peak decline pathways
+- event-level mechanism ranking as a support branch for CO2 secondary-peak source and post-peak decline pathways
 
 ## What still needs caution
 
@@ -123,6 +128,7 @@ These results are enough to support:
 
 ## Next compact outputs
 
-- `CO2_event_lead_lag_table.csv`: profile switch, pre-minimum, peak time, wind shift, wind-speed change, FL anomaly timing, EC / turbulence extrema.
-- `FL_event_spatial_pattern_labels.csv`: whole-track synchronization, one-sided input, CVT-above enhancement, two-ends-strong middle-weak structure, dipole, or unclear.
-- `CO2_event_mechanism_ranking.csv`: H1-H7 support scores plus main mechanism, secondary mechanism, background process, and method-risk labels.
+- `complex_terrain_flux_state_framework.md`: state definitions, diagnostics, correction logic, and method-risk notes.
+- `ec_state_classification_schema.csv`: state labels such as EC-trustworthy, storage-dominant, external-input, ventilation-removal, cross-valley-redistribution, and high-method-risk.
+- `storage_correction_priority_table.csv`: site / period / condition matrix for where local-column storage should be computed first.
+- Supporting branch outputs may still include `CO2_event_lead_lag_table.csv`, `FL_event_spatial_pattern_labels.csv`, and `CO2_event_mechanism_ranking.csv`.
