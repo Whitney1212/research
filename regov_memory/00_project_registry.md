@@ -2,7 +2,7 @@
 
 ## 当前已接入项目
 
-- `current`: 当前项目的 `project_memory` 已接入 REgov。路径为 `C:\Users\admin\Documents\New project\project_memory`。 [已核验: C:\Users\admin\Documents\New project\project_memory]
+- `current`: 当前项目的 `project_memory` 已接入 REgov。路径为 `D:\00 博士阶段\99 Project\06 EA\project_memory`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory]
 - `04 Lee`: `04 Lee` 的 `project_memory` 已接入 REgov。路径为 `D:\00 博士阶段\99 Project\04 Lee\project_memory`。该项目同时保留新分层结构与旧 `00-08` 兼容文件，后续默认优先读取 `anchors/`、`runtime/` 和 `workstreams/`，旧文件只作为兼容索引或追证入口。 [来源: 用户当前对话 2026-05-27] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory]
 
 ## 接入规则

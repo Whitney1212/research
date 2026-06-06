@@ -1,6 +1,6 @@
 # REgov Workstream Dashboard
 
-Generated: 2026-05-27 17:50:22
+Generated: 2026-06-06 11:37:15
 
 ```mermaid
 flowchart TD
@@ -8,9 +8,9 @@ flowchart TD
   R --> P0["Current"]
   P0 --> P0F["当前重点"]
   P0 --> P0N["下一步"]
-  P0 --> P0Q["开放问题: 16"]
-  P0F --> P0F0["当前重点仍是 `W1`。主线现在回到未修正 raw `w` CO2 总输送：旧 `EA_flux_results.csv` 保留为 \(w&#x27;\) 协方差型结果，新 raw-w 分..."]
-  P0N --> P0N0["下一最小步应围绕 2026-05-26 收束出的两个方向做归因检验：一方面按风向扇区和事件 lead-lag 检查 CO2 次高峰是否由外来高 CO2 气团输入，并比较峰后下降更..."]
+  P0 --> P0Q["开放问题: 19"]
+  P0F --> P0F0["当前重点仍是 `W1`，但 2026-06-06 后仓库级主线已经改为**复杂地形通量计量修正**。这意味着 `EA/EC`、storage、三站风场、FL 移动切面、rotat..."]
+  P0N --> P0N0["下一最小步不再是继续扩展事件机制打分表，而是先整理一版**复杂地形通量状态框架草表**：把 `EC 可信型`、`储存主导型`、`外来输入型`、`通风带走型`、`横谷再分配型` 和..."]
   P0 --> P0W0["W1 EA EC flux"]
   R --> P1["04 Lee"]
   P1 --> P1F["当前重点"]
@@ -28,18 +28,18 @@ flowchart TD
 
 | Project | Status | Project memory | Workstreams | Open questions |
 |---|---|---|---:|---:|
-| Current | ok | `C:\Users\admin\Documents\New project\project_memory` | 1 | 16 |
+| Current | ok | `D:\00 博士阶段\99 Project\06 EA\project_memory` | 1 | 19 |
 | 04 Lee | ok | `D:\00 博士阶段\99 Project\04 Lee\project_memory` | 4 | 19 |
 
 ## Workstream Details
 
 ### Current
 
-- Project memory: `C:\Users\admin\Documents\New project\project_memory`
+- Project memory: `D:\00 博士阶段\99 Project\06 EA\project_memory`
 - Current focus:
-  - 当前重点仍是 `W1`。主线现在回到未修正 raw `w` CO2 总输送：旧 `EA_flux_results.csv` 保留为 \(w'\) 协方差型结果，新 raw-w 分支保留 5 min 与 30 min 两...
+  - 当前重点仍是 `W1`，但 2026-06-06 后仓库级主线已经改为**复杂地形通量计量修正**。这意味着 `EA/EC`、storage、三站风场、FL 移动切面、rotation 敏感性和 raw-w 诊断都应优...
 - Next step:
-  - 下一最小步应围绕 2026-05-26 收束出的两个方向做归因检验：一方面按风向扇区和事件 lead-lag 检查 CO2 次高峰是否由外来高 CO2 气团输入，并比较峰后下降更像生态吸收、垂直混合稀释还是水平通风带走...
+  - 下一最小步不再是继续扩展事件机制打分表，而是先整理一版**复杂地形通量状态框架草表**：把 `EC 可信型`、`储存主导型`、`外来输入型`、`通风带走型`、`横谷再分配型` 和 `方法高不确定型` 逐一写出判别信号、...
 - Workstreams:
   - `W1_EA_EC_flux.md`
     - 已新增并运行 `run_ea_preprocess.R`，输出主结果 `EA_flux_results.csv`、lag 配置与统计、despike 统计和运行日志。 [已核验: D:\00 博士阶段\博一\05 Pr...

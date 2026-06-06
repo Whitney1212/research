@@ -46,7 +46,7 @@
 
 ## 来源
 
-- 本地共享背景：`C:\Users\admin\Documents\New project\regov_memory\00_shared_research_context.md`。
+- 本地共享背景：`D:\00 博士阶段\99 Project\06 EA\regov_memory\00_shared_research_context.md`。
 - NCAR/EOL 对 planar fit sonic tilt correction 的说明：<https://www.eol.ucar.edu/content/sonic-tilt-corrections>。
 - LI-COR EddyPro 对 double rotation、triple rotation 和 planar fit 的说明：<https://www.licor.com/support/EddyPro/topics/anemometer-tilt-correction.html>。
 - Wilczak, Oncley and Stage (2001), "Sonic Anemometer Tilt Correction Algorithms", Boundary-Layer Meteorology, 99, 127-150。 [文献入口见 NCAR/EOL 与 LI-COR 页面]

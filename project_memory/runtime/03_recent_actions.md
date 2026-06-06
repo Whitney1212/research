@@ -1,5 +1,7 @@
 # 近期动作
 
+- 2026-06-06：按用户要求执行项目根目录迁移。已将仓库内所有直接写死的根路径从 `C:\Users\admin\Documents\New project` 改为 `D:\00 博士阶段\99 Project\06 EA`，并将当前仓库完整复制到新目录；目标位置原有内容已备份到 `D:\00 博士阶段\99 Project\06 EA_preexisting_backup_20260606_113616`。由于当前 Codex 会话仍占用旧目录，本轮未能把旧路径替换成指向新目录的 junction，因此当前状态是“新目录可用，旧目录仍保留工作副本”。详见 `project_memory/evidence/verifications/2026-06-06_project_root_migration.md`。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_project_root_migration.md]
+
 - 2026-06-06：根据用户当前对话，重设整个 REgov 项目主线。新增证据记录 `project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md`，明确后续总目标应收束为“复杂地形通量计量修正”，并将 `09:00` CO2 次高峰事件机制分析从项目主线调整为复现和支撑证据分支。五个优先议题同步收束为：EC 何时可信、storage 如何修正、平流/通风/局地环流如何造成解耦、FL 如何提供空间约束、以及是否能形成可迁移的复杂地形通量状态分类。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]
 
 - 2026-06-03：新增并运行 `D:\00 博士阶段\博一\05 Project\com_mass_balance\run_fl_pass_anomaly_transport_feasibility.R`，完成 FL moving-transect anomaly transport 第一阶段 pass-level 可行性诊断。主表 `FL_pass_anomaly_transport_feasibility.csv` 共 `193` 个 pass，轻量高频匹配表 `FL_pass_matched_points_light.csv` 共 `3,381,493` 行；四天 pass 数为 `50/48/48/47`，`low_n`、`low_updown` 和 `single_sign` 均为 `0`，但 `lambda_extreme` 为 `76`、`air_imbalance` 为 `174`，因此后续需要按 QC 组检查结构稳定性。 [来源: 用户当前对话 2026-06-03] [已核验: project_memory/evidence/verifications/2026-06-03_fl_moving_transect_anomaly_transport_feasibility.md]

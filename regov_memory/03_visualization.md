@@ -8,12 +8,12 @@
 
 ## 当前 dashboard
 
-- 当前 dashboard 路径为 `C:\Users\admin\Documents\New project\regov_dashboard\workstream_map.md`。 [已核验: C:\Users\admin\Documents\New project\regov_dashboard\workstream_map.md]
+- 当前 dashboard 路径为 `D:\00 博士阶段\99 Project\06 EA\regov_dashboard\workstream_map.md`。 [已核验: D:\00 博士阶段\99 Project\06 EA\regov_dashboard\workstream_map.md]
 
 ## 刷新方式
 
 ```powershell
-python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --root "C:\Users\admin\Documents\New project" --output "regov_dashboard\workstream_map.md"
+python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --root "D:\00 博士阶段\99 Project\06 EA" --output "regov_dashboard\workstream_map.md"
 ```
 
 ## 多项目刷新方式
@@ -21,5 +21,5 @@ python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --ro
 补齐 `04 Lee` 路径后使用：
 
 ```powershell
-python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --project "Current=C:\Users\admin\Documents\New project" --project "04 Lee=D:\00 博士阶段\99 Project\04 Lee" --output "C:\Users\admin\Documents\New project\regov_dashboard\workstream_map.md"
+python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --project "Current=D:\00 博士阶段\99 Project\06 EA" --project "04 Lee=D:\00 博士阶段\99 Project\04 Lee" --output "D:\00 博士阶段\99 Project\06 EA\regov_dashboard\workstream_map.md"
 ```

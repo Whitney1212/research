@@ -54,6 +54,6 @@ F_{storage} = \int_{0}^{z_r} \frac{\partial \bar c(z,t)}{\partial t}\,dz
 
 ## 来源
 
-- 本地共享背景：`C:\Users\admin\Documents\New project\regov_memory\00_shared_research_context.md`。
+- 本地共享背景：`D:\00 博士阶段\99 Project\06 EA\regov_memory\00_shared_research_context.md`。
 - Lee (1998) 的 NEE 预算式中包含 storage、eddy flux 和 mass-flow/advection 分量：<https://environment.yale.edu/bibcite/reference/1910>。
 - Baldocchi et al. 对 EC、storage 和 advection 组合预算的讨论入口：<https://www.fsl.orst.edu/rna/Documents/publications/On%20measuring%20net%20ecosystem%20carbon%20exchange%20over%20tall%20vegetation%20on%20complex%20terrain.pdf>。

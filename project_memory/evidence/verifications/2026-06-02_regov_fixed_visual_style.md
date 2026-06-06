@@ -13,6 +13,6 @@
 
 ## 已写入位置
 
-- REgov 可视化规范已写入 `C:\Users\admin\Documents\New project\regov_memory\03_visualization.md`。 [已核验: C:\Users\admin\Documents\New project\regov_memory\03_visualization.md]
-- REgov 共享背景中的生效分析决策也已补充该可视化规范指针，后续新工作线可以从共享背景继承该规则。 [已核验: C:\Users\admin\Documents\New project\regov_memory\00_shared_research_context.md]
-- 当前项目生效决策同步更新到 `C:\Users\admin\Documents\New project\project_memory\anchors\03_active_decisions.md`。 [已核验: C:\Users\admin\Documents\New project\project_memory\anchors\03_active_decisions.md]
+- REgov 可视化规范已写入 `D:\00 博士阶段\99 Project\06 EA\regov_memory\03_visualization.md`。 [已核验: D:\00 博士阶段\99 Project\06 EA\regov_memory\03_visualization.md]
+- REgov 共享背景中的生效分析决策也已补充该可视化规范指针，后续新工作线可以从共享背景继承该规则。 [已核验: D:\00 博士阶段\99 Project\06 EA\regov_memory\00_shared_research_context.md]
+- 当前项目生效决策同步更新到 `D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\03_active_decisions.md`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\03_active_decisions.md]

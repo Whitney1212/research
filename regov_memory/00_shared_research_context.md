@@ -6,7 +6,7 @@
 
 ## 来源文件
 
-- 当前项目 anchor 层：`C:\Users\admin\Documents\New project\project_memory\anchors`。 [已核验: C:\Users\admin\Documents\New project\project_memory\anchors]
+- 当前项目 anchor 层：`D:\00 博士阶段\99 Project\06 EA\project_memory\anchors`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors]
 - `04 Lee` anchor 层：`D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors`。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors]
 - 这份文件是整合层，不替代两个项目原始 anchor 文件；当需要精确追证、更新旧判断或处理冲突时，仍应回到原始 anchor 和 evidence。 [推断：基于 REgov 分层读取规则]
 
@@ -23,13 +23,13 @@
 - 当前大课题围绕复杂山地峡谷场地展开，核心问题是复杂地形条件下的局地环流、垂直/水平输送、CO2 结构变化，以及通量计算或通量校正。这个背景决定了后续判断不能简单套用平坦下垫面直觉。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\01_anchor_facts.md]
 - 谷底中心存在一座 `45 m` 高塔，配置 `CPEC310` 通量系统、MET 梯度气象系统和 `AP200` 五层 CO2 廓线系统；谷底塔附近冠层高度约 `20 m`，因此“冠层以上”在当前项目里有明确层位边界。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\01_anchor_facts.md]
 - 在 `04 Lee` 的 W4 解释中，`CVT` 应按“轨道和谷轴交叉位置、谷底中央”理解，`MT` 应按“谷缘坡顶”理解；这个映射直接影响对谷轴输送、切面输送、塔位 footprint 和两塔同步性的解释。 [来源: 用户在 2026-05-01 当前回合的场地说明] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\01_anchor_facts.md]
-- 当前项目中，`MT` 被明确为谷缘高地，`CVT` 被明确为谷底，`FL` 被明确为在谷地上方沿切面均匀运动的观测。这个站点背景会直接约束 raw `w` 平均垂直运动和局地环流结构解释。 [来源: 用户当前对话 2026-05-20] [已核验: C:\Users\admin\Documents\New project\project_memory\anchors\01_anchor_facts.md]
+- 当前项目中，`MT` 被明确为谷缘高地，`CVT` 被明确为谷底，`FL` 被明确为在谷地上方沿切面均匀运动的观测。这个站点背景会直接约束 raw `w` 平均垂直运动和局地环流结构解释。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\01_anchor_facts.md]
 - 研究区存在一条接近主切面的 ridge-to-ridge 轨道，讨论中一直把它视为判断峡谷切面输送和局地环流结构的重要观测线。轨道上的移动系统包括 `CPEC310` 通量系统、MET 梯度气象系统和 `AP200` CO2 廓线系统，因此它不仅提供风场信息，也可能为切面结构判断提供浓度证据。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\01_anchor_facts.md]
 - 近地层排泄流观测不只依赖单塔，旧记忆中还保留了“谷底中心塔加坡面五塔”的描述。这意味着场地本身具有多尺度结构，后续整理时不要把所有过程压缩成单塔现象。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\01_anchor_facts.md]
 
 ## FL 与移动平台几何
 
-- 当前项目中，FL 轨道位置定义为：`0 m` 为靠南起点并对应 `MT` 位置，轨道中点穿过 `CVT` 正上方，`245 m` 为轨道终点；FL 时间与 EC 高频时间同一时区且同步，平台搭载实时调平装置，当前诊断暂不把 `pitch/roll/yaw` 姿态修正作为首要误差源。 [来源: 用户当前对话 2026-05-20] [已核验: C:\Users\admin\Documents\New project\project_memory\anchors\01_anchor_facts.md]
+- 当前项目中，FL 轨道位置定义为：`0 m` 为靠南起点并对应 `MT` 位置，轨道中点穿过 `CVT` 正上方，`245 m` 为轨道终点；FL 时间与 EC 高频时间同一时区且同步，平台搭载实时调平装置，当前诊断暂不把 `pitch/roll/yaw` 姿态修正作为首要误差源。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\01_anchor_facts.md]
 - 旧项目脚本记录的 FL 轨道端点坐标为 south/start `E=447574.2334, N=2768410.8877, z=659.8350` 和 north/end `E=447787.0474, N=2768235.1387, z=661.0430`；south 指向 north 的坐标方位角约 `129.551°`，端点坐标直线距离约 `276.003 m`。当前位置分箱仍应使用有效位置尺度 `0-245 m`，不把位置列重新拉伸到端点坐标距离。 [已核验: D:\00 博士阶段\博一\05 Project\com_260401\com_0401\diagnose_w4_mobile_ec_circulation.R] [已核验: D:\00 博士阶段\博一\05 Project\com_260401\com_0401\diagnostics_0320_0323\w4_mobile_circulation\run_notes.txt]
 - 对移动平台轨道位置而言，`04 Lee` 中当前有效位置尺度也以小车位置列 `0-245 m` 为准，其中 `0 m` 为 `south`，`245 m` 为 `north`。轨道端点坐标用于确定 south-to-north 地理方位角和后续平台运动修正方向，不用于把小车位置列拉伸到端点坐标水平距离。 [来源: 用户在 2026-04-30 当前回合的明确决定] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\03_active_decisions.md]
 - 小车运动状态的时间仍有不确定性；如果后续要把移动平台数据用于更多日期或更强归因，需要先整理并匹配小车运行状态、CPEC310 高频数据和 EC 时间口径。否则，小车 `south/center/north` 空间形态只能作为弱线索，不能直接作为已确认机制证据。 [来源: 用户在 2026-05-01 当前回合的判断] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\02_key_constraints.md]
@@ -37,8 +37,8 @@
 
 ## 当前项目 EA/EC 与 raw-w 计算对象
 
-- 当前工作线处理三个 EC 观测点的高频数据：`MT` 来自 `E:\260402计算\谷缘塔EC`，`CVT` 来自 `E:\260402计算\谷底塔EC`，`FL` 来自 `E:\260402计算\Flares_EC`。 [来源: 用户当前对话 2026-05-18] [已核验: C:\Users\admin\Documents\New project\project_memory\anchors\01_anchor_facts.md]
-- 当前 EA 主结果文件为 `D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv`，覆盖 `2025-03-20` 到 `2025-03-23`，站点为 `MT`、`CVT`、`FL`，标量为 `co2` 和 `h2o`。主结果共有 1152 行，即 3 个站点、4 天、48 个半小时、2 个标量。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv] [已核验: C:\Users\admin\Documents\New project\project_memory\anchors\01_anchor_facts.md]
+- 当前工作线处理三个 EC 观测点的高频数据：`MT` 来自 `E:\260402计算\谷缘塔EC`，`CVT` 来自 `E:\260402计算\谷底塔EC`，`FL` 来自 `E:\260402计算\Flares_EC`。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\01_anchor_facts.md]
+- 当前 EA 主结果文件为 `D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv`，覆盖 `2025-03-20` 到 `2025-03-23`，站点为 `MT`、`CVT`、`FL`，标量为 `co2` 和 `h2o`。主结果共有 1152 行，即 3 个站点、4 天、48 个半小时、2 个标量。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\01_anchor_facts.md]
 - 当前结果是一行一个站点、一个 30 min 时段、一个标量，因此当前 EA 通量是由高频 EC 数据计算得到的 30 min 通量，不是高频逐点通量。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_flux_results.csv]
 - 当前 EA 计算先在每个 30 min block 内对垂直风去均值，使用 \(w'_i=w_i-\bar w\)，再以 \(w'_i>0\) 和 \(w'_i<0\) 划分上升与下沉事件。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 当前 EA 通量采用 \(F_{EA}=(A^+c^+-A^-c^-)/T\)，其中 \(A^+=\sum_{w'>0}w'\Delta t\)，\(A^-=\sum_{w'<0}(-w')\Delta t\)，\(c^+\) 和 \(c^-\) 是按 \(w'\) 体积权重得到的上升/下沉气团浓度。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
@@ -68,7 +68,7 @@
 - 当前 metadata 约束下的 time lag 搜索范围是实际管长推导后的窄范围：`MT` 和 `FL` 为 10 Hz、±2 个样本，`CVT` 为 20 Hz、±4 个样本，均对应约 ±0.2 s。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_lag_config.csv]
 - 当前 lag 结果中仍有 `edge_hit`，但它已经是在 metadata 约束的 ±0.2 s 窗口边界上触发，不再代表早期宽 lag 窗口下的多秒级异常。后续若解释 lag，应把它看作“协方差峰在物理允许窗口边界”的质量标记，而不是直接等同于真实管路延迟很长。 [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_lag_stats.csv] [已核验: D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_lag_config.csv]
 - 后续凡是调用 EC 外部数据，都必须先与仪器内部粗算结果核对时相，并结合 `Quality flag` 剔除明显异常值；在这一步完成之前，不应直接把新导入的 EC 结果写进结构切换、REA 或空间格局解释。 [来源: 用户在 2026-05-08 当前回合提供的讨论记录] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\02_key_constraints.md]
-- `CVT 2025-03-23` AP 廓线的第七层即 `valve_number = 7/c32` 在 `2025-03-23 17:53:30` 之后必须筛除。当前上游脚本已将该时刻之后的 `CVT c32` 置为缺测并按 complete-case 排除不完整廓线轮次；因此全天图中 `CVT 2025-03-23 18:00` 之后不应再解释 AP/profile CO2 结构。 [来源: 用户当前对话 2026-05-25] [已核验: C:\Users\admin\Documents\New project\project_memory\evidence\verifications\2026-05-25_cvt0323_c32_profile_qc.md]
+- `CVT 2025-03-23` AP 廓线的第七层即 `valve_number = 7/c32` 在 `2025-03-23 17:53:30` 之后必须筛除。当前上游脚本已将该时刻之后的 `CVT c32` 置为缺测并按 complete-case 排除不完整廓线轮次；因此全天图中 `CVT 2025-03-23 18:00` 之后不应再解释 AP/profile CO2 结构。 [来源: 用户当前对话 2026-05-25] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-05-25_cvt0323_c32_profile_qc.md]
 - 用户明确补充，两套廓线系统的最高层分别就是对应 EC 系统的观测高度。因此 `CVT` 和 `MT` 的 AP/profile 数据在层位覆盖上足以分别计算到各自 \(z_r\) 的局地柱 CO2 storage tendency，不需要对顶部到 EC 高度之间再做外推。这个条件只支持站点内局地柱 storage 计算；在未完成跨系统绝对浓度校准、空间代表性假设和控制体几何定义之前，仍不应把两套系统的绝对浓度差直接用于完整峡谷控制体 storage 或水平浓度梯度通量。 [来源: 用户当前对话 2026-05-29] [推断：基于 storage 公式和当前两套廓线系统边界整理]
 - `04 Lee` 中 `2025-03-23` 的一个谷底廓线原始或半原始文件已被手动截断到前 `4299` 行，最后时间戳停在 `2025-03-23 17:53:30`。所有和该日黄昏阶段有关的比较，都必须把“数据不完整”作为硬约束写明。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\05_action_log.md] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\04_open_questions.md]
 - `TIME_SERIES` 目录此前的回退是近似恢复，不是精确回到某个历史时刻的快照。因此凡是依赖该目录脚本状态做 provenance 判断时，都要保留“近似回退”的提醒。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\05_action_log.md]
@@ -85,7 +85,7 @@
 
 ## 当前生效分析决策
 
-- 后续所有代表三个观测站点的点线图固定使用同一套站点颜色：`CVT = #F8766D` 红色、`FL = #00BA38` 绿色、`MT = #619CFF` 蓝色。EA/raw-w/FL 诊断图默认采用 `regov_memory/03_visualization.md` 中固定的白底 `theme_bw` 报告型风格；该规范来自 `EA_raw_w_CO2_decomposition_components_30min.png` 对应代码，后续不随变量、窗口或分析分支改变。 [来源: 用户当前对话 2026-05-21] [来源: 用户当前对话 2026-06-02] [已核验: C:\Users\admin\Documents\New project\regov_memory\03_visualization.md] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_raw_w_total_transport.R]
+- 后续所有代表三个观测站点的点线图固定使用同一套站点颜色：`CVT = #F8766D` 红色、`FL = #00BA38` 绿色、`MT = #619CFF` 蓝色。EA/raw-w/FL 诊断图默认采用 `regov_memory/03_visualization.md` 中固定的白底 `theme_bw` 报告型风格；该规范来自 `EA_raw_w_CO2_decomposition_components_30min.png` 对应代码，后续不随变量、窗口或分析分支改变。 [来源: 用户当前对话 2026-05-21] [来源: 用户当前对话 2026-06-02] [已核验: D:\00 博士阶段\99 Project\06 EA\regov_memory\03_visualization.md] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_raw_w_total_transport.R]
 - 当前 EA 计算采用 `D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R`，并复用 `ecpreproc` 中已有预处理思路，但只保留 EA 需要的预处理部分。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 当前预处理保留读取 TOA5、时间排序与重复时间去除、30 min 分块、诊断码过滤、合理范围过滤、Vickers-Mahrt 式 despiking、缺测覆盖率过滤和 metadata 约束 lag 协方差法。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 当前逐日可视化使用 `D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_daily.R`，上升/下沉通量贡献拆分使用 `D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_up_down_daily.R`，CO2 气团浓度细化分析使用 `D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_co2_airmasses.R`。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_daily.R] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_up_down_daily.R] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_co2_airmasses.R]
@@ -131,5 +131,5 @@
 
 ## FL 质量守恒修正输入入口
 
-- 后续围绕 FL/Flares 做移动段质量守恒修正或垂直平流近似时，移动位置数据优先使用 `D:\00 博士阶段\博一\05 Project\com_260326\20250313_20250419.xlsx`。该文件中位置数值越接近 `0` 越靠近 `MT` 南端；`Flares = FL = 移动平台`。 [来源: 用户当前对话 2026-06-01] [已核验: C:\Users\admin\Documents\New project\project_memory\evidence\verifications\2026-06-01_fl_mass_balance_inputs.md]
-- 可复用代码和数据入口优先级为：先检查 `D:\00 博士阶段\博一\05 Project\com_260326\compute\com_260326` 中的移动平台轨迹/筛选脚本，再检查 `D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com` 中的既有 EA/raw-w 结果；四个典型天的关键数据和信息整体位于 `D:\00 博士阶段\博一\05 Project\com_260507`。 [来源: 用户当前对话 2026-06-01] [已核验: C:\Users\admin\Documents\New project\project_memory\evidence\verifications\2026-06-01_fl_mass_balance_inputs.md]
+- 后续围绕 FL/Flares 做移动段质量守恒修正或垂直平流近似时，移动位置数据优先使用 `D:\00 博士阶段\博一\05 Project\com_260326\20250313_20250419.xlsx`。该文件中位置数值越接近 `0` 越靠近 `MT` 南端；`Flares = FL = 移动平台`。 [来源: 用户当前对话 2026-06-01] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-01_fl_mass_balance_inputs.md]
+- 可复用代码和数据入口优先级为：先检查 `D:\00 博士阶段\博一\05 Project\com_260326\compute\com_260326` 中的移动平台轨迹/筛选脚本，再检查 `D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com` 中的既有 EA/raw-w 结果；四个典型天的关键数据和信息整体位于 `D:\00 博士阶段\博一\05 Project\com_260507`。 [来源: 用户当前对话 2026-06-01] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-01_fl_mass_balance_inputs.md]
