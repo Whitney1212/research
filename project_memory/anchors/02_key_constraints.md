@@ -1,5 +1,6 @@
 # 关键约束
 
+- 使用 `PF_8bin` 参数进入 FL 高频通量计算时，必须沿用生成参数时完全一致的预处理口径：`5-240 m` 有效轨道范围、8 个等宽位置 bin、统一运行记录逐点 `time-position-speed` 插值、实际有符号速度投影到 `129.551 deg` 轨道方位角后修正 `U_east_corr/U_north_corr`，以及 `north_offset = 210 deg` 的地理东/北风转换。如果更换运行记录、位置插值规则、速度字段、轨道范围或 bin 划分，必须重新生成 PF 参数表。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 - 当前处理明确不做坐标旋转、WPL 修正、频率修正和空气密度或摩尔密度换算，因此结果应解释为当前坐标和当前单位下的运动学通量，而不是已经换算到常规 \(\mu mol\,m^{-2}\,s^{-1}\) 的 CO2 通量。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 本项目所有需要按本地时间对齐的数据表，时间列读取时应优先按字符读入，再显式按 `Asia/Shanghai` 解析或赋予时区。不要让 `data.table::fread()`、`read.csv()` 或类似函数自动把 `block_start`、`block_end`、`TIMESTAMP` 等列推断成 UTC/POSIX 时间，否则可能造成 `8 h` 错位。这个约束适用于后续 raw-w、风场、FL 位置、气象和廓线数据的合并。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R]
 - `CVT 2025-03-23` AP 廓线的第七层即 `valve_number = 7/c32` 在 `2025-03-23 17:53:30` 之后必须筛除。当前上游脚本已将该时刻之后的 `CVT c32` 置为缺测并按 complete-case 排除不完整廓线轮次；因此全天图中 `CVT 2025-03-23 18:00` 之后不应再解释 AP/profile CO2 结构。 [来源: 用户当前对话 2026-05-25] [已核验: project_memory/evidence/verifications/2026-05-25_cvt0323_c32_profile_qc.md]

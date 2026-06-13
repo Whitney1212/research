@@ -1,5 +1,6 @@
 # 证据索引
 
+- `verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md` 记录 FL 移动平台正式 `PF_8bin` 参数流程：统一运行记录逐点位置插值、实际有符号速度矢量水平风修正、8-bin PF 拟合结果、A/B 预处理对比、关键图件和后续高频通量调用约束。 [来源: 用户当前对话 2026-06-11 至 2026-06-12] [已核验: E:\Dataset_Level1\Flares\PFparameter]
 - `verifications/2026-05-18_EA_calculation_and_visualization.md` 记录当前对话中完成的 EA 计算、可视化、CO2 上升/下沉气团分析和本地文件核验结果。 [来源: 用户当前对话 2026-05-18]
 - `verifications/2026-05-18_raw_w_CO2_total_transport.md` 记录当前对话中新增的 raw `w` CO2 总输送脚本、5 min/30 min 输出文件和公式闭合核验结果。 [来源: 用户当前对话 2026-05-18]
 - `verifications/2026-05-19_raw_w_CO2_visualization_analysis.md` 记录 raw `w` CO2 总输送结果的可视化脚本、输出图表、站点窗口汇总和初步解释边界。 [来源: 用户当前对话 2026-05-19]

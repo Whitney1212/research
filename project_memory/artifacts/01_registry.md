@@ -1,5 +1,12 @@
 # 构件索引
 
+## 2026-06-12 FL PF_8bin 参数构件
+
+- `E:\Dataset_Level1\Flares\PFparameter\run_PF_8bin.R` 是当前 FL 移动平台正式 `PF_8bin` 参数生成脚本。它读取完整单程表、FL 高频 EC 数据和统一运行记录，执行逐点运行记录位置插值、实际速度矢量水平风修正、8-bin four-pass ensemble PF 拟合，并生成参数表、A/B 对比图、验证图和方法说明文档。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+- `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv` 是后续 FL 高频通量计算应调用的正式 PF 参数表。它包含每个 bin 的 `intercept_a`、`slope_b_u`、`slope_c_v`、`tilt_deg`、样本量和 `fit_ok` 信息。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+- `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md` 是完整但简明的 `PF_8bin` 方法说明文档，记录计算思路、参数设置、关键公式、A/B 对比、拟合结果、验证图和后续使用建议。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+- `E:\Dataset_Level1\Flares\PFparameter\figures` 保存本次 A/B 预处理对比和 PF 验证图，包括 `fig_ab_*`、`fig_pf8bin_tilt_by_bin.png`、`fig_pf8bin_w_before_after_by_bin.png`、`fig_pf8bin_passbin_w_after_by_direction.png` 等。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+
 ## 脚本
 
 - `D:\00 博士阶段\博一\05 Project\ecpreproc\visualize_ea_timeline_alignment.R` 是当前时间线机制可视化脚本。它读取 `EA_timeline_alignment` 下的事件窗口表、关键事件时间表和 FL 位置分箱表，生成机制相位叠加图、相对次高峰 lead-lag 图、机制证据矩阵、CO2 廓线结构图和 FL 位置-时间热图。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\visualize_ea_timeline_alignment.R]

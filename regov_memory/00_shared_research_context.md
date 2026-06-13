@@ -35,6 +35,15 @@
 - 小车运动状态的时间仍有不确定性；如果后续要把移动平台数据用于更多日期或更强归因，需要先整理并匹配小车运行状态、CPEC310 高频数据和 EC 时间口径。否则，小车 `south/center/north` 空间形态只能作为弱线索，不能直接作为已确认机制证据。 [来源: 用户在 2026-05-01 当前回合的判断] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\02_key_constraints.md]
 - 如果后续把小车风场或 REA 式诊断纳入与固定塔比较，还需要先确认是否扣除小车自身速度；在平台运动修正未明确之前，不应把小车风向、垂直风或 REA 条件分组直接并入强归因。 [来源: 用户在 2026-05-08 当前回合提供的讨论记录] [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\anchors\02_key_constraints.md]
 
+## FL PF_8bin 正式参数口径
+
+- `PF_8bin` 是当前 FL 移动平台 planar fit 的正式参数口径，输出根目录为 `E:\Dataset_Level1\Flares\PFparameter`，后续高频通量计算应调用 `PF_8bin_parameters_for_flux.csv`，并保留 `run_PF_8bin.R`、`PF_8bin_method_notes.md` 和 `figures` 作为可复现脚本、方法说明和诊断图入口。 [已核验: E:\Dataset_Level1\Flares\PFparameter] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+- 该口径保留原 B2 的 `8-bin bin-wise planar fit` 思路，但预处理已从“单程起止位置线性插值 + 固定 `0.137 m/s`”升级为“统一运行记录逐点位置插值 + 实际有符号速度矢量水平风修正”。有效轨道范围为 `5-240 m`，8 个等宽 bin，PF 输入为 four-pass ensemble-bin mean。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+- `PF_8bin` 的水平运动修正使用 `cart_speed_m_s = speed_cm_s_record / 100`，再按轨道方位角 `129.551°` 分解为 east/north 速度并加到地理东/北向水平风上；PF 方程为 `w = a + b * U_east_corr + c * U_north_corr`，后续高频应用时计算 `w_pf = Uz - (a + b * U_east_corr + c * U_north_corr)`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+- 本次正式运行中，严格通过完整单程 `1529` 个、覆盖 `73` 天，构造有效 four-pass ensemble `334` 个；`PF_8bin` 输入点总数 `1852`，8 个 bin 全部拟合成功，倾角范围 `8.4200-11.8022 deg`，输入点层面中位 RMSE 降幅约 `38.1%`。这说明该口径已经具备作为后续 FL 高频通量旋转参数的样本量和可复现基础。 [已核验: E:\Dataset_Level1\Flares\PFparameter\manifest.txt] [已核验: E:\Dataset_Level1\Flares\PFparameter\pf_fit_summary.csv] [推断：基于 PF 样本量、fit_ok 和 RMSE 诊断整理]
+- A/B 对比显示，新旧预处理的平均绝对位置差约 `0.0747 m`，10 Hz 样本 bin 重分配比例约 `0.245%`，实际速度相对固定速度的平均绝对差约 `0.00267 m/s`。因此这次升级主要是把位置和速度处理正式化，对 8-bin 分箱和整体 PF 判断没有造成大范围重排；但当前参数不能与旧线性位置/固定速度的 B2 预处理混用。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_preprocessing_ab_summary.csv] [推断：基于 A/B 汇总数值整理]
+- `PF_8bin` 本轮仍未修正轨道坡度导致的垂直平台速度。因此它解决的是 sonic 方位、水平小车运动和长期平均流线倾斜下的 FL 坐标旋转参数问题，不应被解释为已经完成全部平台三维运动修正。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md] [推断：基于方法边界整理]
+
 ## 当前项目 EA/EC 与 raw-w 计算对象
 
 - 当前工作线处理三个 EC 观测点的高频数据：`MT` 来自 `E:\260402计算\谷缘塔EC`，`CVT` 来自 `E:\260402计算\谷底塔EC`，`FL` 来自 `E:\260402计算\Flares_EC`。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\anchors\01_anchor_facts.md]

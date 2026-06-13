@@ -1,5 +1,9 @@
 # 当前项目快照
 
+## 2026-06-12 最新同步
+
+FL 移动平台的正式 planar fit 参数口径已经固定为 `PF_8bin`，输出目录为 `E:\Dataset_Level1\Flares\PFparameter`。该版本保留原 B2 的 8-bin bin-wise PF 思路，但已把预处理升级为“统一运行记录逐点位置插值 + 实际有符号速度矢量水平风修正”。8 个 bin 全部拟合成功，PF 输入点共 `1852` 个，每个 bin 为 `231-232` 个输入点；倾角范围为 `8.4200-11.8022 deg`，倾角中位数约 `9.5073 deg`。后续高频通量计算应调用 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`，并沿用同一套逐点运行记录预处理口径。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+
 ## 当前重点
 
 当前重点仍是 `W1`，但 2026-06-06 后仓库级主线已经改为**复杂地形通量计量修正**。这意味着 `EA/EC`、storage、三站风场、FL 移动切面、rotation 敏感性和 raw-w 诊断都应优先服务于“EC 何时可信、何时需要修正、何时只能给出风险标记”这一总问题，而不是继续把单个 CO2 事件归因当作主叙事。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]

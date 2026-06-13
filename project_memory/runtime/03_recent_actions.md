@@ -1,5 +1,7 @@
 # 近期动作
 
+- 2026-06-12：完成 FL 移动平台正式 `PF_8bin` 参数流程同步。新脚本和输出位于 `E:\Dataset_Level1\Flares\PFparameter`，核心脚本为 `run_PF_8bin.R`，正式参数表为 `PF_8bin_parameters_for_flux.csv`。该版本使用统一运行记录逐点位置插值和实际有符号速度矢量水平风修正，替代旧的“线性位置 + 固定 0.137 m/s”口径；8 个 bin 全部拟合成功，PF 输入点 `1852` 个，倾角范围 `8.4200-11.8022 deg`。同时输出 A/B 预处理对比图、PF 验证图、参数表和方法说明文档。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+
 - 2026-06-06：按用户要求执行项目根目录迁移。已将仓库内所有直接写死的根路径从 `C:\Users\admin\Documents\New project` 改为 `D:\00 博士阶段\99 Project\06 EA`，并将当前仓库完整复制到新目录；目标位置原有内容已备份到 `D:\00 博士阶段\99 Project\06 EA_preexisting_backup_20260606_113616`。由于当前 Codex 会话仍占用旧目录，本轮未能把旧路径替换成指向新目录的 junction，因此当前状态是“新目录可用，旧目录仍保留工作副本”。详见 `project_memory/evidence/verifications/2026-06-06_project_root_migration.md`。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_project_root_migration.md]
 
 - 2026-06-06：根据用户当前对话，重设整个 REgov 项目主线。新增证据记录 `project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md`，明确后续总目标应收束为“复杂地形通量计量修正”，并将 `09:00` CO2 次高峰事件机制分析从项目主线调整为复现和支撑证据分支。五个优先议题同步收束为：EC 何时可信、storage 如何修正、平流/通风/局地环流如何造成解耦、FL 如何提供空间约束、以及是否能形成可迁移的复杂地形通量状态分类。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]

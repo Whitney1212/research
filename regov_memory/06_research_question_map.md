@@ -34,6 +34,7 @@
 - 当前项目不缺少事件图或现象描述，真正缺的是“状态判据 + 修正策略 + 方法风险”的统一组织框架。 [来源: 用户当前对话 2026-06-06] [推断：基于本轮主线重设整理]
 - raw `w` CO2 总输送几乎由 `F_mean` 和 `w_mean` 控制，因此它目前更像平均垂直运动诊断量，不能直接升级为生态 CO2 交换强度。 [已核验: regov_memory/00_shared_research_context.md]
 - 根据用户基于既往处理经验和研究区背景的判断，`F_EC` 对坐标旋转方法较为敏感。因此“基础通量计算”这一子问题不能只问某一个 EC 结果是多少，而要问不同旋转口径下哪些通量结论稳定、哪些结论应被标记为旋转敏感，以及这种敏感性是否限制最终通量计量方案。 [来源: 用户当前对话 2026-05-29] [已核验: regov_memory/00_shared_research_context.md]
+- FL `PF_8bin` 已形成正式参数表，可作为后续移动平台高频通量计算的主坐标旋转口径。它把 FL 从“空间格局诊断线索”推进到“可带入通量计算的空间约束分支”，但仍需要在应用后检查旋转前后 `w_mean`、`F_EC`、方向差异和 bin 边界效应。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-12_fl_pf8bin_record_position_actual_speed.md] [推断：基于当前 PF 输出和 REgov 主问题整理]
 - 两套廓线系统最高层分别等于对应 EC 观测高度，因此 storage 子问题可以优先推进为 `CVT` 与 `MT` 各自的局地柱 storage tendency 计算；但它仍不能自动解决完整峡谷控制体 storage、水平梯度或跨站绝对差值问题。 [来源: 用户当前对话 2026-05-29] [已核验: regov_memory/00_shared_research_context.md]
 - `CVT`、`MT`、`FL` 的站点和轨道几何已经成为解释局地环流、切面输送和垂直运动差异的硬背景。 [已核验: regov_memory/00_shared_research_context.md]
 - `04 Lee` 中上午 `09:00-11:00` CO2 次高峰、结构切换、夜间积累和移动平台空间形态仍是重要机制线索，但它们现在应降为服务复杂地形修正框架的复现和案例支线，而不是整个 REgov 的总主线。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]

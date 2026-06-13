@@ -1,5 +1,9 @@
 # 下一步主线任务
 
+## 2026-06-12 PF_8bin 后续最小步
+
+FL 移动平台已经形成正式 `PF_8bin` 参数表，下一步如果推进 FL 高频通量计算，应先做一个小范围应用验证：对 10 Hz 高频点复用统一运行记录逐点位置插值、实际有符号速度矢量水平风修正和同一 8-bin 划分，按 `bin_id` 合并 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`，计算 `w_pf = Uz - (a + b * U_east_corr + c * U_north_corr)`。验证重点不是重新比较所有 PF 方法，而是检查 PF 后 `w_pf` 在 bin、direction、30 min 窗口和关键时段内是否仍有系统偏差，再进入后续 CO2 通量或平流/空间诊断计算。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md] [推断: 基于当前 PF 参数应用边界整理]
+
 ## 当前总目标
 
 2026-06-06 后，REgov 的主线应明确收束为：**复杂地形通量计量修正**。最集中的项目问题不是单独解释某一个 CO2 事件，而是判断复杂地形下 EC 通量偏差是否由可观测的储存—平流—局地环流状态系统控制，并能否通过 CO2 廓线、多站风场和移动切面观测进行诊断、分级和修正。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_regov_mainline_reset.md]

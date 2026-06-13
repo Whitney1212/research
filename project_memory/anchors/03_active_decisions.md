@@ -1,5 +1,6 @@
 # 当前生效决策
 
+- 后续 FL 高频通量计算中的 planar fit 参数口径固定为 `PF_8bin`。正式参数表为 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`，该表由 8-bin bin-wise PF 生成，且预处理使用统一运行记录逐点位置插值和实际有符号速度矢量水平风修正。后续应用时不能把旧的“线性位置 + 固定 0.137 m/s”B2 参数与新版高频处理混用。 [来源: 用户当前对话 2026-06-11 至 2026-06-12] [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 - 后续所有代表三个观测站点的点线图固定使用同一套站点颜色：`CVT = #F8766D` 红色、`FL = #00BA38` 绿色、`MT = #619CFF` 蓝色。EA/raw-w/FL 诊断图默认采用 `plot_ea_raw_w_total_transport.R` 中 `EA_raw_w_CO2_decomposition_components_30min.png` 对应的白底 `theme_bw` 报告型风格：图例置顶、无图例标题、分面浅灰标题、去除 minor grid、主标题加粗、字体适当放大，有正负号变量加 `y = 0` 灰色参考线；多分量图若使用独立 y 轴，解释中必须说明不能直接比较分量数量级。该约定已同步到 REgov 可视化规范。 [来源: 用户当前对话 2026-05-21] [来源: 用户当前对话 2026-06-02] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_raw_w_total_transport.R] [已核验: D:\00 博士阶段\99 Project\06 EA\regov_memory\03_visualization.md]
 - 当前 EA 计算采用 `D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R`，并复用 `ecpreproc` 中已有预处理思路，但只保留 EA 需要的预处理部分。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 当前项目的数据读取时间口径统一采用“时间列先按字符读入，再显式按 `Asia/Shanghai` 解析”的规则。尤其是 `data.table::fread()` 读取已有 CSV 输出时，应对 `block_start`、`block_end` 等时间列设置 `colClasses = "character"` 或等价处理，然后再调用项目内解析函数；不能依赖自动时区推断。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R]

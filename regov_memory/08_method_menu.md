@@ -18,6 +18,7 @@
 - 常规 EC 计算：协方差通量、block 分割、lag 校正、去趋势、坐标旋转、质量标记、最终通量汇总。优先检查 `ecpreproc` 已有实现。根据用户既往处理经验和研究区背景，`F_EC` 较为依赖坐标旋转方法，因此后续正式 EC 基线应优先做 no rotation、double rotation、planar fit 或 sector-wise planar fit 的并行对照，并把旋转敏感性作为最终结果不确定性来源。 [来源: 用户当前对话 2026-05-29]
 - EddyPro 复现与对照：用 `ecpreproc` 复现 EddyPro 关键阶段，并在需要时与 EddyPro 输出逐阶段核对，识别差异来自预处理、修正还是单位口径。
 - 坐标和平台修正：sonic 坐标解释、north offset、二维水平风统一、三维坐标旋转、经验 `w_mean ~ u + v` 诊断、FL 平台运动修正。
+- FL `PF_8bin` 移动平台 planar fit：使用 `5-240 m` 有效轨道、8 个位置 bin、four-pass ensemble-bin mean、统一运行记录逐点位置插值和实际有符号速度矢量修正，拟合 `w = a + b * U_east_corr + c * U_north_corr`。当前正式参数表为 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`，适合作为后续 FL 高频通量计算的主坐标旋转口径；若更换运行记录、速度字段、bin 划分或有效轨道范围，必须重新生成参数。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md] [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv]
 - WPL、密度和单位换算：干/湿空气密度、摩尔密度、WPL 修正、单位从运动学量到常规通量单位的换算。当前主线未默认启用，但属于后续正式通量方案候选步骤。
 - 频率响应和谱修正：高通/低通谱修正、谱质量检查、传感器响应和管路衰减诊断。后续如进入正式 EC 方案，应纳入候选步骤。
 - raw `w` 总输送诊断：\(\overline{wc}\)、`F_mean`、`F_turb`、`w_mean`、`A_net`、`A_ratio`、上升/下沉气团拆分。当前主要用于平均垂直运动和局地环流线索，不直接作为生态通量。
@@ -44,3 +45,14 @@
 - 优先验证：
 - 关联 workstream：
 ```
+
+### FL PF_8bin 移动平台 planar fit 旋转参数
+
+- 目标：为 FL 移动平台高频通量计算提供当前主推荐的坐标旋转参数，而不是继续使用旧的线性位置和固定小车速度试算口径。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+- 输入数据：完整单程表、FL 高频 EC 数据和统一运行记录，其中运行记录提供逐点位置和实际有符号速度。 [已核验: E:\Dataset_Level1\Flares\PFparameter\manifest.txt]
+- 核心计算：先把 sonic 水平风转换到地理 east/north，再用实际小车速度矢量做水平运动修正，按 `5-240 m` 的 8 个 bin 构造 four-pass ensemble-bin mean，并逐 bin 拟合 PF 参数。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+- 输出变量：`a`、`b`、`c`、`tilt_deg`、bin 边界、样本量和拟合诊断；后续高频应用时按当前点所在 bin 调用参数并计算 `w_pf`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv]
+- 适用前提：后续通量脚本必须沿用同一套位置插值、速度修正、north offset、轨道方位角、有效轨道范围和 bin 定义。 [推断：基于 PF 参数与预处理一致性要求整理]
+- 不能说明：该方法未修正轨道坡度导致的垂直平台速度，也不能单独替代 WPL、频率响应、密度换算或完整通量质量控制。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+- 优先验证：在带入高频通量前，检查每个 10 Hz 点是否成功匹配 bin 和 PF 参数，并对比旋转前后 `w_mean`、`F_EC`、残差分布、方向差异和 bin 边界附近样本。 [推断：基于 PF 参数应用风险整理]
+- 关联 workstream：当前项目 `W1_EA_EC_flux`，服务复杂地形 EC 通量偏差和 FL 空间约束分支。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W1_EA_EC_flux.md]

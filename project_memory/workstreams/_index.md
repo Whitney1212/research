@@ -1,5 +1,7 @@
 # 工作流索引
 
+- `W1_EA_EC_flux.md` 已补入 2026-06-12 的 FL `PF_8bin` 参数进展：正式参数输出位于 `E:\Dataset_Level1\Flares\PFparameter`，后续高频通量计算应调用 `PF_8bin_parameters_for_flux.csv`，并沿用逐点运行记录位置插值和实际速度矢量水平风修正。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+
 - 当前下一步主线任务已单独记录在 `project_memory/runtime/05_next_mainline_tasks.md`：基于已完成的全天表、事件窗口表和气象过程机制图，围绕 09:00 CO2 次高峰检验夜间储存释放、沿谷向平流、横谷向局地环流和湍流/生态过程的相对贡献。[来源: 用户当前对话 2026-05-25]
 
 - `W1_EA_EC_flux.md` 记录 EC 高频数据按 EA 思路计算 30 min \(w'\) 协方差型通量、逐日可视化、上升/下沉拆分、CO2 气团浓度解释，以及新增的 raw `w` CO2 总输送分支。当前状态是旧协方差型结果和未修正 raw-w 5 min/30 min 输出都已生成；经验倾斜修正分支已尝试但暂不作为当前依据。机制对齐图已从 `F_air/F_conc` 分解主线改为气象过程主线，2026-05-26 后进一步收束为两个归因方向：次高峰是否由风向转变输入高 CO2 气团并在峰后被吸收/稀释或平流带走，以及日出后 `CVT` 下沉和 `MT/FL` 上升是否支持谷底补偿下沉与坡面热力环流候选图像。 [已核验: project_memory/evidence/verifications/2026-05-26_two_main_mechanism_directions.md]

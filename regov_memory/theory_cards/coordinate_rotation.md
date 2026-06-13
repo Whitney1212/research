@@ -26,6 +26,14 @@
 - 根据用户基于既往数据处理经验和研究区背景的判断，`F_EC` 本身也较为依赖坐标旋转方法。因此后续不能只把旋转敏感性看作 raw `w_mean` 或 raw \(wc\) 的问题，也要把标准 EC 协方差通量的旋转依赖纳入最终通量计量不确定性。 [来源: 用户当前对话 2026-05-29]
 - `D:\00 博士阶段\博一\05 Project\ecpreproc` 中已有 `pre_rotate.R` 等相关文件，后续可优先检查本地实现。 [已核验: 本地目录读取 2026-05-28]
 
+## FL PF_8bin 当前口径
+
+- `PF_8bin` 是当前 FL 移动平台 planar fit 的正式参数口径。它使用统一运行记录逐点插值得到位置和实际有符号速度，再用实际速度矢量修正地理 east/north 水平风，最后按 `5-240 m` 轨道范围的 8 个 bin 独立拟合 `w = a + b * U_east_corr + c * U_north_corr`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+- 当前参数表为 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`。后续高频通量应用时，应按每个 10 Hz 点的运行记录位置分配 bin，然后调用对应 bin 的 `a,b,c` 计算 `w_pf = Uz - (a + b * U_east_corr + c * U_north_corr)`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv]
+- 本次拟合 8 个 bin 全部成功，倾角范围为 `8.4200-11.8022 deg`，输入点层面中位 RMSE 降幅约 `38.1%`，说明该口径在当前样本下具备进入后续 FL 高频通量计算的基础。 [已核验: E:\Dataset_Level1\Flares\PFparameter\pf_fit_summary.csv] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-12_fl_pf8bin_record_position_actual_speed.md] [推断：基于 fit_ok、tilt 和 RMSE 诊断整理]
+- 当前参数不能与旧 B2 的“单程线性位置 + 固定 `0.137 m/s`”预处理混用。若后续更换运行记录、插值规则、速度字段、有效轨道范围或 bin 定义，应重新生成 PF 参数，而不是直接复用现有 `PF_8bin_parameters_for_flux.csv`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_preprocessing_ab_summary.csv] [推断：基于 PF 参数与预处理一致性要求整理]
+- `PF_8bin` 仍未修正轨道坡度引起的垂直平台速度，因此它应被描述为“水平平台运动修正 + bin-wise planar fit 坐标旋转参数”，不能被描述为完整平台三维运动修正。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
+
 ## 不能说明什么
 
 - raw `w_mean` 的正负不能直接当成地理垂直运动正负。

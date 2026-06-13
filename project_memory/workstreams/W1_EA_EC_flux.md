@@ -1,5 +1,11 @@
 # W1 EC 高频数据的 EA 通量计算与上升/下沉解析
 
+## 2026-06-12 FL PF_8bin 参数进展
+
+FL 移动平台的正式 planar fit 参数口径已经固定为 `PF_8bin`，输出目录为 `E:\Dataset_Level1\Flares\PFparameter`。该方法使用 `5-240 m` 轨道范围、8 个等宽位置 bin、four-pass ensemble-bin mean 输入点，并将预处理升级为统一运行记录逐点位置插值和实际有符号速度矢量水平风修正。8 个 bin 全部拟合成功，PF 输入点共 `1852` 个，倾角范围为 `8.4200-11.8022 deg`，倾角中位数约 `9.5073 deg`。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
+
+该结果使 FL 后续可以进入高频通量或空间诊断计算，但必须把 `PF_8bin_parameters_for_flux.csv` 与同一套逐点运行记录预处理一起使用。它的角色仍应服务于复杂地形下的空间约束和平流/局地环流诊断，而不是把 FL 重新包装成独立的第三个平均通量站点。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md] [推断: 基于 2026-06-06 主线重设和 FL 角色边界整理]
+
 ## 目标
 
 这条工作线的目标，是在不做坐标旋转、WPL、频率修正和密度换算的前提下，复用 EC 高频数据处理代码完成 EA 所需预处理。当前已经形成两个结果口径：一个是基于 \(w'\) 的 30 min CO2/H2O 协方差型结果，另一个是只针对 CO2 的 raw `w` 总输送结果。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_raw_w_total_transport.R]

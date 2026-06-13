@@ -31,6 +31,7 @@
 - raw `w` CO2 总输送结果：`D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_total_transport\EA_raw_w_CO2_total_transport_all_windows.csv`。 [已核验: regov_memory/00_shared_research_context.md]
 - raw-w 局地环流诊断结果：`D:\00 博士阶段\博一\05 Project\com_260507\COMPUTE\EA_com\EA_raw_w_local_circulation_diagnostics`。 [已核验: regov_memory/00_shared_research_context.md]
 - 三站水平风结果：`D:\00 博士阶段\博一\05 Project\com_3sites_horizontal\OUTPUT`。 [已核验: regov_memory/00_shared_research_context.md]
+- FL `PF_8bin` 参数与诊断输出：`E:\Dataset_Level1\Flares\PFparameter`。后续高频 FL 通量计算应优先调用 `PF_8bin_parameters_for_flux.csv`，并用同目录的 `run_PF_8bin.R`、`PF_8bin_method_notes.md`、`pf_fit_summary.csv`、`PF_8bin_preprocessing_ab_summary.csv` 和 `figures` 追溯参数来源、预处理 A/B 对比和关键验证图。 [已核验: E:\Dataset_Level1\Flares\PFparameter] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 - 两套 AP/profile 廓线系统的最高层分别等于对应 EC 系统观测高度，因此它们可作为 `CVT` 与 `MT` 局地柱 storage tendency 的优先数据入口。该条只说明层位覆盖满足局地 storage 计算，不说明两套系统之间的绝对浓度差已经可直接用于水平梯度或控制体平均 storage。 [来源: 用户当前对话 2026-05-29] [已核验: regov_memory/00_shared_research_context.md]
 
 ## 可调用处理工具
