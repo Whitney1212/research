@@ -5,3 +5,4 @@
 - 当前下一步主线任务已单独记录在 `project_memory/runtime/05_next_mainline_tasks.md`：基于已完成的全天表、事件窗口表和气象过程机制图，围绕 09:00 CO2 次高峰检验夜间储存释放、沿谷向平流、横谷向局地环流和湍流/生态过程的相对贡献。[来源: 用户当前对话 2026-05-25]
 
 - `W1_EA_EC_flux.md` 记录 EC 高频数据按 EA 思路计算 30 min \(w'\) 协方差型通量、逐日可视化、上升/下沉拆分、CO2 气团浓度解释，以及新增的 raw `w` CO2 总输送分支。当前状态是旧协方差型结果和未修正 raw-w 5 min/30 min 输出都已生成；经验倾斜修正分支已尝试但暂不作为当前依据。机制对齐图已从 `F_air/F_conc` 分解主线改为气象过程主线，2026-05-26 后进一步收束为两个归因方向：次高峰是否由风向转变输入高 CO2 气团并在峰后被吸收/稀释或平流带走，以及日出后 `CVT` 下沉和 `MT/FL` 上升是否支持谷底补偿下沉与坡面热力环流候选图像。 [已核验: project_memory/evidence/verifications/2026-05-26_two_main_mechanism_directions.md]
+- `W1_EA_EC_flux.md` 已补充 2026-06-14 的 FL `PF_8bin` 后四天高频 EC 与 EA 机制诊断进展。当前 `com_FLafterPF` 结果使用 `valid_samples_by_bin` 作为窗口 QC，主 EC 表为 `FL_PF8bin_EC_covariance_30min.csv`，EA 机制诊断输出为 `FL_PF8bin_EA_mechanism_diagnostics_30min.csv`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-14_fl_pf8bin_ec_ea_mechanism_after_pf.md]

@@ -16,3 +16,4 @@
 
 - 当前 `com_rotation` 坐标旋转敏感性分支只比较 `CVT/MT` 固定站点公共时段，暂不纳入 FL 移动平台。FL 后续仍主要作为切面空间形态证据或移动平台质量守恒诊断对象，而不是本轮固定站点四方法 EC 对比对象。 [来源: 用户当前对话 2026-06-01] [已核验: project_memory/evidence/verifications/2026-06-01_common_rotation_sensitivity_analysis.md]
 - 当前四方法比较保留 `none`、`double rotation`、`planar fit` 和 `sector-wise planar fit` 全部结果；初步统计中可以把 `double rotation` 作为参照计算差值，但不能把它直接宣布为复杂地形下唯一正确结果。后续论文图表应同时呈现方法敏感性和结论稳健性。 [推断：基于当前四方法比较目标整理] [已核验: D:\00 博士阶段\博一\05 Project\com_rotation\results\analysis\tables\04_method_sensitivity_vs_dr_summary.csv]
+- FL 在应用正式 `PF_8bin` 参数后的四天高频 EC 计算，当前生效窗口 QC 为 `valid_samples_by_bin`，而不是旧的 `coverage_frac >= 0.90` 硬筛选。当前阈值为窗口至少 `120 s` 有效样本、每个参与 bin 至少 `10 s` 有效样本、至少 `1` 个有效 bin；`coverage_frac` 只作为诊断量保留。EC covariance 仍是主通量口径，EA/up-down decomposition 用作机制诊断和质量解释。[来源: 用户当前对话 2026-06-12 至 2026-06-14] [已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-14_fl_pf8bin_ec_ea_mechanism_after_pf.md]
