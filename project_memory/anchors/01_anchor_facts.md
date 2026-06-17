@@ -1,5 +1,11 @@
 # 锚点事实
 
+## 数据入口
+
+- 2026-06-17 后，当前项目后续批量整理固定塔自然年数据和三站独立事件日时，统一以 `E:\Dataset_Level0` 作为 Level0 数据根入口，并以 `E:\Dataset_Level0\数据存入-处理记录.xlsx` 作为当前处理记录和覆盖登记表；`E:\Dataset_RAW` 是仪器直接输出数据入口，不应再把 RAW 下的旧登记表当成本轮主索引。 [来源: 用户当前对话 2026-06-17] [已核验: E:\Dataset_Level0] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
+- Codex thread `019d4d7f-99f1-7201-87fb-409488ce10a4` 中曾整理旧 E 盘数据入口，可作为历史“按图索骥”地图：主塔/Maintower 的旧入口包括 `MET_TOWER_RAW`、`EC_TOWER_RAW`、`AP200_tower\AP200` 等；Flares/移动平台旧入口包括 `EC_FLARES_RAW`、`MET_FLARES_RAW` 和 `EC_ShH_new\AP200`；`Operation_state\20250313_20250419.xlsx` 是 2025-03-13 至 2025-04-19 运行状态线索。当前批量处理仍以 `E:\Dataset_Level0` 为准。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md]
+- 旧 E 盘整理线程中的小写 `mt/cvt/evt/nvt/svt` 是历史原始目录口径；当前项目科学解释中的 `MT=谷缘高地`、`CVT=谷底` 站点定义优先。后续从旧目录追溯数据时，必须用 `E:\Dataset_Level0` 或当前 metadata 重新确认站点身份，不能只凭旧文件夹名完成映射。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md]
+
 ## EA/EC 当前分析对象
 
 - 当前工作线处理的是三个 EC 观测点的高频数据：`MT` 来自 `E:\260402计算\谷缘塔EC`，`CVT` 来自 `E:\260402计算\谷底塔EC`，`FL` 来自 `E:\260402计算\Flares_EC`。 [来源: 用户当前对话 2026-05-18]

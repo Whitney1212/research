@@ -47,7 +47,7 @@ F_{storage} = \int_{0}^{z_r} \frac{\partial \bar c(z,t)}{\partial t}\,dz
 
 ## 下一步验证
 
-- 用 `E:\Dataset_RAW\数据存入-处理记录.xlsx` 确认 AP200 廓线覆盖日期、层位和缺测。
+- 用 `E:\Dataset_Level0\数据存入-处理记录.xlsx` 确认 AP200 廓线覆盖日期、层位和缺测；需要追溯仪器直接输出时，再回到 `E:\Dataset_RAW`。 [来源: 用户当前对话 2026-06-17] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-17_fixed_tower_level0_coverage.md]
 - 先在 `2025-03-20` 到 `2025-03-23` 已核验窗口上计算一个 storage v0。
 - 输出每个窗口的 `F_EC`、`F_storage`、CO2 廓线变化和风场背景，先看相位关系，不急于闭合。
 - storage v0 应分别按 `CVT` 和 `MT` 站点内廓线计算到各自 EC 高度；跨站差异先解释为站点内 storage tendency 的对照，不直接解释为水平梯度通量。 [来源: 用户当前对话 2026-05-29] [推断：基于跨系统绝对差值风险整理]

@@ -1,5 +1,15 @@
 # 近期动作
 
+- 2026-06-17：根据用户后续确认，更新 W2 固定塔数据策略：当前检测到的 Level0 数据就是全部可用数据，不再等待两个完整自然年；第一版固定塔事件气候学改为做一个自然年，优先以 `2025` 年为主分析年。中途仪器维修造成的断口作为无法避免缺测处理，后续日历清单需要显式标记维修断口，避免误作无 peak 对照日。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
+
+- 2026-06-17：按用户修正后的口径，使用 `E:\Dataset_Level0\数据存入-处理记录.xlsx` 作为当前处理记录和覆盖登记表，重新核验两固定塔 `MT/CVT` 的 `AP/EC/MET` 覆盖。新增证据记录 `project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md`；当前结论是 `MT/CVT AP` 共同覆盖为 `2024-11-12 14:30` 至 `2026-02-02 09:30` 和 `2026-02-02 10:00` 至 `2026-05-10 15:00`，六类固定塔数据共同窗口已分段记录，RAW 目录只作为仪器直接输出和历史追溯入口。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
+
+- 2026-06-17：按用户提供的线索核验了历史短波日出口径。结论是旧脚本 `diagnose_radiation_profile_fadv_0320_0323.R` 使用 `CVT_MET` 中的 `SW_in_Avg`，聚合为 30 min `SW_in` 后，以 `SW_in >= 20 W m^-2` 的首个窗口作为 `sunrise_ref_sw`；`SW_out_Avg` 和 `Rn_Avg` 只作为同步读入和聚合的辐射背景变量，不用于日出判定。新增证据记录 `project_memory/evidence/verifications/2026-06-17_cvt_sw_in_sunrise_reference.md`。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_cvt_sw_in_sunrise_reference.md]
+
+- 2026-06-17：根据用户提供的 Codex thread `019d4d7f-99f1-7201-87fb-409488ce10a4`，从本机归档会话和旧工作目录文档中整理 E 盘数据目录映射。新增证据记录 `project_memory/evidence/threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md`，确认旧线程中可复用的信息包括文件名识别规则、主塔/Maintower、谷底塔体系、Flares/移动平台、`2025-03-13` 至 `2025-03-25` 相关目录、旧缺失时段图的历史边界，以及小写 `mt` 原始目录口径不能直接等同当前 `MT=谷缘高地` 科学站点。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md]
+
+- 2026-06-17：按用户要求确认并记录统一数据入口 `E:\Dataset_Level0`，同时查询 `D:\00 博士阶段\99 Project\research\projects\04_lee\project_memory`。本轮新增核验记录 `project_memory/evidence/verifications/2026-06-17_level0_and_04lee_memory_query.md`，确认 `04_lee` 中有可复用的多日 `com_260507` 目录结构、`06:30` 短波日出 proxy、次高峰事件口径、AP 均值与上层 CO2 一致性、移动平台运行段结果和小车时间不确定性提醒。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_level0_and_04lee_memory_query.md]
+
 - 2026-06-17：根据用户当前规划，把晨间 CO2 peak 从复杂地形通量修正的支撑案例中独立为 `W2_morning_peak_workflow.md`。本次同时新增证据记录 `project_memory/evidence/discussions/2026-06-17_morning_peak_dual_mainline_plan.md`，并把双主线目标写入锚点层：长期碳收支主线继续保留，晨间 peak 主线专门处理长期稳定晨间 CO2 事件的边界层转换、空间传播与局地再分配机制。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/workstreams/W2_morning_peak_workflow.md]
 
 - 2026-06-15：完成 FL PF 拟合平面可视化补充，并将 C/D 方法图件输出到 `E:\FL_pf\00_compare_all_methods`。新脚本为 `plot_CD_pf_plane_visualizations.R`，生成 `fig_CD_pf_plane_C1_direction_track_surfaces.png`、`fig_CD_pf_plane_C2_direction_binwise_surfaces.png`、`fig_CD_pf_plane_D1_track_sector_heatmap_facets.png` 和 `fig_CD_pf_plane_D2_bin_sector_tilt_matrix.png`。本轮同时确认 D 系列按运动修正后的 `u_mean/v_mean` 计算 `wind_from`，并按 `8` 个 `45 deg` 扇区分组；D1 基于整轨 ensemble mean，D2 基于 8-bin ensemble-bin mean。 [已核验: project_memory/evidence/verifications/2026-06-15_fl_pf_fitted_plane_visualizations.md]
