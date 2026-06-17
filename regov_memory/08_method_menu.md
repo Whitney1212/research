@@ -26,7 +26,9 @@
 - CO2 储存与释放：AP200/MET 廓线、冠层以上/以下浓度变化、夜间积累、日出后释放、storage flux 估算和次高峰阶段分析。当前两套廓线系统最高层分别等于对应 EC 观测高度，因此可优先计算 `CVT` 与 `MT` 各自到 \(z_r\) 的局地柱 storage tendency；但在跨系统校准和控制体几何未完成前，不应直接升级为完整峡谷控制体 storage 或水平梯度通量。 [来源: 用户当前对话 2026-05-29]
 - 平流与局地环流：水平风扇区、垂直平流、水平平流、FL 切面输送、谷底/谷缘相位差、局地环流事件分类。
 - 冠层交换解释：冠层源汇、湍流交换、稳定层结、冠层高度边界和通量塔观测层位之间的关系。
-- 事件检测与复合分析：日出/日落窗口、`09:00-11:00` 次高峰、结构切换时刻、强弱事件分组、多日 composite。
+- 事件检测与复合分析：日出/日落窗口、`09:00-11:00` 次高峰、结构切换时刻、强弱事件分组、多日 composite。2026-06-17 后，晨间 CO2 peak 不再只是通量修正框架的案例分支，而应作为独立 W2 工作流维护；优先采用第一年建规则、第二年独立验证的跨年设计。 [来源: 用户当前对话 2026-06-17]
+- 晨间 peak 事件机制判据：固定使用日出相对时间，事件级统计 peak 发生率、峰值时间、幅度、持续时间、峰后下降率、三站 lead-lag、表观传播速度、profile transition、风向变化和 peak 后同步下降；独立样本按事件日计。 [来源: 用户当前对话 2026-06-17]
+- AP 廓线代理量：可使用廓线梯度指数、柱浓度异常代理量和柱异常变化率代理来比较 profile switch、梯度符号、标准化变化幅度、变化速率和相对 peak 的相位；不能称为正式 `storage flux`，也不能直接进入 `F_EC + F_storage` 闭合。 [来源: 用户当前对话 2026-06-17]
 - 统计与不确定性：敏感性分析、bootstrap、事件分组检验、回归/混合模型、聚类或状态分类。使用前先确认样本量和独立性。
 - 可视化：数据覆盖甘特图、workstream dashboard、逐日时间序列、站点对比、剖面图、切面位置图、机制判据图和论文图件草图。
 - 文献与理论校验：针对 EC 假设、复杂地形平流、storage correction、Lee 方法、REA/EA、谱修正等问题建立理论卡，避免只凭模型记忆判断。
@@ -56,3 +58,14 @@
 - 不能说明：该方法未修正轨道坡度导致的垂直平台速度，也不能单独替代 WPL、频率响应、密度换算或完整通量质量控制。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
 - 优先验证：在带入高频通量前，检查每个 10 Hz 点是否成功匹配 bin 和 PF 参数，并对比旋转前后 `w_mean`、`F_EC`、残差分布、方向差异和 bin 边界附近样本。 [推断：基于 PF 参数应用风险整理]
 - 关联 workstream：当前项目 `W1_EA_EC_flux`，服务复杂地形 EC 通量偏差和 FL 空间约束分支。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W1_EA_EC_flux.md]
+
+### FL PF 拟合平面可视化诊断
+
+- 目标：把不同 FL PF 旋转策略拟合出的平均流线面可视化，用于解释全轨道、bin-wise、方向分开和风向扇区 PF 的几何差异。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-15_fl_pf_fitted_plane_visualizations.md]
+- 输入数据：`E:\FL_pf` 下各方法的 `pf_fit_summary.csv`、`pf_input_points.csv` 和 `pf_points_with_residual.csv`，以及统一轨道方位角和 bin/sector 定义。 [已核验: E:\FL_pf\00_compare_all_methods] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-15_fl_pf_fitted_plane_visualizations.md]
+- 核心计算/判据：A/B/C 图把 PF 平面投影到 `track position × u_perp × w_plane`；D1 使用 `u_parallel × u_perp × w_plane` 热图面板；D2 使用 `bin × wind_from sector` 的 `tilt_deg` 矩阵。 [已核验: E:\FL_pf\00_compare_all_methods\plot_CD_pf_plane_visualizations.R]
+- 输出变量：`w_plane`、`tilt_deg`、方向分组、bin 分组、`wind_from` 扇区和拟合是否成功。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-15_fl_pf_fitted_plane_visualizations.md]
+- 适用前提：这些图用于方法解释和诊断，正式高频通量仍应调用已经固定的 `PF_8bin_parameters_for_flux.csv`，不能因为某张诊断图局部差异明显就直接更换旋转参数。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv] [推断：基于 PF 参数应用边界整理]
+- 不能说明：平面图不能直接给出最终生态系统通量，也不能替代 WPL、频率响应、密度换算、窗口 QC 或轨道坡度导致的垂直平台速度修正。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md] [推断：基于 PF 图件用途整理]
+- 优先验证：报告中应优先把 A/B/C/D 图与 `tilt_deg`、RMSE 降幅、残差分布、`fw/bw` 差异和 sector 样本量一起解释。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-15_fl_pf_fitted_plane_visualizations.md]
+- 关联 workstream：当前项目 `W1_EA_EC_flux` 的 FL 坐标旋转和复杂地形通量方法不确定性分支。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W1_EA_EC_flux.md]

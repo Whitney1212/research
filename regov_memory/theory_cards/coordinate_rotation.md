@@ -34,6 +34,12 @@
 - 当前参数不能与旧 B2 的“单程线性位置 + 固定 `0.137 m/s`”预处理混用。若后续更换运行记录、插值规则、速度字段、有效轨道范围或 bin 定义，应重新生成 PF 参数，而不是直接复用现有 `PF_8bin_parameters_for_flux.csv`。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_preprocessing_ab_summary.csv] [推断：基于 PF 参数与预处理一致性要求整理]
 - `PF_8bin` 仍未修正轨道坡度引起的垂直平台速度，因此它应被描述为“水平平台运动修正 + bin-wise planar fit 坐标旋转参数”，不能被描述为完整平台三维运动修正。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]
 
+## FL PF 拟合平面可视化
+
+- 当前已经为 FL PF 方法对比补充拟合平面可视化。A/B 图件展示全轨道、6-bin、8-bin 和 10-bin PF 的轨道位置 × 横风分量 × `w_plane` 平面，并用颜色深浅表达 `tilt_deg`；C 图件展示方向分开的全轨或 direction × bin 平面；D 图件展示 `wind_from` 扇区平面和 `bin × sector` 倾角矩阵。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-15_fl_pf_fitted_plane_visualizations.md]
+- D 系列风向分类使用运动修正后的 `u_mean/v_mean` 计算 `wind_from`，当前为 8 个 `45 deg` 扇区。D1 基于整轨道 ensemble mean 点，D2 基于 8-bin ensemble-bin mean 点；因此它们反映平均来流方向依赖，而不是 10 Hz 瞬时风向分类。 [已核验: E:\FL_pf\R\fl_pf_common.R] [已核验: E:\FL_pf\06_track_sector_pf\run_track_sector_pf.R] [已核验: E:\FL_pf\07_binwise_sector_pf_optional\run_binwise_sector_pf_optional.R]
+- 这些拟合平面图有助于说明“平均流线面方向、倾角、方向差异和风向依赖”，但它们的角色是方法诊断和报告解释。正式 FL 高频通量旋转仍以 `PF_8bin_parameters_for_flux.csv` 为主，除非重新定义预处理、bin 或正式参数选择标准并重跑。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv] [推断：基于本次图件用途和当前正式 PF 参数边界整理]
+
 ## 不能说明什么
 
 - raw `w_mean` 的正负不能直接当成地理垂直运动正负。

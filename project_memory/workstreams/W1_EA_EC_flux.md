@@ -1,5 +1,13 @@
 # W1 EC 高频数据的 EA 通量计算与上升/下沉解析
 
+## 2026-06-15 FL PF 拟合平面可视化补充
+
+FL PF 方法对比已经新增一组拟合平面可视化，用于把不同 PF 旋转策略的几何含义从表格指标转成可读图件。A1/B1/B2/B3 使用轨道位置 × 横风分量 × `w_plane` 的剖面式画法，并用颜色深浅表示 `tilt_deg`；C1/C2 补充 `fw/bw` 方向分开的拟合平面；D1/D2 补充按 `wind_from` 风向扇区拆分后的拟合平面或倾角矩阵。 [已核验: project_memory/evidence/verifications/2026-06-15_fl_pf_fitted_plane_visualizations.md]
+
+D 系列当前按 8 个 `45 deg` 的 `wind_from` 扇区分组。D1 是整轨道 four-pass ensemble mean 点的风向分组，每个扇区拟合一个全轨 PF；D2 是 8-bin four-pass ensemble-bin mean 点的风向分组，每个 `bin × sector` 拟合一个 PF。该分类反映 PF 输入统计点的平均来流方向，不是 10 Hz 瞬时风向分类。 [已核验: E:\FL_pf\R\fl_pf_common.R] [已核验: project_memory/evidence/verifications/2026-06-15_fl_pf_fitted_plane_visualizations.md]
+
+这些图件不改变当前正式 FL 高频通量旋转参数。后续通量计算仍应调用 `E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv`，并沿用统一运行记录逐点位置和实际速度矢量修正；A/B/C/D 平面图主要用于报告中解释为什么主推荐为 8-bin PF，以及说明方向差异和风向依赖为什么更适合作为诊断层。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_parameters_for_flux.csv] [推断：基于本轮图件用途和 2026-06-12 `PF_8bin` 方法边界整理]
+
 ## 2026-06-12 FL PF_8bin 参数进展
 
 FL 移动平台的正式 planar fit 参数口径已经固定为 `PF_8bin`，输出目录为 `E:\Dataset_Level1\Flares\PFparameter`。该方法使用 `5-240 m` 轨道范围、8 个等宽位置 bin、four-pass ensemble-bin mean 输入点，并将预处理升级为统一运行记录逐点位置插值和实际有符号速度矢量水平风修正。8 个 bin 全部拟合成功，PF 输入点共 `1852` 个，倾角范围为 `8.4200-11.8022 deg`，倾角中位数约 `9.5073 deg`。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]

@@ -1,5 +1,9 @@
 # 开放问题
 
+- 晨间 peak 事件识别规则尚未冻结。下一步需要先用第一年双固定塔数据确定日出相对时间下的自动识别规则，再把同一规则应用到第二年独立验证；否则两年数据容易退化为事后选择后的平均日变化。 [来源: 用户当前对话 2026-06-17]
+- `20-30` 个三站独立事件日的气象状态分布尚未核查。若候选事件几乎都属于同一种天气状态，只能证明该状态下的机制，不能直接建立普遍分类。 [来源: 用户当前对话 2026-06-17]
+- 谷中央上空固定观测仍需确定具体观测高度、观测日期和同步方案。当前目标是争取 `12-15` 个有效事件日，用于判断谷底、谷中央上空和谷缘之间的稳定时间顺序。 [来源: 用户当前对话 2026-06-17]
+- AP 廓线代理量进入 W2 前，需要固定 `t_ref` 背景窗口、层位权重、标准化口径和缺测处理规则；跨站比较应优先比较 switch 时间、梯度符号、标准化幅度和相对 peak 的提前/滞后，而不是直接比较两个 AP 系统的绝对柱浓度大小。 [来源: 用户当前对话 2026-06-17]
 - 坐标旋转敏感性已经从 `F_EC` 扩展到 `w_mean/sigma_w` 机制诊断，但仍需判断哪些风向扇区对应真实地形流线控制，哪些只是仪器坐标投影或局地流线倾斜。当前初步结果显示 `MT` 的 `w_mean` 方法敏感性在约 `090-150°` 及相邻扇区更集中，后续需要把这些扇区与地形方位、水平风、稳定度和 `CVT/MT` 站点差异共同对照。 [来源: 用户当前对话 2026-06-02] [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md]
 - `H/LE` 在 `fig06_w_sigma_flux_by_rotation_boxplot.png` 中的离群点需要区分强物理事件和 QC 残余。当前不应简单删掉所有离群点，而应同时准备 all-data 诊断图、变量特异 QC-screened 图、robust 或 winsorized 图和缩放图；正式解释 `H/LE` 时优先使用 `qc_H <= 1` 或 `flag9_H <= 3`、`qc_h2o <= 1` 或 `flag9_h2o <= 3` 等变量特异筛选。 [来源: 用户当前对话 2026-06-02] [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md] [推断：基于本轮离群点追查和 EC 质量控制边界整理]
 - `MT` 的日出窗口统计目前可能受 metadata 经纬度影响。`CVT` metadata 为 `25.03,116.48`，而 `MT` metadata 为 `35,120`，后者可能是占位或不准确值；如果后续要正式使用 `MT` 的日出窗口分组结果，必须先修正坐标并重跑 `08_priority_wind_stability_sunrise_analysis.R`。 [来源: 用户当前对话 2026-06-02] [已核验: project_memory/evidence/verifications/2026-06-02_common_rotation_w_sigma_wind_stability.md]

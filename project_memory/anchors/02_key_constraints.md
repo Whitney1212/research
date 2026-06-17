@@ -1,5 +1,6 @@
 # 关键约束
 
+- AP 廓线在晨间 peak 工作流中可以作为主要机制证据，但当前只应使用廓线梯度指数、柱浓度异常代理量和柱异常变化率代理。柱异常变化率只能称为 `column anomaly tendency proxy`、柱浓度异常变化代理或廓线库存变化指数；在缺少标准单位、控制体定义和跨系统校准之前，不能称为正式 `storage flux`，也不能直接写成 `F_EC + F_storage` 的碳收支闭合。 [来源: 用户当前对话 2026-06-17]
 - 使用 `PF_8bin` 参数进入 FL 高频通量计算时，必须沿用生成参数时完全一致的预处理口径：`5-240 m` 有效轨道范围、8 个等宽位置 bin、统一运行记录逐点 `time-position-speed` 插值、实际有符号速度投影到 `129.551 deg` 轨道方位角后修正 `U_east_corr/U_north_corr`，以及 `north_offset = 210 deg` 的地理东/北风转换。如果更换运行记录、位置插值规则、速度字段、轨道范围或 bin 划分，必须重新生成 PF 参数表。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 - 当前处理明确不做坐标旋转、WPL 修正、频率修正和空气密度或摩尔密度换算，因此结果应解释为当前坐标和当前单位下的运动学通量，而不是已经换算到常规 \(\mu mol\,m^{-2}\,s^{-1}\) 的 CO2 通量。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]
 - 本项目所有需要按本地时间对齐的数据表，时间列读取时应优先按字符读入，再显式按 `Asia/Shanghai` 解析或赋予时区。不要让 `data.table::fread()`、`read.csv()` 或类似函数自动把 `block_start`、`block_end`、`TIMESTAMP` 等列推断成 UTC/POSIX 时间，否则可能造成 `8 h` 错位。这个约束适用于后续 raw-w、风场、FL 位置、气象和廓线数据的合并。 [来源: 用户当前对话 2026-05-20] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\diagnose_ea_raw_w_local_circulation.R]

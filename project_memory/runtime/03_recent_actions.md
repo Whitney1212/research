@@ -1,5 +1,9 @@
 # 近期动作
 
+- 2026-06-17：根据用户当前规划，把晨间 CO2 peak 从复杂地形通量修正的支撑案例中独立为 `W2_morning_peak_workflow.md`。本次同时新增证据记录 `project_memory/evidence/discussions/2026-06-17_morning_peak_dual_mainline_plan.md`，并把双主线目标写入锚点层：长期碳收支主线继续保留，晨间 peak 主线专门处理长期稳定晨间 CO2 事件的边界层转换、空间传播与局地再分配机制。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/workstreams/W2_morning_peak_workflow.md]
+
+- 2026-06-15：完成 FL PF 拟合平面可视化补充，并将 C/D 方法图件输出到 `E:\FL_pf\00_compare_all_methods`。新脚本为 `plot_CD_pf_plane_visualizations.R`，生成 `fig_CD_pf_plane_C1_direction_track_surfaces.png`、`fig_CD_pf_plane_C2_direction_binwise_surfaces.png`、`fig_CD_pf_plane_D1_track_sector_heatmap_facets.png` 和 `fig_CD_pf_plane_D2_bin_sector_tilt_matrix.png`。本轮同时确认 D 系列按运动修正后的 `u_mean/v_mean` 计算 `wind_from`，并按 `8` 个 `45 deg` 扇区分组；D1 基于整轨 ensemble mean，D2 基于 8-bin ensemble-bin mean。 [已核验: project_memory/evidence/verifications/2026-06-15_fl_pf_fitted_plane_visualizations.md]
+
 - 2026-06-12：完成 FL 移动平台正式 `PF_8bin` 参数流程同步。新脚本和输出位于 `E:\Dataset_Level1\Flares\PFparameter`，核心脚本为 `run_PF_8bin.R`，正式参数表为 `PF_8bin_parameters_for_flux.csv`。该版本使用统一运行记录逐点位置插值和实际有符号速度矢量水平风修正，替代旧的“线性位置 + 固定 0.137 m/s”口径；8 个 bin 全部拟合成功，PF 输入点 `1852` 个，倾角范围 `8.4200-11.8022 deg`。同时输出 A/B 预处理对比图、PF 验证图、参数表和方法说明文档。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 
 - 2026-06-06：按用户要求执行项目根目录迁移。已将仓库内所有直接写死的根路径从 `C:\Users\admin\Documents\New project` 改为 `D:\00 博士阶段\99 Project\06 EA`，并将当前仓库完整复制到新目录；目标位置原有内容已备份到 `D:\00 博士阶段\99 Project\06 EA_preexisting_backup_20260606_113616`。由于当前 Codex 会话仍占用旧目录，本轮未能把旧路径替换成指向新目录的 junction，因此当前状态是“新目录可用，旧目录仍保留工作副本”。详见 `project_memory/evidence/verifications/2026-06-06_project_root_migration.md`。 [来源: 用户当前对话 2026-06-06] [已核验: project_memory/evidence/verifications/2026-06-06_project_root_migration.md]
