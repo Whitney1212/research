@@ -31,3 +31,5 @@ python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --ro
 ```powershell
 python "C:\Users\admin\.codex\skills\regov\scripts\build_workstream_map.py" --project "Current=D:\00 博士阶段\99 Project\06 EA" --project "04 Lee=D:\00 博士阶段\99 Project\04 Lee" --output "D:\00 博士阶段\99 Project\06 EA\regov_dashboard\workstream_map.md"
 ```
+- FL质量守恒后垂直输送的月度热力色带图采用以下固定口径：每个有效月份一张、每天一列、纵轴固定0–24时；只填充成功实现质量平衡的mixed-sign单程；所有月份共用以0为中心的稳健对称色标，extreme_lambda与低分钟覆盖分别使用实线和虚线边框。当前实现脚本为 `E:\FL_MASSBALANCE\plot_fl_mass_balance_monthly_transport_heatbands.R`。 [来源: 用户当前对话 2026-06-24] [已核验: project_memory/evidence/verifications/2026-06-24_fl_mass_balance_monthly_transport_heatbands.md]
+- FL质量守恒后垂直输送的跨月份合并图只排列存在有效结果的日期，标签采用完整 `YYYY-MM-DD`，无效日期不生成横轴占位；该版本不标注 `low_minute_coverage`，只保留 extreme-lambda 黑色实线边框。当前实现脚本为 `E:\FL_MASSBALANCE\plot_fl_mass_balance_combined_transport_heatband.R`。 [来源: 用户当前对话 2026-06-24] [已核验: project_memory/evidence/verifications/2026-06-24_fl_mass_balance_combined_transport_heatband.md]

@@ -1,5 +1,11 @@
 # 证据索引
 
+- `verifications/2026-06-24_fl_mass_balance_combined_transport_heatband.md` 记录996个有效 mixed-sign 质量守恒结果的合并热力色带图：只排列41个有效日期、完整年份日期标签、无效日期不占位置、不标注 `low_minute_coverage`，并保留 extreme-lambda 黑色实线边框。 [来源: 用户当前对话 2026-06-24] [已核验: project_memory/evidence/verifications/2026-06-24_fl_mass_balance_combined_transport_heatband.md]
+
+- `verifications/2026-06-24_fl_mass_balance_monthly_transport_heatbands.md` 记录996个有效mixed-sign质量守恒结果的月度热力色带图口径、统一 `+/-30 umol m-2 s-1` 色标、5个有效月份图件、跨午夜拆分和目视验证。 [来源: 用户当前对话 2026-06-24] [已核验: project_memory/evidence/verifications/2026-06-24_fl_mass_balance_monthly_transport_heatbands.md]
+
+- `verifications/2026-06-20_fl_mass_balance_pf8bin_2ensemble.md` 记录用户指定 `PF_8bin_2ensemble` 后，对1529个严格完整单程执行全量R质量守恒计算的输入、脚本、结果、数据可用性和方法边界；1023个单程成功计算，506个因原始EC可用性或分钟QC不可计算。 [来源: 用户当前对话 2026-06-20] [已核验: project_memory/evidence/verifications/2026-06-20_fl_mass_balance_pf8bin_2ensemble.md]
+
 - `verifications/2026-06-17_fixed_tower_level0_coverage.md` 记录本轮按 `E:\Dataset_Level0\数据存入-处理记录.xlsx` 重新核验两固定塔覆盖的结果，确认 Level0 处理记录是当前覆盖登记主表，RAW 是仪器直接输出入口；同时记录 `MT/CVT AP`、`EC`、`MET` 共同覆盖窗口、六类固定塔数据共同窗口，以及用户后续确认的当前执行口径：检测到的就是全部数据，先做一个自然年，维修断口按不可避免缺测处理。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
 - `verifications/2026-06-17_cvt_sw_in_sunrise_reference.md` 记录本轮对 CVT 短波日出口径的核验：历史脚本使用 `CVT_MET` 的 `SW_in_Avg`，聚合为 30 min `SW_in`，以 `SW_in >= 20 W m^-2` 的首个窗口作为 `sunrise_ref_sw`；`SW_out_Avg` 和 `Rn_Avg` 虽被读入和聚合，但不用于日出判定。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_cvt_sw_in_sunrise_reference.md]
 - `threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md` 记录 Codex thread `019d4d7f-99f1-7201-87fb-409488ce10a4` 中对 E 盘数据目录的整理结果，包括文件名识别规则、主塔/谷底塔体系/Flares 的历史目录入口、`2025-03-13` 至 `2025-03-25` 相关目录、旧缺失时段图的使用边界，以及小写 `mt` 原始目录口径不能直接等同当前 `MT=谷缘高地` 科学站点的提醒。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/threads/2026-06-17_thread_019d4d7f_e_drive_data_organization.md]
