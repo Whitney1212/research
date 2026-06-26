@@ -1,5 +1,11 @@
 # 构件索引
 
+## 2026-06-25 FL 运行记录增量与完整单程更新程序
+
+- `E:\FL_pre\scripts\fl_full_records_01_running_records_prepare.R`、`fl_full_records_02_complete_passes_and_ec_availability.R` 和 `fl_full_records_03_plot_complete_pass_coverage.R` 是当前 FL 运行记录全量重建流程。流程先统一 `time/speed/position` 并压缩长静止段，再筛选几何完整单程和 EC key-complete 可用性，最后绘制完整单程覆盖图；运行记录基础文件输出到 `E:\Dataset_Level0\Flares\running_time\records`。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md]
+- `E:\FL_pre\scripts\fl_update_records_01_running_records_incremental.R`、`fl_update_records_02_complete_passes_and_ec_availability.R` 和 `fl_update_records_03_plot_complete_pass_coverage.R` 是当前 FL 运行记录增量更新流程。流程默认读取 `records` 下最新 `fl_records_*.csv`，只替换受影响时间窗内的运行记录和完整单程，并支持 `--track-south-m`、`--track-north-m`、`--raw-index-csv` 和覆盖图说明参数。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md]
+- 当前完整单程覆盖交付目录为 `E:\Dataset_Level0\Flares\running_time\passes`，固定保留 `fl_complete_pass_coverage_daily.csv`、`fl_complete_pass_coverage_timeline.png`、`fl_complete_passes_incremental_manifest.txt` 三件交付，以及下次增量必须的 `fl_complete_passes_strict.csv` 和 `fl_complete_pass_candidates_all.csv`。旧 `unified_output`、`260611_clasified` 和 `running_time\20260626` 已作为过程目录清理，历史依据保留在 evidence note 中。 [已核验: project_memory/evidence/verifications/2026-06-25_fl_running_records_repair_reasoning_and_cleanup.md] [已核验: E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_incremental_manifest.txt]
+
 ## 2026-06-12 FL PF_8bin 参数构件
 
 - `E:\Dataset_Level1\Flares\PFparameter\run_PF_8bin.R` 是当前 FL 移动平台正式 `PF_8bin` 参数生成脚本。它读取完整单程表、FL 高频 EC 数据和统一运行记录，执行逐点运行记录位置插值、实际速度矢量水平风修正、8-bin four-pass ensemble PF 拟合，并生成参数表、A/B 对比图、验证图和方法说明文档。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]

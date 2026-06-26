@@ -14,7 +14,10 @@ parse_args <- function(args) {
   opts <- list(
     input_file = default_input_file,
     output_file = default_output_file,
-    timezone = default_timezone
+    timezone = default_timezone,
+    title = "FL Complete Pass Coverage",
+    subtitle = "",
+    caption = ""
   )
 
   for (arg in args) {
@@ -24,12 +27,21 @@ parse_args <- function(args) {
       opts$output_file <- sub("^--output-file=", "", arg)
     } else if (grepl("^--timezone=", arg)) {
       opts$timezone <- sub("^--timezone=", "", arg)
+    } else if (grepl("^--title=", arg)) {
+      opts$title <- sub("^--title=", "", arg)
+    } else if (grepl("^--subtitle=", arg)) {
+      opts$subtitle <- sub("^--subtitle=", "", arg)
+    } else if (grepl("^--caption=", arg)) {
+      opts$caption <- sub("^--caption=", "", arg)
     } else if (arg %in% c("-h", "--help")) {
       cat(
         "Usage: Rscript scripts/plot_fl_complete_pass_coverage_gantt.R [options]\n",
         "  --input-file=PATH\n",
         "  --output-file=PATH\n",
         "  --timezone=Asia/Shanghai\n",
+        "  --title=TEXT\n",
+        "  --subtitle=TEXT\n",
+        "  --caption=TEXT\n",
         sep = ""
       )
       quit(save = "no", status = 0)
@@ -140,14 +152,18 @@ main <- function() {
       expand = expansion(mult = c(0, 0))
     ) +
     labs(
-      title = "FL Complete Pass Coverage",
+      title = opts$title,
+      subtitle = if (nzchar(opts$subtitle)) opts$subtitle else NULL,
       x = "Date",
       y = "Time of day",
-      color = "Direction"
+      color = "Direction",
+      caption = if (nzchar(opts$caption)) opts$caption else NULL
     ) +
     theme_minimal(base_size = 12) +
     theme(
       plot.title = element_text(face = "bold", size = 16),
+      plot.subtitle = element_text(size = 10.5, color = "#333333"),
+      plot.caption = element_text(size = 9, color = "#555555", hjust = 0),
       axis.text.x = element_text(angle = 35, hjust = 1),
       panel.grid.major.x = element_line(linewidth = 0.25, color = "#D9D9D9"),
       panel.grid.major.y = element_line(linewidth = 0.25, color = "#D9D9D9"),

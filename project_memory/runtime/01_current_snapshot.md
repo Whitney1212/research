@@ -1,5 +1,17 @@
 # 当前项目快照
 
+## 2026-06-26 最新同步
+
+FL 运行记录当前基础交付已在 `230417_260622` 全量记录上补入 `2025-08-17` 至 `2025-10-01` 的特殊轨道增量：该段按 `5-230 m` 轨道端点重新做完整单程筛选和 EC key-complete 可用性筛选，增量严格单程 `1065` 个，合并后严格单程总数 `2933` 个。`records` 基础文件仍为 `E:\Dataset_Level0\Flares\running_time\records\fl_records_230417_260622.csv`，因为该文件已经包含三份 2025-08 至 2025-10 原始记录；`passes` 目录已更新为增量后的覆盖表、覆盖图和 manifest。 [已核验: project_memory/evidence/verifications/2026-06-26_fl_running_records_20250817_5_230_increment.md]
+
+当前 FL 运行记录覆盖流程固定为：全局默认完整单程轨道范围 `5-240 m`；仅 `2025-08-17` 至 `2025-10-01` 这段位置编码特殊数据在 pass 层使用 `5-230 m`。这只修复完整单程覆盖，不自动说明该段已适用于既有 `PF_8bin`、FL 高频通量或质量守恒结果。 [已核验: E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_incremental_manifest.txt] [推断: 基于本次增量与既有 PF_8bin 方法边界整理]
+
+## 2026-06-25 最新同步
+
+FL 运行记录已经按新的固定输出结构完成一次全量重建。运行记录基础文件位于 `E:\Dataset_Level0\Flares\running_time\records\fl_records_230417_260622.csv`，对应来源摘要为 `fl_records_230417_260622_source_summary.csv`；完整单程覆盖交付位于 `E:\Dataset_Level0\Flares\running_time\passes`。本轮统一运行记录为 `6,706,308` 行，严格完整且 EC key-complete 可用单程为 `1868` 个，覆盖图日期范围为 `2023-06-22` 至 `2026-06-04`。 [已核验: project_memory/evidence/verifications/2026-06-25_fl_full_records_rebuild_records_passes_delivery.md]
+
+当前 FL 运行记录覆盖流程的固定边界是：只在完整单程覆盖阶段确认几何完整和 EC key-complete 数据量，不提前做风速范围、诊断码或标量物理范围 QC。`2025-08-17` 至 `2025-10-01` 的 `0-230 m` 修复仍作为历史特例保留，但当前全量默认完整单程轨道口径为 `5-240 m`；如果后续要把特殊轨道段纳入 PF 或质量守恒重算，仍需要建立分时段轨道口径或重建对应 PF 参数。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md] [推断: 基于全量重建结果与既有 PF_8bin 方法边界整理]
+
 ## 2026-06-17 最新同步
 
 当前项目已经调整为双主线并行。第一条主线继续围绕复杂地形下长期碳收支问题，重点处理 EC、storage、平流、通风、局地环流和坐标旋转等方法不确定性；第二条主线把晨间 CO2 peak 独立为 `W2_morning_peak_workflow.md`，专门研究长期稳定晨间 CO2 事件的边界层转换、空间传播与局地再分配机制。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/workstreams/W2_morning_peak_workflow.md]

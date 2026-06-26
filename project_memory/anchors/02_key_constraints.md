@@ -1,5 +1,9 @@
 # 关键约束
 
+- FL 运行记录覆盖流程只在“完整单程覆盖”阶段确认 EC key-complete 数据量，不提前做风速范围、诊断码或标量物理范围 QC。固定判据为：候选单程时段内 `Ux/Uy/Uz/CO2/TA_1_1_1/PA` 六列存在、有限，且至少一个时钟分钟达到 `>=300` 行完整 10 Hz 数据；后续正式 EC、PF 或质量守恒计算仍需各自执行对应 QC。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md] [已核验: E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_incremental_manifest.txt]
+- 当前保留的 FL 完整单程覆盖交付中，`2025-08-17` 至 `2025-10-01` 特殊位置编码时段按 `5-230 m` 轨道范围补入；全局默认完整单程轨道范围仍为 `5-240 m`。该 `5-230 m` 口径只用于修复这段运行记录因最大位置约 `230 m` 而无法在默认北端规则下触发完整单程的问题，不应自动推广为全部 FL 数据的轨道定义，也不应直接覆盖当前正式 `PF_8bin` 的 `5-240 m` 参数口径。若后续将这批新增单程纳入 PF、FL 通量或质量守恒重算，应先建立分时段轨道口径配置或重建对应 PF 参数。 [已核验: project_memory/evidence/verifications/2026-06-26_fl_running_records_20250817_5_230_increment.md] [推断: 基于本次增量完整单程结果与既有 PF_8bin 方法边界整理]
+- 历史诊断中，`2025-08-17` 至 `2025-10-01` 的 FL 运行记录曾按 `0-230 m` 轨道范围试算并确认问题来源；该记录只作为历史过程证据保留。当前正式保留交付已改为按 `5-230 m` 特殊轨道端点补入，后续引用交付口径时应以 2026-06-26 的 `5-230 m` 记录为准。 [已核验: project_memory/evidence/verifications/2026-06-25_fl_running_incremental_20250817_0_230.md] [已核验: project_memory/evidence/verifications/2026-06-26_fl_running_records_20250817_5_230_increment.md]
+
 - AP 廓线在晨间 peak 工作流中可以作为主要机制证据，但当前只应使用廓线梯度指数、柱浓度异常代理量和柱异常变化率代理。柱异常变化率只能称为 `column anomaly tendency proxy`、柱浓度异常变化代理或廓线库存变化指数；在缺少标准单位、控制体定义和跨系统校准之前，不能称为正式 `storage flux`，也不能直接写成 `F_EC + F_storage` 的碳收支闭合。 [来源: 用户当前对话 2026-06-17]
 - 使用 `PF_8bin` 参数进入 FL 高频通量计算时，必须沿用生成参数时完全一致的预处理口径：`5-240 m` 有效轨道范围、8 个等宽位置 bin、统一运行记录逐点 `time-position-speed` 插值、实际有符号速度投影到 `129.551 deg` 轨道方位角后修正 `U_east_corr/U_north_corr`，以及 `north_offset = 210 deg` 的地理东/北风转换。如果更换运行记录、位置插值规则、速度字段、轨道范围或 bin 划分，必须重新生成 PF 参数表。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]
 - 当前处理明确不做坐标旋转、WPL 修正、频率修正和空气密度或摩尔密度换算，因此结果应解释为当前坐标和当前单位下的运动学通量，而不是已经换算到常规 \(\mu mol\,m^{-2}\,s^{-1}\) 的 CO2 通量。 [来源: 用户当前对话 2026-05-18] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]

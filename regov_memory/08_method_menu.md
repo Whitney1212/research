@@ -48,6 +48,17 @@
 - 关联 workstream：
 ```
 
+### FL 运行记录增量标准化与完整单程覆盖更新
+
+- 目标：在新增 FL 小车运行记录和对应 EC 数据后，按“运行记录标准化 → 几何完整单程 → EC key-complete 数据量确认 → 覆盖图/manifest 交付”的固定链路更新完整单程覆盖。全量代码使用 `E:\FL_pre\scripts\fl_full_records_*`，增量代码使用 `E:\FL_pre\scripts\fl_update_records_*`。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md]
+- 输入数据：原始 FL 运行记录、`E:\Dataset_Level0\Flares\running_time\records` 下最新 `fl_records_yymmdd_yymmdd*.csv` 统一运行记录、`E:\Dataset_Level0\Flares\running_time\passes` 下已有完整单程基础表、FL EC Level0 TOA5 文件或预构建 EC 文件索引。当前完整单程覆盖交付目录为 `passes`，运行记录基础文件交付目录为 `records`。 [已核验: E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_incremental_manifest.txt]
+- 核心计算/判据：运行记录脚本统一 `time/speed/position`，并默认压缩长静止段；完整单程脚本先按轨道端点和运动规则筛出几何完整单程，再只在候选单程时段内确认 EC key-complete 数据量。EC 可用性固定为 `Ux/Uy/Uz/CO2/TA_1_1_1/PA` 六列存在且有限，并且至少一个时钟分钟有 `>=300` 行完整 10 Hz 数据。 [已核验: E:\FL_pre\scripts\fl_full_records_02_complete_passes_and_ec_availability.R]
+- 输出变量：`records` 中保留 `fl_records_yymmdd_yymmdd.csv` 及 `_source_summary.csv`，作为下次增量基础；`passes` 中保留三件正式交付 `fl_complete_pass_coverage_daily.csv`、`fl_complete_pass_coverage_timeline.png`、`fl_complete_passes_incremental_manifest.txt`，并额外保留下次增量必须的 `fl_complete_passes_strict.csv` 和 `fl_complete_pass_candidates_all.csv`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-25_fl_running_records_repair_reasoning_and_cleanup.md] [已核验: E:\Dataset_Level0\Flares\running_time\records\fl_records_230417_260622.csv]
+- 适用前提：默认完整单程轨道范围为 `5-240 m`；当前保留交付中，已知 `2025-08-17` 至 `2025-10-01` 作为特殊位置编码时段按 `5-230 m` 轨道端点补入，必须显式传入轨道端点并在 manifest 或图注中说明。历史诊断曾按 `0-230 m` 试算，但当前正式保留交付以 `5-230 m` 为准。2023 前期测试文件可能约 `3 s` 一个点，该采样特征只作历史备注，后续不作为常规频率假设。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-26_fl_running_records_20250817_5_230_increment.md]
+- 不能说明：该流程只确认轨迹完整和候选单程内关键 EC 变量有足够完整行数，不提前做风速范围、诊断码和标量物理范围 QC，也不能自动说明新增单程已经适用于既有 `PF_8bin`、FL 高频通量或质量守恒结果。 [已核验: E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_incremental_manifest.txt] [推断: 基于完整单程覆盖流程与后续 EC 计算边界整理]
+- 优先验证：正式发布前先用小时间窗口或临时 master 目录测试；发布后检查 manifest、覆盖日表、覆盖图尺寸、方向汇总、重复时间键、特殊轨道口径说明，以及 `records`/`passes` 是否保留了下次增量所需基础文件。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-25_fl_full_records_rebuild_records_passes_delivery.md]
+- 关联 workstream：当前项目 `W1_EA_EC_flux`，服务 FL 空间约束、PF 参数输入、FL 高频通量和后续质量守恒计算的数据入口。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W1_EA_EC_flux.md]
+
 ### FL PF_8bin 移动平台 planar fit 旋转参数
 
 - 目标：为 FL 移动平台高频通量计算提供当前主推荐的坐标旋转参数，而不是继续使用旧的线性位置和固定小车速度试算口径。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md]

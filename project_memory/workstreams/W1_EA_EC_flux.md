@@ -1,5 +1,11 @@
 # W1 EC 高频数据的 EA 通量计算与上升/下沉解析
 
+## 2026-06-25 FL 运行记录增量与完整单程覆盖更新
+
+已将 `2025-08-17` 至 `2025-10-01` 这一段 FL 运行记录按时间段特定的 `0-230 m` 轨道口径补入完整单程覆盖。正式增量运行识别出 `1074` 个候选单程，其中 `1065` 个通过严格完整单程与 EC 可用性筛选，方向为 `fw=537`、`bw=528`；合并后 `E:\Dataset_Level0\Flares\running_time\20260626\fl_complete_passes_strict.csv` 共 `2632` 个严格完整单程。 [已核验: project_memory/evidence/verifications/2026-06-25_fl_running_incremental_20250817_0_230.md]
+
+本次更新只解决完整单程覆盖和覆盖图问题，还没有把新增 `0-230 m` 单程纳入 `PF_8bin` 参数、FL 高频通量或质量守恒重算。由于当前正式 `PF_8bin` 参数仍基于 `5-240 m`、8-bin、four-pass ensemble-bin mean 口径，后续若要使用新增单程进入通量计算，应先处理分时段轨道口径与 PF 参数一致性。 [推断: 基于本次增量结果与既有 PF_8bin 方法边界整理]
+
 ## 2026-06-15 FL PF 拟合平面可视化补充
 
 FL PF 方法对比已经新增一组拟合平面可视化，用于把不同 PF 旋转策略的几何含义从表格指标转成可读图件。A1/B1/B2/B3 使用轨道位置 × 横风分量 × `w_plane` 的剖面式画法，并用颜色深浅表示 `tilt_deg`；C1/C2 补充 `fw/bw` 方向分开的拟合平面；D1/D2 补充按 `wind_from` 风向扇区拆分后的拟合平面或倾角矩阵。 [已核验: project_memory/evidence/verifications/2026-06-15_fl_pf_fitted_plane_visualizations.md]

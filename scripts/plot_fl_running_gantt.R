@@ -65,6 +65,11 @@ detect_mode <- function(filename) {
 }
 
 recover_source_labels <- function(summary_dt, input_dir) {
+  if ("source_file" %in% names(summary_dt)) {
+    registered <- !is.na(summary_dt$source_file) & nzchar(trimws(summary_dt$source_file))
+    if (any(registered)) return(summary_dt)
+  }
+
   paths <- list.files(input_dir, full.names = TRUE)
   paths <- paths[file.info(paths)$isdir %in% FALSE]
   paths <- sort(paths)
