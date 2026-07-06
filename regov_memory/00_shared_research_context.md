@@ -20,6 +20,7 @@
 - 晨间 peak 工作流复用历史日出相对时间口径时，已核验的短波日出 proxy 是 `CVT_MET` 的 `SW_in_Avg`，聚合为 `30 min` 的 `SW_in` 后，以 `SW_in >= 20 W m^-2` 的首个窗口作为 `sunrise_ref_sw`。该口径不使用 `SW_out_Avg` 或 `Rn_Avg` 判定日出；固定塔自然年批量应用前仍需核查 `E:\Dataset_Level0` 中该字段的覆盖和异常值处理。 [已核验: project_memory/evidence/verifications/2026-06-17_cvt_sw_in_sunrise_reference.md]
 - 旧 RAW 目录中的登记表和甘特图只作为历史覆盖线索保留；当前固定塔自然年和三站事件日批量整理应以 Level0 处理记录重新计算覆盖，必要时再回到 `E:\Dataset_RAW` 查原始仪器输出。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md] [已核验: E:\Dataset_RAW\20260428数据甘特图.png]
 - 用户已确认当前检测到的固定塔数据就是全部可用数据，W2 第一版不再等待两个完整自然年，而是按一个自然年推进，优先以 `2025` 年为主分析年；仪器维修造成的断口作为不可避免缺测处理。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
+- 2026-07-01 后，W2 2025 固定塔晨间 peak 的当前事件表和幅度图基线已切换到 AP200 QC 后 cycle 数据，输出固定在 `E:\Dataset_Level1\MorningPeak\W2_2025_foundation` 和 `E:\Dataset_Level1\MorningPeak\W2_2025_candidates\auto_peak_r_2025`；6 月 29/30 日的旧候选数量只保留为历史初筛口径。 [来源: 用户当前对话 2026-07-01] [已核验: project_memory/evidence/verifications/2026-07-01_w2_morning_peak_rerun_after_ap200_qc.md]
 - `D:\00 博士阶段\博一\05 Project\ecpreproc` 是用户自写、按 EddyPro 逻辑复现的通量预处理和计算包，已经过每个阶段精度验证，可作为更灵活通量计算的优先调用工具。 [来源: 用户当前对话 2026-05-28] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc]
 - 详细研究问题分层、数据资产和方法菜单分别由 `regov_memory/06_research_question_map.md`、`regov_memory/07_data_inventory.md` 和 `regov_memory/08_method_menu.md` 维护；共享背景文件只保留长期有效的入口信息，避免不断膨胀。 [推断：基于 REgov 分层存取结构]
 
@@ -48,6 +49,11 @@
 - 本次正式运行中，严格通过完整单程 `1529` 个、覆盖 `73` 天，构造有效 four-pass ensemble `334` 个；`PF_8bin` 输入点总数 `1852`，8 个 bin 全部拟合成功，倾角范围 `8.4200-11.8022 deg`，输入点层面中位 RMSE 降幅约 `38.1%`。这说明该口径已经具备作为后续 FL 高频通量旋转参数的样本量和可复现基础。 [已核验: E:\Dataset_Level1\Flares\PFparameter\manifest.txt] [已核验: E:\Dataset_Level1\Flares\PFparameter\pf_fit_summary.csv] [推断：基于 PF 样本量、fit_ok 和 RMSE 诊断整理]
 - A/B 对比显示，新旧预处理的平均绝对位置差约 `0.0747 m`，10 Hz 样本 bin 重分配比例约 `0.245%`，实际速度相对固定速度的平均绝对差约 `0.00267 m/s`。因此这次升级主要是把位置和速度处理正式化，对 8-bin 分箱和整体 PF 判断没有造成大范围重排；但当前参数不能与旧线性位置/固定速度的 B2 预处理混用。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_preprocessing_ab_summary.csv] [推断：基于 A/B 汇总数值整理]
 - `PF_8bin` 本轮仍未修正轨道坡度导致的垂直平台速度。因此它解决的是 sonic 方位、水平小车运动和长期平均流线倾斜下的 FL 坐标旋转参数问题，不应被解释为已经完成全部平台三维运动修正。 [已核验: E:\Dataset_Level1\Flares\PFparameter\PF_8bin_method_notes.md] [推断：基于方法边界整理]
+
+## MT 固定塔 PF 默认口径
+
+- MT 固定塔后续全量通量处理的当前默认 planar fit 口径采用 `sector_pf`。本轮已确认 `ecpreproc` 的 `<15 天` 规则是 PF 输入时长不足时降级为 double rotation，不是每 15 天切块拟合 PF；EddyPro/文献逻辑也不要求固定每 15 天更新一套 PF。 [来源: 用户当前对话 2026-06-30] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-30_mt_pf_sector_selection.md]
+- 基于 MT 全量 30 min block-mean 的加权筛选显示，`season_sector_pf` 的 `rmse_w_after=0.10356`、`sector_pf=0.10558`，固定 `30d/60d/90d` 时间窗口均不占优；三组完整通量配对差异显示 `season_sector_pf` 相对 `sector_pf` 的增量小于 `sector_pf` 相对 `global_pf` 的差异。因此 REgov 层将 `sector_pf` 记为当前默认，`season_sector_pf` 仅作为敏感性实验或报告补充。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-30_mt_pf_sector_selection.md] [推断：基于筛选指标和配对通量差异整理]
 
 ## 当前项目 EA/EC 与 raw-w 计算对象
 
@@ -98,6 +104,10 @@
 - `04 Lee` 的高频风对齐中，`wind_angle_sonic` 是 `Ux/Uy` 声学坐标角度，不是地理风向或来向风向。后续如果要把该支线推进到“谷轴向 vs 切面向”归因，仍需要补充坐标旋转、仪器方位角或沿谷/切面方向定义。 [已核验: D:\00 博士阶段\99 Project\04 Lee\project_memory\evidence\verifications\2026-05-07-mt0323-highfreq-wind-alignment.md]
 
 ## 当前生效分析决策
+
+- MT 固定塔后续全量通量处理默认使用 `sector_pf`，不默认使用固定 15 天切块、固定 30/60/90 天窗口 PF 或 `season_sector_pf`。`season_sector_pf` 可在报告中作为敏感性实验，因为它在残差 RMSE 上略优，但相对 `sector_pf` 的完整通量增量较小。 [来源: 用户当前对话 2026-06-30] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-30_mt_pf_sector_selection.md]
+- 当后续需要比较 FL 质量守恒结果中 `broad_closed` 与 `numerically_closed` 两类 mixed-sign 单程的平均输送量时，当前生效汇总口径是：先在每个 `date × hour_bin × lambda_closure_class` 内按单程与该小时的 `overlap_sec` 对 `F_lambda_pf_umol_m2_s` 加权平均，再跨日期做等权平均；`month × hour × closure_class` 热图沿用同一层级。该口径用于避免单程更碎、停留更久或样本更多的日期主导均值。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-28_fl_mass_balance_closure_mean_flux_and_filtered_heatmaps.md]
+- 这类 closure-class 均值图和筛选热图仍属于质量守恒修正后的诊断输送量，不直接写成最终生态系统 CO2 通量；主解释优先 `broad_closed`，`numerically_closed` 作为强制闭合敏感性对照，`single_sign` 与 `extreme_forced` 继续分开解释。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-28_fl_mass_balance_closure_mean_flux_and_filtered_heatmaps.md] [推断：基于当前分类口径和图件用途整理]
 
 - 后续所有代表三个观测站点的点线图固定使用同一套站点颜色：`CVT = #F8766D` 红色、`FL = #00BA38` 绿色、`MT = #619CFF` 蓝色。EA/raw-w/FL 诊断图默认采用 `regov_memory/03_visualization.md` 中固定的白底 `theme_bw` 报告型风格；该规范来自 `EA_raw_w_CO2_decomposition_components_30min.png` 对应代码，后续不随变量、窗口或分析分支改变。 [来源: 用户当前对话 2026-05-21] [来源: 用户当前对话 2026-06-02] [已核验: D:\00 博士阶段\99 Project\06 EA\regov_memory\03_visualization.md] [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\plot_ea_raw_w_total_transport.R]
 - 当前 EA 计算采用 `D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R`，并复用 `ecpreproc` 中已有预处理思路，但只保留 EA 需要的预处理部分。 [已核验: D:\00 博士阶段\博一\05 Project\ecpreproc\run_ea_preprocess.R]

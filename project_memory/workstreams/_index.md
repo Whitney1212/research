@@ -1,5 +1,7 @@
 # 工作流索引
 
+- `W3_fixed_tower_annual_nee_estimation.md` 已新增为两固定塔 `MT/CVT` 2025 自然年 `EC-only annual NEE estimate / proxy` 工作流。该工作流单独维护覆盖审计、gapfilling、长缺口、筛选口径敏感性和对外表述边界，避免继续挤在 `W1/W2` 中。 [来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W3_fixed_tower_annual_nee_estimation.md]
+
 - `W2_morning_peak_workflow.md` 已新增为独立晨间 CO2 peak 事件机制工作流。该工作流与长期复杂地形碳收支主线并行；当前固定塔事件气候学先做一个自然年，优先以 `2025` 年为主分析年，再结合 `20-30` 个三站独立事件日、谷中央上空固定观测、移动切面和 AP 廓线代理量，解释长期稳定晨间 CO2 事件的边界层转换、空间传播与局地再分配机制。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]
 
 - `W1_EA_EC_flux.md` 已补入 2026-06-12 的 FL `PF_8bin` 参数进展：正式参数输出位于 `E:\Dataset_Level1\Flares\PFparameter`，后续高频通量计算应调用 `PF_8bin_parameters_for_flux.csv`，并沿用逐点运行记录位置插值和实际速度矢量水平风修正。 [已核验: project_memory/evidence/verifications/2026-06-12_fl_pf8bin_record_position_actual_speed.md]

@@ -1,5 +1,41 @@
 # 构件索引
 
+## 2026-07-06 FL raw/PF F_adv 分组日变化色带图
+
+- `E:\FL_MASSBALANCE\202308\plot_raw_pf_fadv_grouped_with_bands.R` 是 202308 几何放宽批次的 raw/PF `F_adv` 分组日变化重绘脚本；它输出 raw、raw detrended、PF、PF detrended 四张图和对应 CSV/summary，色带为日期层面的 `25-75%` 范围。 [已核验: project_memory/evidence/verifications/2026-07-06_fl_fadv_diurnal_ribbons_raw_pf.md]
+- `E:\FL_MASSBALANCE\plot_full_raw_pf_fadv_grouped_with_bands.R` 是全量 raw/PF `F_adv` 分组日变化重绘脚本；raw 输出到 `E:\FL_MASSBALANCE\raw_w_mass_balance_from_1min\figures\diurnal`，PF 输出到 `E:\FL_MASSBALANCE\results\figures\diurnal`。 [已核验: project_memory/evidence/verifications/2026-07-06_fl_fadv_diurnal_ribbons_raw_pf.md]
+- `E:\FL_MASSBALANCE\202308\raw_pf_fadv_grouped_with_bands_manifest.csv` 和 `E:\FL_MASSBALANCE\full_raw_pf_fadv_grouped_with_bands_manifest.csv` 分别记录 202308 批次和全量批次四张输出图、CSV 与 summary 的实际路径。 [已核验: project_memory/evidence/verifications/2026-07-06_fl_fadv_diurnal_ribbons_raw_pf.md]
+
+## 2026-07-03 FL 202308 geometry-relaxed raw/PF F_adv
+
+- `E:\FL_MASSBALANCE\run_fl_mass_balance_8bin_2ensemble.R` 是当前 FL 质量守恒主脚本；本轮已支持用环境变量覆盖 pass 表、PF 参数表、raw 文件索引、运行记录缓存和轨道端点，并修复 raw 风分支的分钟聚合列生成顺序。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+- `E:\FL_MASSBALANCE\202308\prepare_geometry_relaxed_passes_for_raw_fadv.R` 将几何放宽完整单程表整理为主脚本可读的 pass 表，输出 `E:\FL_MASSBALANCE\202308\raw_fadv_geometry_relaxed_track15_255\fl_complete_passes_geometry_relaxed_track15_255_for_raw_fadv.csv`。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+- `E:\FL_MASSBALANCE\202308\raw_fadv_geometry_relaxed_track15_255` 保存 raw 风版本 `F_adv` 计算结果；主表为 `results\FL_raw_F_adv_geometry_relaxed_track15_255_by_pass.csv`，1 min 表为 `results\FL_mass_balance_raw_w_1min.csv`，运行摘要为 `FL_raw_F_adv_geometry_relaxed_track15_255_summary.txt`。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+- `E:\FL_MASSBALANCE\202308\raw_fadv_geometry_relaxed_track15_255\figures\FL_raw_mixed_sign_F_adv_diurnal_mean.png` 是 raw mixed-sign `F_adv` 半小时长期均值图；同目录保存 CSV、summary 和早晨贡献诊断表。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+- `E:\FL_MASSBALANCE\202308\pf_fadv_geometry_relaxed_track15_255` 保存 PF 风版本 `F_adv` 计算结果；主表为 `results\FL_pf_F_adv_geometry_relaxed_track15_255_by_pass.csv`，1 min 表为 `results\FL_mass_balance_PF8bin_2ensemble_1min.csv`，运行摘要为 `FL_pf_F_adv_geometry_relaxed_track15_255_summary.txt`。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+- `E:\FL_MASSBALANCE\202308\pf_fadv_geometry_relaxed_track15_255\figures\FL_pf_mixed_sign_F_adv_diurnal_mean.png` 是 PF mixed-sign `F_adv` 半小时长期均值图；同目录保存 CSV 和 summary。 [已核验: project_memory/evidence/verifications/2026-07-03_fl_202308_geometry_relaxed_raw_pf_fadv.md]
+
+## 2026-07-02 MT/CVT full sector-PF 与 FL 质量守恒 30 min 对比
+
+- `E:\FL_MASSBALANCE\calc_mt_pf_fl_30min_diurnal_mean.R` 是当前 30 min 日变化对比脚本。它读取 `MT/CVT` 全量 `sector_pf` 通量主表，按 `site × halfhour` 计算固定塔均值，并复用 `FL` half-hour closure mean 表合并出 `MT`、`CVT`、`FL_broad` 和 `FL_closed` 四类曲线。 [已核验: project_memory/evidence/verifications/2026-07-02_mt_cvt_fl_30min_diurnal_comparison.md]
+- `E:\FL_MASSBALANCE\figures\mt_pf_fl_30min_diurnal\MT_pf_vs_FL_mass_balance_30min_diurnal_mean.png` 是当前主对比图；同目录下 `MT_pf_vs_FL_mass_balance_30min_diurnal_mean.csv` 是合并数据，`MT_pf_vs_FL_mass_balance_30min_diurnal_summary.txt` 是运行汇总和核验摘要。 [已核验: project_memory/evidence/verifications/2026-07-02_mt_cvt_fl_30min_diurnal_comparison.md]
+- `E:\FL_MASSBALANCE\figures\mt_pf_fl_30min_diurnal\MT_pf_co2_flux_30min_diurnal_mean.csv`、`CVT_pf_co2_flux_30min_diurnal_mean.csv`、`MT_CVT_pf_co2_flux_30min_diurnal_mean.csv` 和 `FL_mass_balance_closure_flux_30min_diurnal_mean.csv` 分别保存 MT、CVT、固定塔合并和 FL closure-class 的 30 min 均值表。 [已核验: project_memory/evidence/verifications/2026-07-02_mt_cvt_fl_30min_diurnal_comparison.md]
+- `D:\00 博士阶段\博一\05 Project\com_rotation\results\mt_pf_fl_30min_diurnal` 保存同版脚本、图件、合并表和分项均值表，供 `com_rotation` 分支下继续引用。 [已核验: project_memory/evidence/verifications/2026-07-02_mt_cvt_fl_30min_diurnal_comparison.md]
+
+## 2026-07-01 固定塔全量 sector PF 后通量与可视化
+
+- `E:\Dataset_Level1\MT\EC\Flux_ecprecproc_afterPF\MT_flux_sector_pf.csv` 是当前 MT after-PF 全量通量主表；`figures_flux_means` 保存对应均值可视化图表，绘图脚本为 `D:\00 博士阶段\99 Project\06 EA\scripts\plot_mt_sector_pf_flux_means.R`。 [已核验: project_memory/evidence/verifications/2026-07-01_full_pf_flux_progress_locations.md]
+- `D:\00 博士阶段\99 Project\06 EA\scripts\run_cvt_full_sector_pf_flux.R` 是 CVT 全量 `sector_pf` 通量计算脚本；主结果、运行汇总、扇区 PF 汇总和旋转细节输出到 `E:\Dataset_Level1\CVT\EC\PF`。 [已核验: project_memory/evidence/verifications/2026-07-01_full_pf_flux_progress_locations.md]
+- `E:\Dataset_Level1\CVT\EC\PF\CVT_flux_sector_pf.csv` 是 CVT 当前主通量表；`CVT_flux_sector_pf_validation_summary.csv` 记录 `21447` 行、时间范围 `2024-11-01 00:30` 至 `2026-05-10 15:00`、无重复 timestamp、`pf_schemes=sector_pf`。 [已核验: E:\Dataset_Level1\CVT\EC\PF\CVT_flux_sector_pf_validation_summary.csv]
+- `D:\00 博士阶段\99 Project\06 EA\scripts\plot_cvt_sector_pf_flux_means.R` 是 CVT after-PF 通量均值可视化脚本；图表输出在 `E:\Dataset_Level1\CVT\EC\PF\figures_flux_means`，均值表为 `CVT_sector_pf_flux_mean_overall.csv`、`CVT_sector_pf_flux_mean_by_hour.csv` 和 `CVT_sector_pf_flux_mean_by_month_hour.csv`。 [已核验: project_memory/evidence/verifications/2026-07-01_full_pf_flux_progress_locations.md]
+
+## 2026-06-30 MT 固定塔 PF 方案筛选与三组完整通量
+
+- `E:\Dataset_Level1\MT\EC\PF\WINDOW\run_pf_window_screening_weighted.R` 是 MT 固定塔 PF 窗口和分组方案的加权筛选脚本，使用已有全量 30 min block-mean，权重为 `min(n_points / 18000, 1)`。 [已核验: project_memory/evidence/verifications/2026-06-30_mt_pf_sector_selection.md]
+- `E:\Dataset_Level1\MT\EC\PF\WINDOW\results\MT_pf_weighted_scheme_metrics.csv`、`MT_pf_weighted_fit_parameters.csv` 和 `MT_pf_weighted_screening_report.md` 是本轮筛选的核心结果，当前支持默认采用 `sector_pf`，把 `season_sector_pf` 作为敏感性实验。 [已核验: project_memory/evidence/verifications/2026-06-30_mt_pf_sector_selection.md]
+- `E:\Dataset_Level1\MT\EC\PF\WINDOW\run_mt_three_pf_flux.R` 是 `global_pf`、`sector_pf` 和 `season_sector_pf` 三组完整通量重跑脚本；对应输出位于 `E:\Dataset_Level1\MT\EC\PF\WINDOW\flux_runs`，全量运行汇总为 `MT_three_pf_flux_run_summary.csv`。 [已核验: project_memory/evidence/verifications/2026-06-30_mt_pf_sector_selection.md]
+- `E:\Dataset_Level1\MT\EC\PF\WINDOW\analyze_three_pf_flux_differences.R` 是三组完整通量配对差异分析脚本；配对结果位于 `E:\Dataset_Level1\MT\EC\PF\WINDOW\flux_runs\paired_analysis`，其中 `MT_pf_flux_diff_overall.csv` 和 `MT_pf_flux_paired_analysis_report.md` 是判断默认口径的关键文件。 [已核验: project_memory/evidence/verifications/2026-06-30_mt_pf_sector_selection.md]
+
 ## 2026-06-25 FL 运行记录增量与完整单程更新程序
 
 - `E:\FL_pre\scripts\fl_full_records_01_running_records_prepare.R`、`fl_full_records_02_complete_passes_and_ec_availability.R` 和 `fl_full_records_03_plot_complete_pass_coverage.R` 是当前 FL 运行记录全量重建流程。流程先统一 `time/speed/position` 并压缩长静止段，再筛选几何完整单程和 EC key-complete 可用性，最后绘制完整单程覆盖图；运行记录基础文件输出到 `E:\Dataset_Level0\Flares\running_time\records`。 [已核验: E:\FL_pre\scripts\README_FL_records_pipeline.md]
@@ -72,5 +108,14 @@
 - `D:\00 博士阶段\博一\05 Project\com_FLafterPF\results\flux_30min\FL_PF8bin_EC_covariance_30min.csv` 是当前 FL after-PF 30 min EC 主结果表，共 `378` 行，CO2/H2O 各 `189` 行。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-14_fl_pf8bin_ec_ea_mechanism_after_pf.md]
 - `D:\00 博士阶段\博一\05 Project\com_FLafterPF\results\ea_mechanism` 保存当前 EA 机制诊断表、summary、long-format plot 数据和图件目录；其中 summary 显示上下贡献闭合误差为浮点误差量级。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-06-14_fl_pf8bin_ec_ea_mechanism_after_pf.md]
 - `E:\FL_MASSBALANCE\run_fl_mass_balance_8bin_2ensemble.R` 是全量严格完整单程的R质量守恒主脚本；`verify_fl_mass_balance_8bin_2ensemble.R` 是结果完整性和数值平衡核验脚本。主结果、1 min明细、逐日/方向汇总位于 `E:\FL_MASSBALANCE\results`，数据可用性、文件QC和验证摘要位于 `E:\FL_MASSBALANCE\qc`。 [已核验: E:\FL_MASSBALANCE\qc\verification_summary.txt]
-- `E:\FL_MASSBALANCE\plot_fl_mass_balance_monthly_transport_heatbands.R` 是质量守恒后垂直输送月度热力色带绘图脚本；`E:\FL_MASSBALANCE\figures\monthly_transport_heatbands` 保存5张月份PNG、作图segment表、图件manifest和验证摘要。 [已核验: E:\FL_MASSBALANCE\figures\monthly_transport_heatbands\FL_mass_balance_monthly_transport_heatband_verification.txt]
-- `E:\FL_MASSBALANCE\plot_fl_mass_balance_combined_transport_heatband.R` 是质量守恒后垂直输送合并热力色带绘图脚本；输出PNG和manifest为 `FL_mass_balance_transport_heatband_all_valid_dates.*`，横轴只排列41个有效日期且不标注 `low_minute_coverage`。 [已核验: E:\FL_MASSBALANCE\figures\monthly_transport_heatbands\FL_mass_balance_transport_heatband_all_valid_dates_manifest.txt]
+- `E:\FL_MASSBALANCE\plot_fl_mass_balance_monthly_transport_heatbands.R` 是质量守恒后垂直输送月度热力色带绘图脚本；`E:\FL_MASSBALANCE\figures\monthly_transport_heatbands` 当前保存15张月份PNG、作图segment表、图件manifest和验证摘要。 [已核验: E:\FL_MASSBALANCE\figures\monthly_transport_heatbands\FL_mass_balance_monthly_transport_heatband_verification.txt]
+- `E:\FL_MASSBALANCE\plot_fl_mass_balance_combined_transport_heatband.R` 是质量守恒后垂直输送合并热力色带绘图脚本；输出PNG和manifest为 `FL_mass_balance_transport_heatband_all_valid_dates.*`，横轴只排列125个有效日期且不标注 `low_minute_coverage`。 [已核验: E:\FL_MASSBALANCE\figures\monthly_transport_heatbands\FL_mass_balance_transport_heatband_all_valid_dates_manifest.txt]
+- `E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_strict.csv` 是当前FL质量守恒重算使用的严格完整单程输入；`ec_raw_files_full_index.csv` 是同目录下的全量EC索引，`records\fl_records_230417_260622.csv` 是当前实际速度与位置插值来源。 [已核验: project_memory/evidence/verifications/2026-06-26_fl_mass_balance_updated_passes_level0.md]
+- `E:\FL_MASSBALANCE\run_fl_mass_balance_8bin_2ensemble.R` 当前按新严格表起止日期从全量EC索引筛选文件，并直接从统一运行记录派生位置速度；`verify_fl_mass_balance_8bin_2ensemble.R` 已同步改用新pass表和EC索引。 [已核验: E:\FL_MASSBALANCE\run_fl_mass_balance_8bin_2ensemble.R] [已核验: E:\FL_MASSBALANCE\verify_fl_mass_balance_8bin_2ensemble.R]
+## 2026-07-01 AP200 剖面 QC 与 QC 后时序
+
+- `E:\Dataset_Level1\MT\AP\QC.R` 是 `MT` AP200 初步 QC 主脚本。它从 `E:\Dataset_RAW\MT\MT_AP\20240704-20260131` 读取 `.dat`，并把原始样本级、轮次级、日级和总体汇总写到 `E:\Dataset_Level0\MT\AP\qc_summary\20240704-20260131`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_qc_pipeline_mt_cvt.md]
+- `E:\Dataset_Level1\MT\AP\Timeseries_afterQC.R` 是 `MT` 的 QC 后时序与 `delta_c` 出图脚本。它依赖已生成的 `cycle_qc_mt`，图件和 `MT_AP_profile_cycle_after_qc_20240704_20260131.csv` 输出到 `E:\Compute_Fcorr\MT_AP_Level1\时序_afterQC`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_qc_pipeline_mt_cvt.md]
+- `E:\Dataset_Level1\CVT\AP\CVT_QC.R` 是 `CVT` AP200 初步 QC 主脚本。它从 `E:\Dataset_Level0\CVT\AP\202411121700-202602020930` 读取 `.dat`，并把汇总结果写到 `E:\Dataset_Level0\CVT\AP\qc_summary\202411121700-202602020930`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_qc_pipeline_mt_cvt.md]
+- `E:\Dataset_Level1\CVT\AP\CVT_timeseries.R` 是 `CVT` 的 QC 后时序出图脚本。它依赖 `cycle_qc_cvt`，图件和 `CVT_AP_profile_cycle_after_qc_20241112_20260202.csv` 输出到 `E:\Compute_Fcorr\CVT_AP_Level1\plot_after_qc`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_qc_pipeline_mt_cvt.md]
+- `D:\00 博士阶段\99 Project\06 EA\scripts\run_ap_profile_qc_monthly.R` 是当前 `MT/CVT` AP200 全量剖面 QC 的月批执行脚本。它按月写出 raw-file、cycle、after-qc、day、missing-dates、overall、bad-files 和 month-summary，并在不指定月份时自动汇总站点级总表到 `E:\Dataset_Level1\MT\AP\20240704-20260622` 与 `E:\Dataset_Level1\CVT\AP\20240704-20260622`。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_monthly_qc_full_run.md]
