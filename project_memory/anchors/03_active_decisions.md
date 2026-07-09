@@ -1,5 +1,8 @@
 # 当前生效决策
 
+- 2026-07-08 后，固定塔 `rotation` 敏感性比较和 `W3` 后续年度审计/NEE 重算默认使用各产品 `*_standardized_30min.csv` 作为主输入；原始全量主表保留 provenance 作用，不再直接作为下游主输入。 [来源: 用户当前对话 2026-07-08] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fixed_tower_full_flux_products_and_timestamp_standardization.md]
+- 2026-07-08 后，双塔统一 `rotation` 比较的公共矩阵固定为 `no_rotation / dr / global_pf / sector_pf`；`MT` 的 `season_sector_pf` 保留为 MT-only 额外敏感性，不并入双塔公共四方法主比较表。 [来源: 用户当前对话 2026-07-08] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fixed_tower_full_flux_products_and_timestamp_standardization.md]
+
 - 2026-07-06 后，两固定塔 `MT/CVT` 的自然年碳汇试算单独维护为 `W3_fixed_tower_annual_nee_estimation.md`。当前主分析年固定为 `2025`，所有结果默认表述为 PF 后固定塔 `EC-only annual NEE estimate / proxy`，不直接写成最终碳收支或 NECB；筛选与 gapfilling 口径的敏感性应并行保留。 [来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W3_fixed_tower_annual_nee_estimation.md]
 
 - 2026-07-02 后，W2 晨间 peak 的当前固定事件口径改为：在既有 `sunrise_ref`、`pre_min_window` 和 `peak_window` 不变的前提下，用廓线均值 `co2_mean` 要求日出后到 `pre_min_time` 整体下降、再从 `pre_min_time` 到 `peak_time` 整体上升；`amp_ppm` 固定为 `profile_mean_CO2(peak_time) - profile_mean_CO2(pre_min_time)`。`peak_by_diff = amp_ppm > 0` 仍是基础事件入口，`5 ppm` 和 `10 ppm` 保留为强度分层，不再替代主事件定义。[来源: 用户当前对话 2026-07-02] [已核验: project_memory/evidence/verifications/2026-07-02_w2_morning_peak_fixed_rule_overall_decline_rise.md]

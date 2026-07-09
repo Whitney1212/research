@@ -1,0 +1,9 @@
+2026-07-07 12:15:31 | Loaded ecpreproc source files from D:/00 博士阶段/博一/05 Project/ecpreproc/R
+2026-07-07 12:15:32 | Running mt_dr | files=959 | rotation=dr
+========== Starting Streaming Eddy Covariance Processing ==========
+[Init] Input files: 959
+[Run] Streaming block processing...
+========== Streaming Processing Complete ==========
+[Summary] Blocks processed: 38316 (from 44022 split blocks)
+>>> Exporting report to: E:/Dataset_Level1/MT/EC/dr_ecpreproc/EC_Output_stream_UnknownSite_20230619_20260622.csv
+2026-07-07 19:37:07 | Finished mt_dr | rows=38316 | output=E:/Dataset_Level1/MT/EC/dr_ecpreproc/results/MT_flux_dr.csv

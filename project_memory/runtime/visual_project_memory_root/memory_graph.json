@@ -1,0 +1,901 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "06 EA project memory",
+    "root": "project_memory",
+    "current_state": "当前项目快照",
+    "next_step": "# 下一步主线任务",
+    "updated_at": "2026-07-07"
+  },
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "runtime_state",
+      "label": "当前项目状态",
+      "human_label": "当前项目状态",
+      "summary": "# 当前项目快照",
+      "status": "active",
+      "priority": 1,
+      "file": "runtime/01_current_snapshot.md",
+      "sources": [
+        "runtime/01_current_snapshot.md",
+        "runtime/03_recent_actions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F2",
+      "type": "file",
+      "label": "01_current_snapshot.md",
+      "human_label": "01_current_snapshot.md",
+      "summary": "runtime_state",
+      "status": "active",
+      "priority": 3,
+      "file": "runtime/01_current_snapshot.md",
+      "sources": [
+        "runtime/01_current_snapshot.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F3",
+      "type": "file",
+      "label": "03_recent_actions.md",
+      "human_label": "03_recent_actions.md",
+      "summary": "runtime_state",
+      "status": "active",
+      "priority": 3,
+      "file": "runtime/03_recent_actions.md",
+      "sources": [
+        "runtime/03_recent_actions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S4",
+      "type": "anchor",
+      "label": "稳定事实",
+      "human_label": "稳定事实",
+      "summary": "# 锚点事实",
+      "status": "active",
+      "priority": 2,
+      "file": "anchors/01_anchor_facts.md",
+      "sources": [
+        "anchors/01_anchor_facts.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F5",
+      "type": "file",
+      "label": "01_anchor_facts.md",
+      "human_label": "01_anchor_facts.md",
+      "summary": "anchor",
+      "status": "active",
+      "priority": 3,
+      "file": "anchors/01_anchor_facts.md",
+      "sources": [
+        "anchors/01_anchor_facts.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S6",
+      "type": "constraint",
+      "label": "关键约束",
+      "human_label": "关键约束",
+      "summary": "# 关键约束",
+      "status": "active",
+      "priority": 2,
+      "file": "anchors/02_key_constraints.md",
+      "sources": [
+        "anchors/02_key_constraints.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F7",
+      "type": "file",
+      "label": "02_key_constraints.md",
+      "human_label": "02_key_constraints.md",
+      "summary": "constraint",
+      "status": "active",
+      "priority": 3,
+      "file": "anchors/02_key_constraints.md",
+      "sources": [
+        "anchors/02_key_constraints.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S8",
+      "type": "decision",
+      "label": "当前决策",
+      "human_label": "当前决策",
+      "summary": "# 当前生效决策",
+      "status": "active",
+      "priority": 2,
+      "file": "anchors/03_active_decisions.md",
+      "sources": [
+        "anchors/03_active_decisions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F9",
+      "type": "file",
+      "label": "03_active_decisions.md",
+      "human_label": "03_active_decisions.md",
+      "summary": "decision",
+      "status": "active",
+      "priority": 3,
+      "file": "anchors/03_active_decisions.md",
+      "sources": [
+        "anchors/03_active_decisions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S10",
+      "type": "conflict",
+      "label": "保留冲突",
+      "human_label": "保留冲突",
+      "summary": "# 需要保留的冲突或解释风险",
+      "status": "active",
+      "priority": 2,
+      "file": "anchors/04_conflicts_to_keep.md",
+      "sources": [
+        "anchors/04_conflicts_to_keep.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F11",
+      "type": "file",
+      "label": "04_conflicts_to_keep.md",
+      "human_label": "04_conflicts_to_keep.md",
+      "summary": "conflict",
+      "status": "active",
+      "priority": 3,
+      "file": "anchors/04_conflicts_to_keep.md",
+      "sources": [
+        "anchors/04_conflicts_to_keep.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S12",
+      "type": "workstream",
+      "label": "工作流索引",
+      "human_label": "工作流索引",
+      "summary": "# 工作流索引",
+      "status": "active",
+      "priority": 1,
+      "file": "workstreams/_index.md",
+      "sources": [
+        "workstreams/_index.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F13",
+      "type": "file",
+      "label": "_index.md",
+      "human_label": "_index.md",
+      "summary": "workstream",
+      "status": "active",
+      "priority": 3,
+      "file": "workstreams/_index.md",
+      "sources": [
+        "workstreams/_index.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S14",
+      "type": "workstream",
+      "label": "W1 EA/EC 通量主线",
+      "human_label": "W1 EA/EC 通量主线",
+      "summary": "这条工作线的目标，是在不做坐标旋转、WPL、频率修正和密度换算的前提下，复用 EC 高频数据处理代码完成 EA 所需预处理。当前已经形成两个结果口径：一个是基…",
+      "status": "active",
+      "priority": 1,
+      "file": "workstreams/W1_EA_EC_flux.md",
+      "sources": [
+        "workstreams/W1_EA_EC_flux.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F15",
+      "type": "file",
+      "label": "W1_EA_EC_flux.md",
+      "human_label": "W1_EA_EC_flux.md",
+      "summary": "workstream",
+      "status": "active",
+      "priority": 3,
+      "file": "workstreams/W1_EA_EC_flux.md",
+      "sources": [
+        "workstreams/W1_EA_EC_flux.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S16",
+      "type": "workstream",
+      "label": "W2 晨间 CO2 peak",
+      "human_label": "W2 晨间 CO2 peak",
+      "summary": "这条工作流的目标，是把晨间 CO2 peak 从 `W1` 的 EA/raw-w 与复杂地形通量修正支撑案例中独立出来，专门回答长期稳定晨间 CO2 事件的边…",
+      "status": "active",
+      "priority": 1,
+      "file": "workstreams/W2_morning_peak_workflow.md",
+      "sources": [
+        "workstreams/W2_morning_peak_workflow.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F17",
+      "type": "file",
+      "label": "W2_morning_peak_workflow.md",
+      "human_label": "W2_morning_peak_workflow.md",
+      "summary": "workstream",
+      "status": "active",
+      "priority": 3,
+      "file": "workstreams/W2_morning_peak_workflow.md",
+      "sources": [
+        "workstreams/W2_morning_peak_workflow.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S18",
+      "type": "workstream",
+      "label": "W3 固定塔年 NEE 估算",
+      "human_label": "W3 固定塔年 NEE 估算",
+      "summary": "这条工作流专门维护 `MT/CVT` 两固定塔的 `2025` 自然年 `EC-only annual NEE estimate / proxy`，把覆盖审计…",
+      "status": "active",
+      "priority": 1,
+      "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "sources": [
+        "workstreams/W3_fixed_tower_annual_nee_estimation.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F19",
+      "type": "file",
+      "label": "W3_fixed_tower_annual_nee_estimation.md",
+      "human_label": "W3_fixed_tower_annual_nee_estimation.md",
+      "summary": "workstream",
+      "status": "active",
+      "priority": 3,
+      "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "sources": [
+        "workstreams/W3_fixed_tower_annual_nee_estimation.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S20",
+      "type": "open_question",
+      "label": "固定塔自然年主分析口径已经调整为先做一个自然年…",
+      "human_label": "固定塔自然年主分析口径已经调整为先做一个自然年…",
+      "summary": "固定塔自然年主分析口径已经调整为先做一个自然年，优先候选为 `2025` 年；当前仍需生成 `2025` 年按日覆盖清单，并把仪器维修造成的断口标记为不可避免…",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F21",
+      "type": "file",
+      "label": "02_open_questions.md",
+      "human_label": "02_open_questions.md",
+      "summary": "open_question",
+      "status": "active",
+      "priority": 3,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S22",
+      "type": "open_question",
+      "label": "旧 E 盘整理线程中小写 `mt/cvt/ev…",
+      "human_label": "旧 E 盘整理线程中小写 `mt/cvt/ev…",
+      "summary": "旧 E 盘整理线程中小写 `mt/cvt/evt/nvt/svt` 属于历史硬盘目录口径，而当前项目科学解释中 `MT=谷缘高地`、`CVT=谷底`。固定塔自…",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S23",
+      "type": "open_question",
+      "label": "旧线程的缺失时段图基于 `E:\\数据整理\\现有…",
+      "human_label": "旧线程的缺失时段图基于 `E:\\数据整理\\现有…",
+      "summary": "旧线程的缺失时段图基于 `E:\\数据整理\\现有数据.xlsx` 且截止 `2026-04-08`；本轮核查该旧路径当前不存在，当前固定塔自然年覆盖和事件日可用…",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S24",
+      "type": "open_question",
+      "label": "`04_lee` 四天窗口的短波日出 prox…",
+      "human_label": "`04_lee` 四天窗口的短波日出 prox…",
+      "summary": "`04_lee` 四天窗口的短波日出 proxy 字段和阈值已经追溯清楚：`CVT_MET` 的 `SW_in_Avg` 聚合为 `30 min` 的 `SW…",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S25",
+      "type": "open_question",
+      "label": "晨间 peak 事件识别规则尚未冻结。下一步需…",
+      "human_label": "晨间 peak 事件识别规则尚未冻结。下一步需…",
+      "summary": "晨间 peak 事件识别规则尚未冻结。下一步需要先在 `2025` 自然年内确定日出相对时间下的自动识别规则，并清楚区分有效观测日、维修缺测日、有 peak …",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S26",
+      "type": "open_question",
+      "label": "`20-30` 个三站独立事件日的气象状态分布…",
+      "human_label": "`20-30` 个三站独立事件日的气象状态分布…",
+      "summary": "`20-30` 个三站独立事件日的气象状态分布尚未核查。若候选事件几乎都属于同一种天气状态，只能证明该状态下的机制，不能直接建立普遍分类。",
+      "status": "active",
+      "priority": 2,
+      "file": "runtime/02_open_questions.md",
+      "sources": [
+        "runtime/02_open_questions.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S27",
+      "type": "next_step",
+      "label": "下一最小步",
+      "human_label": "下一最小步",
+      "summary": "# 下一步主线任务",
+      "status": "active",
+      "priority": 1,
+      "file": "runtime/05_next_mainline_tasks.md",
+      "sources": [
+        "runtime/05_next_mainline_tasks.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F28",
+      "type": "file",
+      "label": "05_next_mainline_tasks.md",
+      "human_label": "05_next_mainline_tasks.md",
+      "summary": "next_step",
+      "status": "active",
+      "priority": 3,
+      "file": "runtime/05_next_mainline_tasks.md",
+      "sources": [
+        "runtime/05_next_mainline_tasks.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "S29",
+      "type": "evidence",
+      "label": "线程索引",
+      "human_label": "线程索引",
+      "summary": "# 证据索引",
+      "status": "active",
+      "priority": 2,
+      "file": "evidence/00_thread_index.md",
+      "sources": [
+        "evidence/00_thread_index.md"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "F30",
+      "type": "file",
+      "label": "00_thread_index.md",
+      "human_label": "00_thread_index.md",
+      "summary": "evidence",
+      "status": "active",
+      "priority": 3,
+      "file": "evidence/00_thread_index.md",
+      "sources": [
+        "evidence/00_thread_index.md"
+      ],
+      "warnings": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "S1",
+      "to": "F2",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S1",
+      "to": "F3",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S4",
+      "to": "F5",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S6",
+      "to": "F7",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S8",
+      "to": "F9",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S10",
+      "to": "F11",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S12",
+      "to": "F13",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S14",
+      "to": "F15",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S16",
+      "to": "F17",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S18",
+      "to": "F19",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S20",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S22",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S23",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S24",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S25",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S26",
+      "to": "F21",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S27",
+      "to": "F28",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S29",
+      "to": "F30",
+      "type": "points_to",
+      "label": "打开文件"
+    },
+    {
+      "from": "S1",
+      "to": "S12",
+      "type": "contains",
+      "label": "当前主线"
+    },
+    {
+      "from": "S12",
+      "to": "S14",
+      "type": "contains",
+      "label": "工作流"
+    },
+    {
+      "from": "S12",
+      "to": "S16",
+      "type": "contains",
+      "label": "工作流"
+    },
+    {
+      "from": "S12",
+      "to": "S18",
+      "type": "contains",
+      "label": "工作流"
+    },
+    {
+      "from": "S14",
+      "to": "S6",
+      "type": "constrained_by",
+      "label": "受约束"
+    },
+    {
+      "from": "S16",
+      "to": "S6",
+      "type": "constrained_by",
+      "label": "受约束"
+    },
+    {
+      "from": "S18",
+      "to": "S6",
+      "type": "constrained_by",
+      "label": "受约束"
+    },
+    {
+      "from": "S14",
+      "to": "S8",
+      "type": "derived_from",
+      "label": "遵循当前决策"
+    },
+    {
+      "from": "S16",
+      "to": "S8",
+      "type": "derived_from",
+      "label": "遵循当前决策"
+    },
+    {
+      "from": "S18",
+      "to": "S8",
+      "type": "derived_from",
+      "label": "遵循当前决策"
+    },
+    {
+      "from": "S1",
+      "to": "S4",
+      "type": "derived_from",
+      "label": "基于稳定事实"
+    },
+    {
+      "from": "S1",
+      "to": "S10",
+      "type": "conflicts_with",
+      "label": "仍有保留冲突"
+    },
+    {
+      "from": "S27",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前状态"
+    },
+    {
+      "from": "S29",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "追溯来源"
+    },
+    {
+      "from": "S16",
+      "to": "S20",
+      "type": "blocked_by",
+      "label": "规则待冻结"
+    },
+    {
+      "from": "S18",
+      "to": "S22",
+      "type": "blocked_by",
+      "label": "目录映射待确认"
+    },
+    {
+      "from": "S20",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    },
+    {
+      "from": "S22",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    },
+    {
+      "from": "S23",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    },
+    {
+      "from": "S24",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    },
+    {
+      "from": "S25",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    },
+    {
+      "from": "S26",
+      "to": "S1",
+      "type": "derived_from",
+      "label": "来自当前快照"
+    }
+  ],
+  "files": [
+    {
+      "path": "runtime/01_current_snapshot.md",
+      "role": "runtime_state",
+      "default_read": true,
+      "size_chars": 22185,
+      "status": "present"
+    },
+    {
+      "path": "runtime/03_recent_actions.md",
+      "role": "runtime_state",
+      "default_read": true,
+      "size_chars": 37570,
+      "status": "present"
+    },
+    {
+      "path": "anchors/01_anchor_facts.md",
+      "role": "anchor",
+      "default_read": true,
+      "size_chars": 4601,
+      "status": "present"
+    },
+    {
+      "path": "anchors/02_key_constraints.md",
+      "role": "constraint",
+      "default_read": true,
+      "size_chars": 5644,
+      "status": "present"
+    },
+    {
+      "path": "anchors/03_active_decisions.md",
+      "role": "decision",
+      "default_read": true,
+      "size_chars": 10050,
+      "status": "present"
+    },
+    {
+      "path": "anchors/04_conflicts_to_keep.md",
+      "role": "conflict",
+      "default_read": true,
+      "size_chars": 560,
+      "status": "present"
+    },
+    {
+      "path": "workstreams/_index.md",
+      "role": "workstream",
+      "default_read": true,
+      "size_chars": 1836,
+      "status": "present"
+    },
+    {
+      "path": "workstreams/W1_EA_EC_flux.md",
+      "role": "workstream",
+      "default_read": true,
+      "size_chars": 36274,
+      "status": "present"
+    },
+    {
+      "path": "workstreams/W2_morning_peak_workflow.md",
+      "role": "workstream",
+      "default_read": true,
+      "size_chars": 12191,
+      "status": "present"
+    },
+    {
+      "path": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "role": "workstream",
+      "default_read": true,
+      "size_chars": 2663,
+      "status": "present"
+    },
+    {
+      "path": "runtime/02_open_questions.md",
+      "role": "open_question",
+      "default_read": true,
+      "size_chars": 6679,
+      "status": "present"
+    },
+    {
+      "path": "runtime/05_next_mainline_tasks.md",
+      "role": "next_step",
+      "default_read": true,
+      "size_chars": 4394,
+      "status": "present"
+    },
+    {
+      "path": "evidence/00_thread_index.md",
+      "role": "evidence",
+      "default_read": true,
+      "size_chars": 14213,
+      "status": "present"
+    }
+  ],
+  "sources": [
+    {
+      "id": "runtime/01_current_snapshot.md",
+      "type": "file",
+      "path": "runtime/01_current_snapshot.md",
+      "related_nodes": [
+        "F2"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "runtime/03_recent_actions.md",
+      "type": "file",
+      "path": "runtime/03_recent_actions.md",
+      "related_nodes": [
+        "F3"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "anchors/01_anchor_facts.md",
+      "type": "file",
+      "path": "anchors/01_anchor_facts.md",
+      "related_nodes": [
+        "F5"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "anchors/02_key_constraints.md",
+      "type": "file",
+      "path": "anchors/02_key_constraints.md",
+      "related_nodes": [
+        "F7"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "anchors/03_active_decisions.md",
+      "type": "file",
+      "path": "anchors/03_active_decisions.md",
+      "related_nodes": [
+        "F9"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "anchors/04_conflicts_to_keep.md",
+      "type": "file",
+      "path": "anchors/04_conflicts_to_keep.md",
+      "related_nodes": [
+        "F11"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "workstreams/_index.md",
+      "type": "file",
+      "path": "workstreams/_index.md",
+      "related_nodes": [
+        "F13"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "workstreams/W1_EA_EC_flux.md",
+      "type": "file",
+      "path": "workstreams/W1_EA_EC_flux.md",
+      "related_nodes": [
+        "F15"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "workstreams/W2_morning_peak_workflow.md",
+      "type": "file",
+      "path": "workstreams/W2_morning_peak_workflow.md",
+      "related_nodes": [
+        "F17"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "type": "file",
+      "path": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "related_nodes": [
+        "F19"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "runtime/02_open_questions.md",
+      "type": "file",
+      "path": "runtime/02_open_questions.md",
+      "related_nodes": [
+        "F21"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "runtime/05_next_mainline_tasks.md",
+      "type": "file",
+      "path": "runtime/05_next_mainline_tasks.md",
+      "related_nodes": [
+        "F28"
+      ],
+      "projected": true,
+      "has_conflict": false
+    },
+    {
+      "id": "evidence/00_thread_index.md",
+      "type": "file",
+      "path": "evidence/00_thread_index.md",
+      "related_nodes": [
+        "F30"
+      ],
+      "projected": true,
+      "has_conflict": false
+    }
+  ],
+  "warnings": []
+}

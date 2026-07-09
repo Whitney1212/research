@@ -1,0 +1,6 @@
+                                                              output_csv
+1 E:/Dataset_Level1/CVT/EC/PF/flux_runs/global_pf/CVT_flux_global_pf.csv
+  n_input_files n_flux_rows  first_timestamp   last_timestamp
+1           534       21447 2024-11-01 00:30 2026-05-10 15:00
+                     started                   finished elapsed_min
+1 2026-07-07 12:15:32.447417 2026-07-07 21:12:48.600037    537.2692

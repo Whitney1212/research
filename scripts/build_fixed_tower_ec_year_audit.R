@@ -13,7 +13,9 @@ parse_cli_args <- function(args) {
     output_dir = NULL,
     year = 2025L,
     tz = default_tz,
-    ustar_threshold = 0.15
+    ustar_threshold = 0.15,
+    day_start_hour = 6,
+    day_end_hour = 18
   )
 
   i <- 1L
@@ -44,6 +46,9 @@ parse_cli_args <- function(args) {
 
   out$year <- as.integer(out$year)
   if (!is.finite(out$year)) stop("Invalid --year value.", call. = FALSE)
+  out$ustar_threshold <- as.numeric(out$ustar_threshold)
+  out$day_start_hour <- as.numeric(out$day_start_hour)
+  out$day_end_hour <- as.numeric(out$day_end_hour)
   out
 }
 
@@ -119,7 +124,14 @@ build_gap_blocks <- function(audit) {
   ), by = gap_block_id]
 }
 
-run_fixed_tower_ec_year_audit <- function(site, input_file, output_dir, year = 2025L, tz_local = default_tz, ustar_threshold = 0.15) {
+run_fixed_tower_ec_year_audit <- function(site,
+                                          input_file,
+                                          output_dir,
+                                          year = 2025L,
+                                          tz_local = default_tz,
+                                          ustar_threshold = 0.15,
+                                          day_start_hour = 6,
+                                          day_end_hour = 18) {
   if (!file.exists(input_file)) stop("Missing input file: ", input_file, call. = FALSE)
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -150,6 +162,8 @@ run_fixed_tower_ec_year_audit <- function(site, input_file, output_dir, year = 2
     hour = as.integer(format(timestamp_local, "%H", tz = tz_local)),
     minute = as.integer(format(timestamp_local, "%M", tz = tz_local))
   )]
+  grid[, hour_decimal := hour + minute / 60]
+  grid[, day_night := fifelse(hour_decimal >= day_start_hour & hour_decimal < day_end_hour, "day", "night")]
 
   if (nrow(dt_year) == 0L) {
     stop("No rows found for year ", year, " in: ", input_file, call. = FALSE)
@@ -220,7 +234,7 @@ run_fixed_tower_ec_year_audit <- function(site, input_file, output_dir, year = 2
     flag9_co2_pass]
   audit[, ustar_threshold := as.numeric(ustar_threshold)]
   audit[, ustar_threshold_available := is.finite(ustar_threshold)]
-  audit[, ustar_threshold_pass := u_star_available & is.finite(ustar_threshold) & u_star >= ustar_threshold]
+  audit[, ustar_threshold_pass := day_night == "day" | (u_star_available & is.finite(ustar_threshold) & u_star >= ustar_threshold)]
   audit[, valid_ec_ustar := valid_ec_base & ustar_threshold_pass]
 
   audit[, gap_reason := fifelse(
@@ -245,8 +259,11 @@ run_fixed_tower_ec_year_audit <- function(site, input_file, output_dir, year = 2
   audit[, gap_reason_ustar := fifelse(
     gap_reason != "observed_valid", gap_reason,
     fifelse(
-      !u_star_available, "present_no_u_star",
-      fifelse(!ustar_threshold_pass, "u_star_below_threshold", "observed_valid")
+      day_night == "day", "observed_valid",
+      fifelse(
+        !u_star_available, "present_no_u_star",
+        fifelse(!ustar_threshold_pass, "u_star_below_threshold", "observed_valid")
+      )
     )
   )]
   audit[, fill_needed_base := !valid_ec_base]
@@ -330,7 +347,8 @@ run_fixed_tower_ec_year_audit <- function(site, input_file, output_dir, year = 2
     "- co2_flux must be finite.",
     "- qc_co2 <= 1.",
     "- flag9_co2 <= 3.",
-    sprintf("- provisional u* filter: u_star >= %.3f m s^-1, applied to all windows.", ustar_threshold),
+    sprintf("- day = %.1f:00 to < %.1f:00; night windows only apply u* threshold.", day_start_hour, day_end_hour),
+    sprintf("- provisional night u* filter: u_star >= %.3f m s^-1.", ustar_threshold),
     "",
     "Not yet applied in this audit:",
     "- no storage term merge or storage availability check.",
@@ -357,7 +375,9 @@ main <- function() {
     output_dir = args$output_dir,
     year = args$year,
     tz_local = args$tz,
-    ustar_threshold = as.numeric(args$ustar_threshold)
+    ustar_threshold = as.numeric(args$ustar_threshold),
+    day_start_hour = args$day_start_hour,
+    day_end_hour = args$day_end_hour
   )
   print(summary_tbl)
 }

@@ -1,5 +1,17 @@
 # 当前项目快照
 
+## 2026-07-08 最新同步：FL 旧编码 batch C 已按本地零点对齐并完成多口径合并
+当前 `FL` 旧编码 `batch C` 已经不再沿用“整点 + 固定运行距离”的旧近似逻辑，而是直接从 `E:\Dataset_RAW\Flares\运行记录\20230315_20231226.csv` 切出连续单调段后再处理。当前摘要显示：原始 `6982418` 行经长静止段压缩后得到 `2432` 个单调段；最终旧编码按“去程起点为本地 `0 m`、返程终点为本地 `0 m`”统一对齐，只保留 `0-245 m`，并且 `-5.84` 起点簇已经删除。最终保留 `1816` 个旧编码单程、`1102774` 行 records，当前 origin cluster 只剩两个正值编码簇，中心约为 `9.62` 和 `14.62`。 [来源: 用户当前对话 2026-07-08] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fl_oldcode_multicaliber_alignment_and_downstream_bundles.md]
+
+在此基础上，当前 `FL` 运行记录已经形成三套并存口径：旧编码 `oldcode_0_245`、特殊 `B` 批次 `batch_b_complete` 和主口径 `main_complete`。其中 `B` 批次和主口径不再沿用 retained `strict` pass 表，而是分别按 `geometry_complete` 完整单程重建为 `0-230 m` 与 `0-245 m`。当前 merged records 共 `5612945` 行、segments 共 `5187` 个，不做跨来源去重，而是保留显式 `source_group`；对应 downstream bundle 也已经更新为 `oldcode_0_245 = 0-245 m`、`batch_b_complete = 0-230 m`、`main_complete = 0-245 m`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fl_oldcode_multicaliber_alignment_and_downstream_bundles.md] [推断：基于 merged records 与 downstream bundle 的当前用途整理]
+
+## 2026-07-08 最新同步：固定塔全量 rotation 产品已补齐并完成 30 min 标准化
+当前两固定塔缺失的全量 `rotation` 产品已经补齐：`MT` 新增 `dr`，`CVT` 新增 `dr` 和 `global_pf`。配合既有的 `no_rotation / sector_pf`，当前统一可调用的主矩阵为 `MT: no_rotation / dr / global_pf / sector_pf / season_sector_pf`，`CVT: no_rotation / dr / global_pf / sector_pf`。 [来源: 用户当前对话 2026-07-07 至 2026-07-08] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fixed_tower_full_flux_products_and_timestamp_standardization.md]
+
+当前所有这些全量主表都已经完成 `30 min` 时间戳规范化与 duplicate 聚合，统一 manifest 位于 `E:\Dataset_Level1\FixedTower\EC\fixed_tower_full_flux_standardized_30min_manifest.csv`。`MT` 五套产品标准化后均覆盖 `2023-06-19 10:30:00` 至 `2026-06-22 13:30:00`，`CVT` 四套产品均覆盖 `2024-11-01 00:30:00` 至 `2026-05-10 15:00:00`，且 `remaining_duplicate_timestamps` 全部为 `0`。 [已核验: E:\Dataset_Level1\FixedTower\EC\fixed_tower_full_flux_standardized_30min_manifest.csv]
+
+这意味着固定塔下游口径已经从“直接拿原始全量主表继续算”推进到“先用统一半小时键与 duplicate 处理后的标准化输入再做年度审计/筛选/Gapfilling/年值”。原始全量主表继续保留 provenance 作用，但 `W3` 和 rotation 敏感性重算的默认主输入应改为各产品 `*_standardized_30min.csv`。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fixed_tower_full_flux_products_and_timestamp_standardization.md] [推断：基于当前标准化状态和用户要求整理]
+
 ## 2026-07-06 最新同步：FL 202308 放宽口径 coverage 叠加图已补入
 当前已把正式 strict 完整单程 coverage 与 `202308` 放宽口径 `geometry_complete` 完整单程 coverage 做 exact-key 合并，并重绘新的 complete pass coverage 图。合并结果为 strict `2933` 行 + relaxed geometry `1823` 行 = `4756` 行，新增日期 `53` 个；新图位于 `E:\FL_MASSBALANCE\202308\FL_complete_pass_coverage_timeline_with_relaxed_track15_255.png`。[来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-06_fl_202308_relaxed_coverage_overlay.md]
 
@@ -15,7 +27,7 @@
 
 当前双主线之外，项目又补出一条更窄的 `W3`：专门维护两固定塔 `MT/CVT` 的 `2025` 自然年 `EC-only annual NEE estimate / proxy`。这条工作流不替代 `W1` 的复杂地形通量计量主线，也不替代 `W2` 的晨间 peak 事件主线；它的作用是把 PF 后固定塔 `co2_flux` 的覆盖审计、gapfilling、长缺口、筛选口径敏感性和对外表述边界单独整理出来。 [来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W3_fixed_tower_annual_nee_estimation.md]
 
-当前 `W3` 的主分析年固定为 `2025`，输入主表固定为 `MT_flux_sector_pf.csv` 和 `CVT_flux_sector_pf.csv`。严格主口径下，`MT` 的年值试算为 `-917.9625 gC m^-2`，`CVT` 为 `-533.0063 gC m^-2`；同时已经并行整理出 `qc1 + u*` 但不加 `flag9`、以及 `u* only` 两套敏感性版本。现阶段这些结果足够支持“估算量级和比较塔间差异”，但仍不应写成最终碳收支结论。 [已核验: E:\Dataset_Level1\MT\EC\whole year computation\MT_nee_2025_estimate_summary.csv] [已核验: E:\Dataset_Level1\CVT\EC\whole year computation\CVT_nee_2025_estimate_summary.csv] [已核验: E:\Dataset_Level1\MT\EC\whole year computation\MT_nee_2025_estimate_qc1_ustar_noflag9_fullpool_summary.csv] [已核验: E:\Dataset_Level1\CVT\EC\whole year computation\CVT_nee_2025_estimate_qc1_ustar_noflag9_fullpool_summary.csv] [已核验: E:\Dataset_Level1\MT\EC\whole year computation\MT_nee_2025_estimate_ustar_only_fullpool_summary.csv] [已核验: E:\Dataset_Level1\CVT\EC\whole year computation\CVT_nee_2025_estimate_ustar_only_fullpool_summary.csv]
+当前 `W3` 的主分析年仍固定为 `2025`，但默认输入已经从旧的 `MT/CVT sector_pf` 原始全量主表切换为统一半小时键与 duplicate 处理后的标准化产品矩阵。公共四方法结果当前以 `E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_common_four_methods_summary.csv` 为准：`MT` 为 `-788.4071 / -883.5240 / -1018.4899 / -919.9188`，`CVT` 为 `-261.1940 / -256.5141 / -325.0168 / -533.5506 gC m^-2`，对应方法依次是 `no_rotation / dr / global_pf / sector_pf`。`MT season_sector_pf = -1050.4370 gC m^-2` 仅保留为 MT-only 补充敏感性。现阶段这些结果足够支持“估算量级和比较塔间差异”，但仍不应写成最终碳收支结论。 [已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_common_four_methods_summary.csv] [已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_annual_summary_all_methods.csv]
 
 ## 2026-07-03 最新同步：202308 几何放宽批次 raw/PF F_adv
 
@@ -155,4 +167,3 @@ FL `PF_8bin` 参数已经被带入 `2025-03-20` 至 `2025-03-23` 的高频数据
 `MT/CVT` AP200 剖面 QC 现在已经从单目录一次性脚本推进到可续跑的月批产品。当前执行脚本为 `D:\00 博士阶段\99 Project\06 EA\scripts\run_ap_profile_qc_monthly.R`；`MT` 全量结果根目录为 `E:\Dataset_Level1\MT\AP\20240704-20260622`，`CVT` 全量结果根目录为 `E:\Dataset_Level1\CVT\AP\20240704-20260622`，两站都保留 `monthly\YYYY-MM` 子目录，便于中断后按月补跑。[来源: 用户当前对话 2026-07-01] [已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_monthly_qc_full_run.md]
 
 这次全量执行按当前 profile 文件口径已经完成：`MT` 匹配并处理 `661` 个源文件、`626347` 个轮次，`CVT` 匹配并处理 `571` 个源文件、`401430` 个轮次，两个站点的 `n_bad_files` 都是 `0`。`CVT 2025-03-23 17:53:30` 之后的 `c32` 窄范围剔除约束也已经在月批脚本中继承并核验通过。[已核验 D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-01_ap200_monthly_qc_full_run.md]
-

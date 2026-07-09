@@ -1,5 +1,13 @@
 # 构件索引
 
+## 2026-07-09 FL 全量 BPF、EC_ecpreproc 与全量日变化图
+
+- `D:\00 博士阶段\99 Project\06 EA\scripts\run_fl_full_ec_multirotation_ecpreproc.R` 是当前 `FL` 全量 `EC_ecpreproc` 正式运行脚本；它已固定三种旋转方法 `no_rotation`、`dr`、`PF_8bin_2ensemble`，并在代码里显式采用“字符优先时间戳解析 + Asia/Shanghai 时区 + 固定 30 min 对齐分块 + valid_samples_by_bin QC”的口径。 [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\run_fl_full_ec_multirotation_ecpreproc.R]
+- `E:\Dataset_Level1\Flares\BPF` 是当前 `FL` 全量 multicaliber `BPF` 正式交付目录；主构件包括 `run_fl_multicaliber_bpf_training.R`、`PF_8bin`、`PF_8bin_2ensemble`、`BPF_default_parameters_for_flux.csv` 和 `BPF_training_manifest.txt`。 [已核验: E:\Dataset_Level1\Flares\BPF] [已核验: E:\Dataset_Level1\Flares\BPF\BPF_training_manifest.txt]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc` 是当前 `FL` 全量 `EC_ecpreproc` 正式交付目录；主构件包括 `FL_ec_multirotation_manifest.txt`、`FL_ec_multirotation_registry.csv`、三组 source-group 结果目录、全量日志与脚本副本 `run_fl_full_ec_multirotation_ecpreproc.R`。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_manifest.txt] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_registry.csv]
+- `D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R` 是当前 `FL` 全量日变化图脚本；它基于已交付的 `30 min` 结果生成 pooled diurnal 图，并以 `width = 12, height = 9` 输出 `4:3` 图幅。 [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png` 是当前 `FL` 全量 pooled 日变化图主图；配套数据和说明文件分别位于 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_plot_data.csv` 与 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt`。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt]
+
 ## 2026-07-06 FL raw/PF F_adv 分组日变化色带图
 
 - `E:\FL_MASSBALANCE\202308\plot_raw_pf_fadv_grouped_with_bands.R` 是 202308 几何放宽批次的 raw/PF `F_adv` 分组日变化重绘脚本；它输出 raw、raw detrended、PF、PF detrended 四张图和对应 CSV/summary，色带为日期层面的 `25-75%` 范围。 [已核验: project_memory/evidence/verifications/2026-07-06_fl_fadv_diurnal_ribbons_raw_pf.md]

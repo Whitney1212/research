@@ -1,0 +1,9 @@
+2026-07-07 12:15:31 | Loaded ecpreproc source files from D:/00 博士阶段/博一/05 Project/ecpreproc/R
+2026-07-07 12:15:32 | Running cvt_dr | files=534 | rotation=dr
+========== Starting Streaming Eddy Covariance Processing ==========
+[Init] Input files: 534
+[Run] Streaming block processing...
+========== Streaming Processing Complete ==========
+[Summary] Blocks processed: 21447 (from 23711 split blocks)
+>>> Exporting report to: E:/Dataset_Level1/CVT/EC/dr_ecpreproc/EC_Output_stream_UnknownSite_20241101_20260510.csv
+2026-07-07 18:50:12 | Finished cvt_dr | rows=21447 | output=E:/Dataset_Level1/CVT/EC/dr_ecpreproc/results/CVT_flux_dr.csv

@@ -1,0 +1,10 @@
+2026-07-07 12:15:31 | Loaded ecpreproc source files from D:/00 博士阶段/博一/05 Project/ecpreproc/R
+2026-07-07 12:15:32 | Running cvt_global_pf | files=534 | rotation=pf
+========== Starting Streaming Eddy Covariance Processing ==========
+[Init] Input files: 534
+[Prepass] Building rotation fit statistics (streaming)...
+[Run] Streaming block processing...
+========== Streaming Processing Complete ==========
+[Summary] Blocks processed: 21447 (from 23711 split blocks)
+>>> Exporting report to: E:/Dataset_Level1/CVT/EC/PF/flux_runs/global_pf/EC_Output_stream_UnknownSite_20241101_20260510.csv
+2026-07-07 21:12:49 | Finished cvt_global_pf | rows=21447 | output=E:/Dataset_Level1/CVT/EC/PF/flux_runs/global_pf/CVT_flux_global_pf.csv

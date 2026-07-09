@@ -1,0 +1,21 @@
+# 2026-07-09 FL 全量 BPF、EC_ecpreproc 交付与全量日变化图
+
+## 来源
+
+- 本记录整理自用户在当前对话中对 `FL` 全量 `BPF` 重训、全量 `EC_ecpreproc` 运行、时间戳解析规则、全量日变化图以及图幅比例的连续要求，并直接核验本轮实际交付目录、manifest、registry、summary 与脚本。 [来源: 用户当前对话 2026-07-09]
+
+## 已核验事实
+
+- `E:\Dataset_Level1\Flares\BPF` 已经不是空方案目录，而是本轮实际完成的 `FL` 全量 multicaliber `BPF` 重训交付目录；其中已存在 `PF_8bin`、`PF_8bin_2ensemble`、`BPF_default_parameters_for_flux.csv`、`BPF_training_manifest.txt` 和主脚本 `run_fl_multicaliber_bpf_training.R`。默认用于后续通量计算的参数文件是 `E:\Dataset_Level1\Flares\BPF\BPF_default_parameters_for_flux.csv`。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\BPF] [已核验: E:\Dataset_Level1\Flares\BPF\BPF_training_manifest.txt]
+- `E:\Dataset_Level1\Flares\BPF\BPF_training_manifest.txt` 记录了本轮 `FL` 全量 `BPF` 重训的正式输出根目录为 `E:/Dataset_Level1/Flares/BPF`，输入来自 `E:/FL_MASSBALANCE/202308/downstream_multicaliber/bundle_index.csv`，并调用 `E:/Dataset_Level1/Flares/PFparameter/run_PF_8bin.R` 与 `E:/Dataset_Level1/Flares/PFparameter/run_PF_8bin_2ensemble.R` 生成 `PF_8bin` 和 `PF_8bin_2ensemble` 两套参数产品。 [已核验: E:\Dataset_Level1\Flares\BPF\BPF_training_manifest.txt]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc` 已完成 `FL` 全量 `EC_ecpreproc` 正式交付，根目录下已存在三组 source-group 结果目录 `oldcode_0_245`、`batch_b_complete`、`main_complete`，以及全局清单 `FL_ec_multirotation_manifest.txt`、`FL_ec_multirotation_registry.csv`、日志和主运行脚本副本 `run_fl_full_ec_multirotation_ecpreproc.R`。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_manifest.txt]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_manifest.txt` 已把本轮关键信息固定下来：输出根目录为 `E:/Dataset_Level1/Flares/EC_ecpreproc`，默认 `PF` 参数文件为 `E:/Dataset_Level1/Flares/BPF/BPF_default_parameters_for_flux.csv`，原始高频根目录为 `E:/Dataset_Level0/Flares/EC`，时区为 `Asia/Shanghai`，时间戳规则为“先按字符导入，再显式按 `Asia/Shanghai` 解析”，窗口 `QC` 规则为 `valid_samples_by_bin`。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_manifest.txt]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_registry.csv` 说明本轮全量 `FL` EC 已按三种旋转方法 `no_rotation`、`dr`、`PF_8bin_2ensemble` 完整出表，并且三组 source-group 的结果都已经消除了重复半小时 timestamp：`oldcode_0_245` 为 `1896 / 1896 / 1863` 行，`batch_b_complete` 为 `1070 / 1070 / 1063` 行，`main_complete` 为 `1811 / 1812 / 1800` 行，对应 `duplicate_timestamp_count` 全部为 `0`。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_registry.csv]
+- 当前 `FL` 全量日变化图已经单独交付到同一产品树下：图像文件为 `E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png`，配套数据和说明文件分别为 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_plot_data.csv` 与 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt`。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_plot_data.csv] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt]
+- `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt` 已明确本轮日变化图不分批次，而是把全部 `source_groups` 合并后统一出一张 full-data diurnal 图；中心线为 `F_EC_cov_valid_umol_m2_s` 的 half-hour 中位数，色带为 `25-75%` 分位范围，展示方法固定为 `no_rotation`、`dr` 和 `PF_8bin_2ensemble`。覆盖范围方面，三种方法都覆盖 `48` 个 half-hour bin；`PF_8bin_2ensemble` 的 `n_dates` 范围为 `42-126`，`dr` 与 `no_rotation` 都为 `56-127`。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt]
+- 图幅比例调整也已经真正落地在代码里，而不只是口头要求：`D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R` 当前使用 `ggsave(plot_png, p, width = 12, height = 9, dpi = 300)` 输出图像，对应标准 `4:3` 比例。 [来源: 用户当前对话 2026-07-09] [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R]
+- 与本轮交付直接对应的仓库脚本为 `D:\00 博士阶段\99 Project\06 EA\scripts\run_fl_full_ec_multirotation_ecpreproc.R` 和 `D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R`；前者代码中已显式固定 `Asia/Shanghai`、字符优先时间戳解析、按固定 `30 min` 窗口对齐分块和 `valid_samples_by_bin`，后者负责基于已交付的全量 `30 min` 结果生成 pooled diurnal 图。 [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\run_fl_full_ec_multirotation_ecpreproc.R] [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R]
+
+## 推断与边界
+
+- 截至 `2026-07-09`，`FL` 这条线的状态已经从“确认方案和前置条件是否齐全”推进到“`BPF` 已重训、全量 `EC_ecpreproc` 已正式交付、全量日变化图已生成”；因此后续项目记录应把 `E:\Dataset_Level1\Flares\BPF` 和 `E:\Dataset_Level1\Flares\EC_ecpreproc` 视为当前正式成果位置，而不再只记成待运行目录。 [来源: 用户当前对话 2026-07-09] [推断: 基于本轮 manifest、registry、summary 与目录实物共同整理]

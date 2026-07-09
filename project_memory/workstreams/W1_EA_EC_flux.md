@@ -1,5 +1,29 @@
 # W1 EC 高频数据的 EA 通量计算与上升/下沉解析
 
+## 2026-07-09 FL 全量 BPF、EC_ecpreproc 正式交付与全量日变化图
+
+`FL` 全量 multicaliber `BPF` 已完成重训，正式交付根目录为 `E:\Dataset_Level1\Flares\BPF`，其中 `BPF_default_parameters_for_flux.csv` 已作为后续 `FL` 通量运行默认参数文件固定下来；同目录下还保留了 `PF_8bin`、`PF_8bin_2ensemble`、`BPF_training_manifest.txt` 和主训练脚本 `run_fl_multicaliber_bpf_training.R`。这意味着本轮状态已经从“方案确认”推进到“参数产品已落地”。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\BPF\BPF_training_manifest.txt] [已核验: E:\Dataset_Level1\Flares\BPF\BPF_default_parameters_for_flux.csv]
+
+`FL` 全量 `EC_ecpreproc` 也已完成正式交付，根目录为 `E:\Dataset_Level1\Flares\EC_ecpreproc`。当前产品树包含 `oldcode_0_245`、`batch_b_complete`、`main_complete` 三组 source-group 结果，以及 `FL_ec_multirotation_manifest.txt`、`FL_ec_multirotation_registry.csv`、日志与运行脚本副本。manifest 已固定本轮关键口径：默认 `PF` 参数取自 `E:\Dataset_Level1\Flares\BPF\BPF_default_parameters_for_flux.csv`，时间戳采用“先字符导入，再按 `Asia/Shanghai` 显式解析”，窗口 `QC` 规则为 `valid_samples_by_bin`。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_manifest.txt]
+
+当前全量 `FL` EC 已按三种旋转方法 `no_rotation`、`dr`、`PF_8bin_2ensemble` 全部出表，并对齐到固定塔一致的 `30 min` 窗口。registry 显示三组 source-group 的 `duplicate_timestamp_count` 全部为 `0`；对应行数分别为 `oldcode_0_245 = 1896 / 1896 / 1863`、`batch_b_complete = 1070 / 1070 / 1063`、`main_complete = 1811 / 1812 / 1800`。因此此前由 discontinuous pass 分块造成的重复半小时 timestamp 问题，在本轮正式交付中已经被消除。 [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_ec_multirotation_registry.csv]
+
+基于这套全量交付，`FL` 日变化图也已更新为“不分批次的全量 pooled 图”：图像位于 `E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png`，配套数据和说明文件分别为 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_plot_data.csv` 与 `E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt`。当前图只展示 `no_rotation`、`dr` 和 `PF_8bin_2ensemble` 三条方法曲线，中心线为 half-hour 中位数，色带为 `25-75%` 分位范围，并且已按 `4:3` 比例输出。 [来源: 用户当前对话 2026-07-09] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\FL_full_ec_diurnal_summary.txt] [已核验: E:\Dataset_Level1\Flares\EC_ecpreproc\figures_diurnal\FL_full_ec_diurnal.png] [已核验: D:\00 博士阶段\99 Project\06 EA\scripts\plot_fl_full_ec_diurnal.R]
+
+## 2026-07-08 FL 全量 EC_ecpreproc 与 multicaliber BPF 重训方案
+用户已将 `FL` 后续全量 EC 计算脚本和输出根目录指定为 `E:\Dataset_Level1\Flares\EC_ecpreproc`；本轮定义的“全量”也已经收紧为“只跑有 pass 覆盖的时段和日期”，并保留全部已检测到的 pass 来源与轨道口径差异，后续再按时间与固定塔对齐。当前该输出目录已存在但为空，适合作为新正式产品根目录。[来源: 用户当前对话 2026-07-08] [已核验: project_memory/evidence/verifications/2026-07-08_fl_full_ec_ecpreproc_and_multicaliber_bpf_plan.md]
+
+当前可用于重建 `FL` 新统一训练口径的输入已经基本齐全：`downstream_multicaliber` 下存在 `oldcode_0_245`、`batch_b_complete` 和 `main_complete` 三组 bundle，对应 `1816/1065/2306` 个 pass，并都提供 `fl_complete_passes_strict.csv`。`batch_b_complete` 与 `main_complete` 的 `fl_running_records_local.csv` 已可直接用作 PF 训练输入；`oldcode_0_245` 的 local running records 仍有至少 `16` 行空 `time`，因此在正式重训前必须先修补，而不能静默直接拼接。[已核验: project_memory/evidence/verifications/2026-07-08_fl_full_ec_ecpreproc_and_multicaliber_bpf_plan.md]
+
+本轮对用户口头 `BPF` 的当前落地解释是：对应仓库里 `bin-wise planar fit / PF_8bin` 这一类 `FL` 专用位置分箱平面拟合参数，而不是另一个独立方法名。后续正式方案是不覆盖当前 `PFparameter` 与 `PFparameter_2ensemble`，而是先把新统一口径参数训练到并行目录，再让 `FL` 全量 EC runner 复用四天 `FL after-PF` 脚本里的时间解析、逐点位置/速度修正和 `valid_samples_by_bin` QC 做全量推广；本轮只定方案，不执行计算。[来源: 用户当前对话 2026-07-08] [已核验: project_memory/evidence/verifications/2026-07-08_fl_full_ec_ecpreproc_and_multicaliber_bpf_plan.md]
+
+## 2026-07-08 FL 旧编码 batch C 本地零点对齐、多口径合并与下游 bundle
+当前 `FL` 旧编码 `batch C` 的处理入口已经回退到原始运行记录 `E:\Dataset_RAW\Flares\运行记录\20230315_20231226.csv`，而不是从已筛选 records 反推。当前先删除长静止段，再按连续单调方向切分；摘要显示原始 `6982418` 行在静止压缩后得到 `2432` 个单调段。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fl_oldcode_multicaliber_alignment_and_downstream_bundles.md]
+
+旧编码的当前正式对齐规则已经固定为：去程把单调段起点视为本地 `0 m`，返程把单调段终点视为本地 `0 m`，两者都只保留本地 `0-245 m`。最终输出共 `1816` 个旧编码 segment，其中去程 `893` 个、返程 `923` 个；最终 origin cluster 只剩两个正值编码簇，中心约为 `9.62` 和 `14.62`，说明 `-5.84` 起点簇已经在最终口径中删除。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fl_oldcode_multicaliber_alignment_and_downstream_bundles.md]
+
+在此基础上，当前 `W1` 内与 FL 运行记录相关的可调用口径已经扩展为三套并存来源：`oldcode_0_245`、`batch_b_complete` 和 `main_complete`。其中 `B` 批次与主口径不是 retained `strict` pass，而是分别按 `geometry_complete` 完整单程重建为 `0-230 m` 与 `0-245 m`；当前 merged records 共 `5612945` 行、segments 共 `5187` 个，不做跨来源去重。下游另外准备了 `downstream_multicaliber` 三套 bundle，轨道边界分别为 `0-245 m`、`0-230 m` 和 `0-245 m`。这意味着后续 FL 下游脚本可以按来源口径分别计算，而不是再强行把旧编码、`B` 批次和主口径压成一个统一轨道长度。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-08_fl_oldcode_multicaliber_alignment_and_downstream_bundles.md] [推断：基于当前 merged records 和 bundle 目录职责整理]
+
 ## 2026-07-06 FL 202308 放宽口径单程覆盖叠加图
 已把 `E:\Dataset_Level0\Flares\running_time\passes\fl_complete_passes_strict.csv` 与 `E:\FL_MASSBALANCE\202308\fl_complete_passes_geometry_relaxed_track15_255_20230315_20231226.csv` 做 exact-key 合并，输出 `E:\FL_MASSBALANCE\202308\fl_complete_passes_coverage_merged_with_relaxed_track15_255.csv`，得到 `4756` 行 merged coverage，并在日期维度上新增 `53` 个 strict 图中原本没有覆盖到的日期。[已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-06_fl_202308_relaxed_coverage_overlay.md]
 

@@ -1,0 +1,6 @@
+                                                   output_csv n_input_files
+1 E:/Dataset_Level1/MT/EC/dr_ecpreproc/results/MT_flux_dr.csv           959
+  n_flux_rows  first_timestamp   last_timestamp                    started
+1       38316 2023-06-19 10:28 2026-06-22 13:30 2026-07-07 12:15:32.511102
+                   finished elapsed_min
+1 2026-07-07 19:37:04.99105    441.5413

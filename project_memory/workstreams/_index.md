@@ -1,5 +1,7 @@
 # 工作流索引
 
+- `W1_EA_EC_flux.md` 已补充 `2026-07-09` 的 `FL` 全量 `BPF` 重训、全量 `EC_ecpreproc` 正式交付与 pooled 全量日变化图进度；当前正式成果位置为 `E:\Dataset_Level1\Flares\BPF` 和 `E:\Dataset_Level1\Flares\EC_ecpreproc`。 [来源: 用户当前对话 2026-07-09] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-09_fl_full_bpf_ec_delivery_and_diurnal.md]
+
 - `W3_fixed_tower_annual_nee_estimation.md` 已新增为两固定塔 `MT/CVT` 2025 自然年 `EC-only annual NEE estimate / proxy` 工作流。该工作流单独维护覆盖审计、gapfilling、长缺口、筛选口径敏感性和对外表述边界，避免继续挤在 `W1/W2` 中。 [来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W3_fixed_tower_annual_nee_estimation.md]
 
 - `W2_morning_peak_workflow.md` 已新增为独立晨间 CO2 peak 事件机制工作流。该工作流与长期复杂地形碳收支主线并行；当前固定塔事件气候学先做一个自然年，优先以 `2025` 年为主分析年，再结合 `20-30` 个三站独立事件日、谷中央上空固定观测、移动切面和 AP 廓线代理量，解释长期稳定晨间 CO2 事件的边界层转换、空间传播与局地再分配机制。 [来源: 用户当前对话 2026-06-17] [已核验: project_memory/evidence/verifications/2026-06-17_fixed_tower_level0_coverage.md]

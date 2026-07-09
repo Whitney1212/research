@@ -1,0 +1,596 @@
+{
+  "nodes": [
+    {
+      "id": "S1",
+      "type": "text",
+      "text": "当前项目状态\n# 当前项目快照",
+      "x": 520,
+      "y": 0,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F2",
+      "type": "file",
+      "file": "runtime/01_current_snapshot.md",
+      "x": 840,
+      "y": 0,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "F3",
+      "type": "file",
+      "file": "runtime/03_recent_actions.md",
+      "x": 840,
+      "y": 160,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S4",
+      "type": "text",
+      "text": "稳定事实\n# 锚点事实",
+      "x": 0,
+      "y": 0,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F5",
+      "type": "file",
+      "file": "anchors/01_anchor_facts.md",
+      "x": 300,
+      "y": 0,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S6",
+      "type": "text",
+      "text": "关键约束\n# 关键约束",
+      "x": 0,
+      "y": 180,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F7",
+      "type": "file",
+      "file": "anchors/02_key_constraints.md",
+      "x": 300,
+      "y": 160,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S8",
+      "type": "text",
+      "text": "当前决策\n# 当前生效决策",
+      "x": 0,
+      "y": 360,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F9",
+      "type": "file",
+      "file": "anchors/03_active_decisions.md",
+      "x": 300,
+      "y": 320,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S10",
+      "type": "text",
+      "text": "保留冲突\n# 需要保留的冲突或解释风险",
+      "x": 1080,
+      "y": 0,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F11",
+      "type": "file",
+      "file": "anchors/04_conflicts_to_keep.md",
+      "x": 300,
+      "y": 480,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S12",
+      "type": "text",
+      "text": "工作流索引\n# 工作流索引",
+      "x": 520,
+      "y": 180,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F13",
+      "type": "file",
+      "file": "workstreams/_index.md",
+      "x": 840,
+      "y": 220,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S14",
+      "type": "text",
+      "text": "W1 EA/EC 通量主线\n这条工作线的目标，是在不做坐标旋转、WPL、频率修正和密度换算的前提下，复用 EC 高频数据处理代码完成 EA 所需预处理。当前已经形成两个结果口径：一个是基…",
+      "x": 520,
+      "y": 360,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F15",
+      "type": "file",
+      "file": "workstreams/W1_EA_EC_flux.md",
+      "x": 840,
+      "y": 380,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S16",
+      "type": "text",
+      "text": "W2 晨间 CO2 peak\n这条工作流的目标，是把晨间 CO2 peak 从 `W1` 的 EA/raw-w 与复杂地形通量修正支撑案例中独立出来，专门回答长期稳定晨间 CO2 事件的边…",
+      "x": 520,
+      "y": 560,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F17",
+      "type": "file",
+      "file": "workstreams/W2_morning_peak_workflow.md",
+      "x": 840,
+      "y": 540,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S18",
+      "type": "text",
+      "text": "W3 固定塔年 NEE 估算\n这条工作流专门维护 `MT/CVT` 两固定塔的 `2025` 自然年 `EC-only annual NEE estimate / proxy`，把覆盖审计…",
+      "x": 520,
+      "y": 760,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F19",
+      "type": "file",
+      "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+      "x": 840,
+      "y": 700,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S20",
+      "type": "text",
+      "text": "固定塔自然年主分析口径已经调整为先做一个自然年…\n固定塔自然年主分析口径已经调整为先做一个自然年，优先候选为 `2025` 年；当前仍需生成 `2025` 年按日覆盖清单，并把仪器维修造成的断口标记为不可避免…",
+      "x": 1080,
+      "y": 380,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "F21",
+      "type": "file",
+      "file": "runtime/02_open_questions.md",
+      "x": 840,
+      "y": 320,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S22",
+      "type": "text",
+      "text": "旧 E 盘整理线程中小写 `mt/cvt/ev…\n旧 E 盘整理线程中小写 `mt/cvt/evt/nvt/svt` 属于历史硬盘目录口径，而当前项目科学解释中 `MT=谷缘高地`、`CVT=谷底`。固定塔自…",
+      "x": 1080,
+      "y": 540,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "S23",
+      "type": "text",
+      "text": "旧线程的缺失时段图基于 `E:\\数据整理\\现有…\n旧线程的缺失时段图基于 `E:\\数据整理\\现有数据.xlsx` 且截止 `2026-04-08`；本轮核查该旧路径当前不存在，当前固定塔自然年覆盖和事件日可用…",
+      "x": 1080,
+      "y": 700,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "S24",
+      "type": "text",
+      "text": "`04_lee` 四天窗口的短波日出 prox…\n`04_lee` 四天窗口的短波日出 proxy 字段和阈值已经追溯清楚：`CVT_MET` 的 `SW_in_Avg` 聚合为 `30 min` 的 `SW…",
+      "x": 1080,
+      "y": 860,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "S25",
+      "type": "text",
+      "text": "晨间 peak 事件识别规则尚未冻结。下一步需…\n晨间 peak 事件识别规则尚未冻结。下一步需要先在 `2025` 自然年内确定日出相对时间下的自动识别规则，并清楚区分有效观测日、维修缺测日、有 peak …",
+      "x": 1080,
+      "y": 1020,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "S26",
+      "type": "text",
+      "text": "`20-30` 个三站独立事件日的气象状态分布…\n`20-30` 个三站独立事件日的气象状态分布尚未核查。若候选事件几乎都属于同一种天气状态，只能证明该状态下的机制，不能直接建立普遍分类。",
+      "x": 1080,
+      "y": 1180,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "S27",
+      "type": "text",
+      "text": "下一最小步\n# 下一步主线任务",
+      "x": 1080,
+      "y": 180,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F28",
+      "type": "file",
+      "file": "runtime/05_next_mainline_tasks.md",
+      "x": 840,
+      "y": 480,
+      "width": 340,
+      "height": 100
+    },
+    {
+      "id": "S29",
+      "type": "text",
+      "text": "线程索引\n# 证据索引",
+      "x": 520,
+      "y": 1040,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "F30",
+      "type": "file",
+      "file": "evidence/00_thread_index.md",
+      "x": 840,
+      "y": 1040,
+      "width": 340,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "S1",
+      "toNode": "F2",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e2",
+      "fromNode": "S1",
+      "toNode": "F3",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e3",
+      "fromNode": "S4",
+      "toNode": "F5",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e4",
+      "fromNode": "S6",
+      "toNode": "F7",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e5",
+      "fromNode": "S8",
+      "toNode": "F9",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e6",
+      "fromNode": "S10",
+      "toNode": "F11",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e7",
+      "fromNode": "S12",
+      "toNode": "F13",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e8",
+      "fromNode": "S14",
+      "toNode": "F15",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e9",
+      "fromNode": "S16",
+      "toNode": "F17",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e10",
+      "fromNode": "S18",
+      "toNode": "F19",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e11",
+      "fromNode": "S20",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e12",
+      "fromNode": "S22",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e13",
+      "fromNode": "S23",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e14",
+      "fromNode": "S24",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e15",
+      "fromNode": "S25",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e16",
+      "fromNode": "S26",
+      "toNode": "F21",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e17",
+      "fromNode": "S27",
+      "toNode": "F28",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e18",
+      "fromNode": "S29",
+      "toNode": "F30",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "打开文件"
+    },
+    {
+      "id": "e19",
+      "fromNode": "S1",
+      "toNode": "S12",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "当前主线"
+    },
+    {
+      "id": "e20",
+      "fromNode": "S12",
+      "toNode": "S14",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "工作流"
+    },
+    {
+      "id": "e21",
+      "fromNode": "S12",
+      "toNode": "S16",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "工作流"
+    },
+    {
+      "id": "e22",
+      "fromNode": "S12",
+      "toNode": "S18",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "工作流"
+    },
+    {
+      "id": "e23",
+      "fromNode": "S14",
+      "toNode": "S6",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "受约束"
+    },
+    {
+      "id": "e24",
+      "fromNode": "S16",
+      "toNode": "S6",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "受约束"
+    },
+    {
+      "id": "e25",
+      "fromNode": "S18",
+      "toNode": "S6",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "受约束"
+    },
+    {
+      "id": "e26",
+      "fromNode": "S14",
+      "toNode": "S8",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "遵循当前决策"
+    },
+    {
+      "id": "e27",
+      "fromNode": "S16",
+      "toNode": "S8",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "遵循当前决策"
+    },
+    {
+      "id": "e28",
+      "fromNode": "S18",
+      "toNode": "S8",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "遵循当前决策"
+    },
+    {
+      "id": "e29",
+      "fromNode": "S1",
+      "toNode": "S4",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "基于稳定事实"
+    },
+    {
+      "id": "e30",
+      "fromNode": "S1",
+      "toNode": "S10",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "仍有保留冲突"
+    },
+    {
+      "id": "e31",
+      "fromNode": "S27",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前状态"
+    },
+    {
+      "id": "e32",
+      "fromNode": "S29",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "追溯来源"
+    },
+    {
+      "id": "e33",
+      "fromNode": "S16",
+      "toNode": "S20",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "规则待冻结"
+    },
+    {
+      "id": "e34",
+      "fromNode": "S18",
+      "toNode": "S22",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "目录映射待确认"
+    },
+    {
+      "id": "e35",
+      "fromNode": "S20",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    },
+    {
+      "id": "e36",
+      "fromNode": "S22",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    },
+    {
+      "id": "e37",
+      "fromNode": "S23",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    },
+    {
+      "id": "e38",
+      "fromNode": "S24",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    },
+    {
+      "id": "e39",
+      "fromNode": "S25",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    },
+    {
+      "id": "e40",
+      "fromNode": "S26",
+      "toNode": "S1",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "来自当前快照"
+    }
+  ]
+}

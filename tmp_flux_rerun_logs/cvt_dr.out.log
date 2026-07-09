@@ -1,0 +1,6 @@
+                                                     output_csv n_input_files
+1 E:/Dataset_Level1/CVT/EC/dr_ecpreproc/results/CVT_flux_dr.csv           534
+  n_flux_rows  first_timestamp   last_timestamp                    started
+1       21447 2024-11-01 00:30 2026-05-10 15:00 2026-07-07 12:15:32.447226
+                    finished elapsed_min
+1 2026-07-07 18:50:11.284795    394.6473
