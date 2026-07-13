@@ -38,6 +38,8 @@
 
 图件：
 
+- `figures\rotation_co2flux_vs_no_rotation_diurnal_facets_16x9.png`
+- `..\figures\fixed_tower_qc_contrast_bar_line_nee_16x9.png`
 - `figures\rotation_wmean_diurnal_comparison_2025.png`
 - `figures\rotation_wprime_diurnal_comparison_2025.png`
 - `figures\rotation_sigma_w_diurnal_comparison_2025.png`
@@ -73,6 +75,9 @@
 - 其中 `rotation_sigma_co2_common_periods.csv` 共 `5700` 行，覆盖 `CVT A=1578 / CVT B=1272 / MT A=1578 / MT B=1272`；`rotation_sigma_co2_paired_common_periods.csv` 共 `5123` 行，与现有 `13_w_sigma_flux_joined.csv` 的 paired 时间键一一对齐。
 - 当前 `MT` 原始 `sigma_co2` 仍可见少量极大尖峰，因此后续如果直接画 `c'` 日变化，应继续沿用中位数 + 四分位带，而不宜直接用均值。
 - 随后已补出两张 `sigma` 日变化图：`rotation_sigma_w_diurnal_comparison_2025.png` 复用四方法 `sigma_w` 半小时汇总表，按方法着色；`rotation_sigma_co2_diurnal_common_periods.png` 复用 paired `sigma_co2` 表，按站点分面并用中位数 + 四分位带压制 `MT` 尖峰的影响。
+- 另外还补出了一张 `CO2 flux` 对比图 `rotation_co2flux_vs_no_rotation_diurnal_facets_16x9.png`：三列横向分别为 `DR / Global PF / Sector PF` 相对 `No rotation` 的日变化对比，`MT/CVT` 用项目既定站点色 `#619CFF / #F8766D` 绘制，`No rotation` 与对应 rotation 方法用不同线型区分，整图输出比例固定为 `16:9`。
+- 随后已修正该图的时区偏移：问题出在 `13_w_sigma_flux_joined.csv` 被 `fread` 自动读成 `UTC` 的 `POSIXct` 后，又被脚本当作 `Asia/Shanghai` 重新解释，导致半小时分箱整体偏移 `+8 h`。当前脚本已改为把 `timestamp` 显式按字符读入并按本地时间解析；例如源表中的 `2025-01-22 16:30:00` 现在正确落到 `hour_decimal = 16.5`，不再错误映射到 `0.5`。
+- 另外还补出了一张 QC 前后占比/年值组合图 `fixed_tower_qc_contrast_bar_line_nee_16x9.png`：它直接复用 `rotation_sensitivity_standardized_2025_strict_vs_no_qc_compact_table.csv`，用分组柱状图表示各 rotation 方法在 `Strict QC / No QC/flag9` 下的 `observed valid windows (%)`，并用折线叠加同一方法的 `annual NEE`；`MT/CVT` 左右分面，整图比例固定为 `16:9`，且只保留公共四方法。
 
 ### 3. strict gapfill 明显集中在特定时段，但方法差异只在少数窗口被放大
 
