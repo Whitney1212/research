@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "2df9572a47a99440",
+    "type": "split",
+    "children": [
+      {
+        "id": "56eff49b6d89ef96",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d4dcb3dc8dac0401",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "W3_fixed_tower_annual_nee_estimation"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1b9ee5351a105301",
+    "type": "split",
+    "children": [
+      {
+        "id": "668a24f0cfa086d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54c41c181ffb6a65",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b30cc4c8e282a051",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "c2cb9e4063a8c7d3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 343.5
+  },
+  "right": {
+    "id": "c25184413ebef5d2",
+    "type": "split",
+    "children": [
+      {
+        "id": "f125f8736d1fa9fe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2cafb1cc8233a384",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "W3_fixed_tower_annual_nee_estimation 的反向链接列表"
+            }
+          },
+          {
+            "id": "99449add3ce3f7f4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "W3_fixed_tower_annual_nee_estimation 的出链列表"
+            }
+          },
+          {
+            "id": "8a6b057cf5f9fb6c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "40b2ade0216fe6b5",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "aaeefddd4348f6da",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "W3_fixed_tower_annual_nee_estimation 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "d4dcb3dc8dac0401",
+  "lastOpenFiles": [
+    "evidence/verifications/2026-07-14_nature_figure_skill_installation.md",
+    "evidence/verifications/2026-07-14_fixed_tower_core_difference_visualizations.md",
+    "evidence/verifications/2026-07-14_fixed_tower_hard_qc_common_window_difference_and_met.md",
+    "workstreams/W2_morning_peak_workflow.md",
+    "workstreams/W1_EA_EC_flux.md",
+    "workstreams/2026-07-10_W1_FL_fixedtower_crosssite_diagnostics_addendum.md",
+    "workstreams/_index.md",
+    "runtime/2026-07-13_fixed_tower_sigma_c_handoff.md",
+    "runtime/10_step3F_FL_co2_mean_full_process_log.md",
+    "runtime/09_step3E_FL_co2_mean_source_context_log.md",
+    "runtime/08_step3D_wind_source_sector_log.md",
+    "runtime/07_step3_peakH1H2_log.md",
+    "runtime/visual/research_paths.canvas",
+    "runtime/06_research_path_registry.md",
+    "runtime/research_paths/W1-P01_complex_terrain_flux_state.md",
+    "runtime/06_research_paths.base",
+    "runtime/research_paths/W3-P02_rotation_qc_gapfill.md",
+    "runtime/research_paths/W3-P01_annual_nee_delivery.md",
+    "runtime/research_paths/W2-P03_supplementary_observation.md",
+    "runtime/research_paths/W2-P02_morning_peak_mechanism.md",
+    "runtime/research_paths/W2-P01_morning_peak_climatology.md",
+    "runtime/research_paths/W1-P04_storage_correction.md",
+    "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
+    "runtime/research_paths/W1-P02_fl_ec_delivery.md",
+    "runtime/research_paths",
+    "runtime/06_step0_2_event_foundation_log.md",
+    "runtime/00_project_memory_root_guard.md",
+    "runtime/00_light_entry.md"
+  ]
+}

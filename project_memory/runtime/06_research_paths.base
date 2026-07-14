@@ -1,0 +1,106 @@
+filters:
+  and:
+    - file.inFolder("runtime/research_paths")
+    - type == "research_path"
+properties:
+  file.name:
+    displayName: 路径卡
+  path_id:
+    displayName: ID
+  title:
+    displayName: 研究路径
+  workstream:
+    displayName: 工作线
+  priority:
+    displayName: 优先级
+  status:
+    displayName: 阶段
+  trend:
+    displayName: 走势
+  current_result:
+    displayName: 已有判断
+  next_action:
+    displayName: 现在只做
+  next_gate:
+    displayName: 下一阶段门槛
+  next_deliverable:
+    displayName: 下一交付
+  blocked_by:
+    displayName: 依赖或阻塞
+  last_verified:
+    displayName: 最后核验
+views:
+  - type: table
+    name: 当前 P0
+    filters:
+      and:
+        - priority == "P0"
+        - status != "paused"
+    order:
+      - file.name
+      - workstream
+      - status
+      - trend
+      - next_action
+      - next_gate
+      - last_verified
+    sort:
+      - property: last_verified
+        direction: ASC
+      - property: next_gate
+        direction: ASC
+      - property: next_action
+        direction: ASC
+      - property: trend
+        direction: ASC
+      - property: status
+        direction: ASC
+      - property: workstream
+        direction: ASC
+      - property: file.name
+        direction: ASC
+      - property: path_id
+        direction: ASC
+    columnSize:
+      note.next_gate: 495
+  - type: cards
+    name: 按工作线浏览
+    groupBy:
+      property: workstream
+      direction: ASC
+    order:
+      - file.name
+      - priority
+      - status
+      - trend
+      - next_action
+      - next_gate
+  - type: table
+    name: 有依赖或阻塞
+    filters:
+      or:
+        - trend == "blocked"
+        - blocked_by != ""
+    order:
+      - file.name
+      - priority
+      - trend
+      - blocked_by
+      - next_action
+      - next_gate
+  - type: table
+    name: 接近交付
+    filters:
+      or:
+        - status == "deliverable_ready"
+        - trend == "closing"
+    order:
+      - file.name
+      - workstream
+      - next_deliverable
+      - next_gate
+      - last_verified
+  - type: table
+    name: 视图
+  - type: cards
+    name: 视图 2

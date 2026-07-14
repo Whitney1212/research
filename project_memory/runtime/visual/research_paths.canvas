@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"guide","type":"text","text":"# 06EA 研究路径关系\n箭头表示工作依赖或输入关系，不表示因果已经证实。双击文件卡进入研究决策卡。","x":430,"y":-260,"width":520,"height":150,"color":"5"},
+		{"id":"group-w1","type":"group","label":"W1 EC/FL 与通量修正","x":-80,"y":-40,"width":430,"height":1040,"color":"4"},
+		{"id":"group-w2","type":"group","label":"W2 晨间 CO2 peak","x":470,"y":-40,"width":430,"height":820,"color":"3"},
+		{"id":"group-w3","type":"group","label":"W3 固定塔年度 NEE","x":1020,"y":-40,"width":430,"height":600,"color":"6"},
+		{"id":"w1p02","type":"file","file":"runtime/research_paths/W1-P02_fl_ec_delivery.md","x":-20,"y":40,"width":310,"height":160,"color":"4"},
+		{"id":"w1p03","type":"file","file":"runtime/research_paths/W1-P03_fl_spatial_constraint.md","x":-20,"y":280,"width":310,"height":160,"color":"4"},
+		{"id":"w1p04","type":"file","file":"runtime/research_paths/W1-P04_storage_correction.md","x":-20,"y":520,"width":310,"height":160,"color":"4"},
+		{"id":"w1p01","type":"file","file":"runtime/research_paths/W1-P01_complex_terrain_flux_state.md","x":-20,"y":760,"width":310,"height":160,"color":"4"},
+		{"id":"w2p01","type":"file","file":"runtime/research_paths/W2-P01_morning_peak_climatology.md","x":530,"y":40,"width":310,"height":160,"color":"3"},
+		{"id":"w2p02","type":"file","file":"runtime/research_paths/W2-P02_morning_peak_mechanism.md","x":530,"y":280,"width":310,"height":160,"color":"3"},
+		{"id":"w2p03","type":"file","file":"runtime/research_paths/W2-P03_supplementary_observation.md","x":530,"y":520,"width":310,"height":160,"color":"1"},
+		{"id":"w3p01","type":"file","file":"runtime/research_paths/W3-P01_annual_nee_delivery.md","x":1080,"y":40,"width":310,"height":160,"color":"6"},
+		{"id":"w3p02","type":"file","file":"runtime/research_paths/W3-P02_rotation_qc_gapfill.md","x":1080,"y":280,"width":310,"height":160,"color":"6"}
+	],
+	"edges":[
+		{"id":"e-w1-02-03","fromNode":"w1p02","fromSide":"bottom","toNode":"w1p03","toSide":"top","label":"提供正式 FL 产品"},
+		{"id":"e-w1-03-01","fromNode":"w1p03","fromSide":"bottom","toNode":"w1p01","toSide":"top","label":"提供空间结构约束"},
+		{"id":"e-w1-04-01","fromNode":"w1p04","fromSide":"bottom","toNode":"w1p01","toSide":"top","label":"提供 storage 修正"},
+		{"id":"e-w2-01-02","fromNode":"w2p01","fromSide":"bottom","toNode":"w2p02","toSide":"top","label":"提供复核事件目录"},
+		{"id":"e-w2-03-02","fromNode":"w2p03","fromSide":"top","toNode":"w2p02","toSide":"bottom","label":"未来补充机制观测"},
+		{"id":"e-w3-01-02","fromNode":"w3p01","fromSide":"bottom","toNode":"w3p02","toSide":"top","label":"提供年度差异结果"},
+		{"id":"e-w3-02-w1-01","fromNode":"w3p02","fromSide":"left","toNode":"w1p01","toSide":"right","label":"提供 rotation/QC 诊断"}
+	]
+}

@@ -15,6 +15,8 @@
 
 ## 当前结果
 
+- 2026-07-14 新增一套与全年 strict/gapfilled 年值分开的“仅计算阶段硬 QC 共同窗口”诊断：两塔与四种公共 rotation 方法共同保留 `12,471` 个半小时窗口，主表为 `49,884` 行；`CVT-MT` 累计差异为 `279.9553 / 538.0198 / 398.2928 / 362.1800 gC m^-2`，依次对应 `no_rotation / dr / global_pf / sector_pf`。该表已按时间戳加入两塔 `rn/vpd/rain_flag` 等 MET 字段及插值标记，并完成 1 日、3 日各 `2,000` 次 block bootstrap。该结果只解释共同观测窗口，不作为全年线性外推值。[已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-14_fixed_tower_hard_qc_common_window_difference_and_met.md]
+
 - 公共四方法严格口径下，`MT` 的结果分别为：`no_rotation = -788.4071`、`dr = -883.5240`、`global_pf = -1018.4899`、`sector_pf = -919.9188 gC m^-2`；`observed_valid_windows` 分别为 `5699 / 5832 / 5873 / 5508`。[已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_common_four_methods_summary.csv]
 - 公共四方法严格口径下，`CVT` 的结果分别为：`no_rotation = -261.1940`、`dr = -256.5141`、`global_pf = -325.0168`、`sector_pf = -533.5506 gC m^-2`；`observed_valid_windows` 分别为 `3842 / 4700 / 4639 / 4518`。[已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_common_four_methods_summary.csv]
 - `MT season_sector_pf` 的 MT-only 补充敏感性结果为 `observed_valid_windows = 5461`、`gapfilled_windows = 12059`、`annual_nee_estimate_gC_m2 = -1050.4370`；它没有并入双塔公共四方法比较表。[已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_annual_summary_all_methods.csv]
@@ -35,6 +37,8 @@
 - 当前还补出了一张 QC 前后占比/年值组合图：`fixed_tower_qc_contrast_bar_line_nee_16x9.png`，位于 `E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\figures`。该图直接复用 `rotation_sensitivity_standardized_2025_strict_vs_no_qc_compact_table.csv`，以分组柱状图表示 `observed valid windows (%)`，以折线表示 `annual NEE`；`Strict QC / No QC/flag9` 用柱填充和线型区分，`MT/CVT` 左右分面，整图固定为 `16:9`，且仅保留公共四方法而不纳入 `season_sector_pf`。[已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\figures\fixed_tower_qc_contrast_bar_line_nee_16x9.png] [已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\fixed_tower_qc_contrast_bar_line_nee_plot_data.csv]
 
 ## 当前解释边界
+
+- 2026-07-13：共同四方法的高频交换诊断已在 strict NEE 口径下修复并覆盖旧表。最终窗口要求为：四种方法均 `valid_final == TRUE`，且每种方法的 `sigma_w/sigma_c/rwc/Fc/Fneg/Fpos` 全部有限。MT 保留 `3923` 个窗口、CVT 保留 `2089` 个窗口；四张 method 表在各站内行数相同且缺失诊断值为 `0`。`-99999` CO2 sentinel 已按缺测处理，因此不得再使用旧 MT `sigma_c` 均值 `11.51`。详细记录见 `project_memory/evidence/verifications/2026-07-13_fixed_tower_common_four_method_exchange_diagnostics_rerun.md`。
 
 - 这批 standardized rerun 结果已经替代“标准化前、只用 `sector_pf` 主表”的旧基线，成为 `W3` 默认 downstream 口径下的 rotation 敏感性与双塔年值主记录；旧结果仍可保留作历史估算记录，但不再适合作为当前主输入基线。[已核验: E:\Dataset_Level1\FixedTower\EC\rotation_sensitivity_standardized_2025\rotation_sensitivity_standardized_2025_annual_summary_all_methods.csv] [已核验: E:\Dataset_Level1\MT\EC\whole year computation\MT_nee_2025_estimate_summary.csv] [已核验: E:\Dataset_Level1\CVT\EC\whole year computation\CVT_nee_2025_estimate_summary.csv] [推断：基于标准化后公共矩阵已重算完成整理]
 - 当前结果足够支持“估算这个地方的碳汇量级和两塔差异”，但仍不应写成最终碳收支或 `NECB`，因为 `storage`、`advection`、复杂地形代表性和更正式的年度闭合口径还没有并入这条公式。[来源: 用户当前对话 2026-07-05 至 2026-07-08] [推断：基于本轮试算口径和用户限定整理]

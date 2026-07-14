@@ -25,12 +25,16 @@ Use `project_memory/` for project-specific evidence and workstream state. Use `r
 - `project_memory/anchors/04_conflicts_to_keep.md`
 - `project_memory/anchors/05_window_level_raw_w_diagnostic_definitions.md`
 - `project_memory/artifacts/01_registry.md`
+- `project_memory/artifacts/00_registry_guide.md`
+- `project_memory/artifacts/02_deliverable_registry.md`
+- `project_memory/artifacts/03_script_registry.md`
 - `project_memory/evidence/00_thread_index.md`
 - `project_memory/runtime/01_current_snapshot.md`
 - `project_memory/runtime/02_open_questions.md`
 - `project_memory/runtime/03_recent_actions.md`
 - `project_memory/runtime/04_latest_window_level_raw_w_diagnostics.md`
 - `project_memory/runtime/05_next_mainline_tasks.md`
+- `project_memory/runtime/06_research_path_registry.md`
 - `project_memory/workstreams/_index.md`
 - `project_memory/workstreams/W1_EA_EC_flux.md`
 

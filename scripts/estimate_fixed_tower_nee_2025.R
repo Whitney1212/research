@@ -21,6 +21,7 @@ parse_cli_args <- function(args) {
     donor_site = NULL,
     apply_qc_filter = "TRUE",
     apply_flag9_filter = NULL,
+    apply_ustar_filter = "TRUE",
     output_tag = NULL
   )
 
@@ -60,6 +61,7 @@ parse_cli_args <- function(args) {
   } else {
     out$apply_flag9_filter <- tolower(as.character(out$apply_flag9_filter)) %in% c("true", "t", "1", "yes", "y")
   }
+  out$apply_ustar_filter <- tolower(as.character(out$apply_ustar_filter)) %in% c("true", "t", "1", "yes", "y")
   out
 }
 
@@ -181,7 +183,8 @@ prepare_reference_data <- function(input_file,
                                    day_end_hour = 18,
                                    ustar_threshold = 0.15,
                                    apply_qc_filter = TRUE,
-                                   apply_flag9_filter = TRUE) {
+                                   apply_flag9_filter = TRUE,
+                                   apply_ustar_filter = TRUE) {
   if (!file.exists(input_file)) stop("Missing input file: ", input_file, call. = FALSE)
 
   dt <- fread(
@@ -236,7 +239,7 @@ prepare_reference_data <- function(input_file,
   if (isTRUE(apply_flag9_filter)) {
     agg[, valid_base := valid_base & flag9_co2_pass]
   }
-  agg[, ustar_pass_night := day_night == "day" | (u_star_available & u_star >= ustar_threshold)]
+  agg[, ustar_pass_night := !isTRUE(apply_ustar_filter) | day_night == "day" | (u_star_available & u_star >= ustar_threshold)]
   agg[, valid_final := valid_base & ustar_pass_night]
   setorder(agg, timestamp_local)
   agg
@@ -316,6 +319,7 @@ estimate_fixed_tower_nee <- function(site,
                                      donor_site = NULL,
                                      apply_qc_filter = TRUE,
                                      apply_flag9_filter = TRUE,
+                                     apply_ustar_filter = TRUE,
                                      output_tag = NULL) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -326,7 +330,8 @@ estimate_fixed_tower_nee <- function(site,
     day_end_hour = day_end_hour,
     ustar_threshold = ustar_threshold,
     apply_qc_filter = apply_qc_filter,
-    apply_flag9_filter = apply_flag9_filter
+    apply_flag9_filter = apply_flag9_filter,
+    apply_ustar_filter = apply_ustar_filter
   )
   target_year_ref <- target_ref[year_local == year]
   if (nrow(target_year_ref) == 0L) stop("No rows found for year ", year, " in ", input_file, call. = FALSE)
@@ -370,7 +375,7 @@ estimate_fixed_tower_nee <- function(site,
   if (isTRUE(apply_flag9_filter)) {
     x[, valid_base := valid_base & flag9_co2_pass]
   }
-  x[, ustar_pass_night := day_night == "day" | (u_star_available & u_star >= ustar_threshold)]
+  x[, ustar_pass_night := !isTRUE(apply_ustar_filter) | day_night == "day" | (u_star_available & u_star >= ustar_threshold)]
   x[, valid_final := valid_base & ustar_pass_night]
 
   x[, flux_observed_final := fifelse(valid_final, co2_flux, NA_real_)]
@@ -394,7 +399,8 @@ estimate_fixed_tower_nee <- function(site,
       day_end_hour = day_end_hour,
       ustar_threshold = ustar_threshold,
       apply_qc_filter = apply_qc_filter,
-      apply_flag9_filter = apply_flag9_filter
+      apply_flag9_filter = apply_flag9_filter,
+      apply_ustar_filter = apply_ustar_filter
     )
     bridge_model <- build_bridge_model(target_ref, donor_ref)
     if (is.finite(bridge_model$intercept) && is.finite(bridge_model$slope)) {
@@ -587,8 +593,8 @@ estimate_fixed_tower_nee <- function(site,
     } else {
       "- valid_base requires finite co2_flux and no duplicate exact timestamp; qc_co2 and flag9_co2 are not used for exclusion."
     },
-    sprintf("- day = %.1f:00 to < %.1f:00; night windows only apply u* threshold.", day_start_hour, day_end_hour),
-    sprintf("- provisional night u* threshold = %.3f m s^-1.", ustar_threshold),
+    if (isTRUE(apply_ustar_filter)) sprintf("- day = %.1f:00 to < %.1f:00; night windows only apply u* threshold.", day_start_hour, day_end_hour) else "- u* filtering is disabled.",
+    if (isTRUE(apply_ustar_filter)) sprintf("- provisional night u* threshold = %.3f m s^-1.", ustar_threshold) else NULL,
     sprintf("- short gaps <= %d half-hours use linear interpolation when both sides are valid.", short_gap_max),
     sprintf("- same-tower multiyear reference years used: %s.", paste(same_tower_years, collapse = ", ")),
     "- remaining gaps use multiyear climatology, priority = month x halfhour x day/night, season x halfhour x day/night, month x halfhour, halfhour x day/night, halfhour, day/night, then overall.",
@@ -623,6 +629,7 @@ main <- function() {
     donor_site = args$donor_site,
     apply_qc_filter = args$apply_qc_filter,
     apply_flag9_filter = args$apply_flag9_filter,
+    apply_ustar_filter = args$apply_ustar_filter,
     output_tag = args$output_tag
   )
   print(summary_tbl)

@@ -8,3 +8,29 @@
 [MT] reading file 150/336: TOA5_14893.Time_Series_40_2025_06_08_0000.dat
 [MT] reading file 175/336: TOA5_14893.Time_Series_52_2025_07_03_0000.dat
 [MT] reading file 200/336: TOA5_14893.Time_Series_10_2025_08_08_0000.dat
+[MT] reading file 225/336: TOA5_14893.Time_Series_24_2025_09_01_0000.dat
+[MT] reading file 250/336: TOA5_14893.Time_Series_46_2025_10_08_0000.dat
+[MT] reading file 275/336: TOA5_14893.Time_Series_59_2025_11_01_1603.dat
+[MT] reading file 300/336: TOA5_14893.Time_Series_73_2025_11_25_0000.dat
+[MT] reading file 325/336: TOA5_14893.Time_Series_85_2025_12_20_0000.dat
+[MT] reading file 336/336: TOA5_14893.Time_Series_92_2025_12_31_0000.dat
+[MT] retained 3923/3987 NEE-common windows with complete diagnostics
+[MT] excluded 64 NEE-common windows without complete raw diagnostics
+[CVT] reading file 1/331: TOA5_24374.Time_Series_29_2025_01_22_1600.dat
+[CVT] reading file 25/331: TOA5_24374.Time_Series_41_2025_02_15_0000.dat
+[CVT] reading file 50/331: TOA5_24374.Time_Series_66_2025_03_20_0000.dat
+[CVT] reading file 75/331: TOA5_24374.Time_Series_80_2025_04_15_0000.dat
+[CVT] reading file 100/331: TOA5_24374.Time_Series_100_2025_05_10_0000.dat
+[CVT] reading file 125/331: TOA5_24374.Time_Series_118_2025_06_06_1608.dat
+[CVT] reading file 150/331: TOA5_24374.Time_Series_135_2025_07_07_1308.dat
+[CVT] reading file 175/331: TOA5_24374.Time_Series_148_2025_08_02_0000.dat
+[CVT] reading file 200/331: TOA5_24374.Time_Series_164_2025_08_25_0000.dat
+[CVT] reading file 225/331: TOA5_24374.Time_Series_176_2025_09_19_0000.dat
+[CVT] reading file 250/331: TOA5_24374.Time_Series_191_2025_10_15_0000.dat
+[CVT] reading file 275/331: TOA5_24374.Time_Series_205_2025_11_07_0000.dat
+[CVT] reading file 300/331: TOA5_24374.Time_Series_218_2025_12_01_0000.dat
+[CVT] reading file 325/331: TOA5_24374.Time_Series_230_2025_12_26_0000.dat
+[CVT] reading file 331/331: TOA5_24374.Time_Series_235_2025_12_31_0000.dat
+[CVT] retained 2089/2121 NEE-common windows with complete diagnostics
+[CVT] excluded 32 NEE-common windows without complete raw diagnostics
+Completed common four-method exchange diagnostics for scenario: strict
