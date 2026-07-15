@@ -16,9 +16,11 @@ methods <- c("no_rotation", "dr", "global_pf", "sector_pf")
 rotation_method <- c(no_rotation = "none", dr = "dr", global_pf = "pf", sector_pf = "spf")
 root <- "E:/Dataset_Level1/Rotation"
 run_plan_file <- sprintf("E:/Dataset_Level1/FixedTower/EC/rotation_sensitivity_standardized_%d/rotation_sensitivity_standardized_%d_run_plan.csv", year, year)
-com_rotation_dir <- Sys.getenv("COM_ROTATION_DIR")
-ecpreproc_dir <- Sys.getenv("ECPREPROC_DIR")
-if (!nzchar(com_rotation_dir) || !nzchar(ecpreproc_dir)) stop("COM_ROTATION_DIR and ECPREPROC_DIR must be set.")
+phase_root <- dirname(dirname(normalizePath(getwd(), winslash = "/")))
+phase_dirs <- list.dirs(phase_root, recursive = TRUE, full.names = TRUE)
+com_rotation_dir <- phase_dirs[basename(phase_dirs) == "com_rotation"][1L]
+ecpreproc_dir <- phase_dirs[basename(phase_dirs) == "ecpreproc"][1L]
+if (is.na(com_rotation_dir) || is.na(ecpreproc_dir)) stop("Cannot locate com_rotation or ecpreproc from project root.")
 meta_paths <- c(MT = "D:/00EDDYPRO/sh_MT.metadata", CVT = "D:/00EDDYPRO/CVT_EC_for_EddyPro.metadata")
 level0_roots <- c(MT = "E:/Dataset_Level0/MT/EC", CVT = "E:/Dataset_Level0/CVT/EC")
 
@@ -47,7 +49,7 @@ run_one <- function(row, common_keys) {
   message(sprintf("[%s/%s] product-aligned rerun started", tower, method))
   res <- process_rep_flux(
     data_dir = level0_roots[[tower]], meta_data = ec_read_metadata(meta_paths[[tower]]),
-    file_pattern = sprintf("_%d_.*\\.dat$", year), recursive = TRUE, tz = tz,
+    file_pattern = sprintf("^TOA5_.*\\.Time_Series_.*_%d_.*\\.dat$", year), recursive = TRUE, tz = tz,
     rotation_method = rotation_method[[method]], detrend_method = "block_average",
     qc_params = list(pf_params = list(allow_bias = TRUE, n_sectors = 12, min_points = 10, min_win = 50)),
     lag_params = list(), fit_results = fit, show_progress = TRUE,
@@ -67,6 +69,7 @@ for (tower_name in unique(run_plan$tower)) {
   base <- lapply(methods, function(method) {
     p <- file.path(root, tower_name, "hard_qc_baseline_30min", sprintf("%s_%s_hard_qc_baseline_30min.csv", tower_name, method))
     x <- fread(p, select = c("timestamp", "co2_flux"))
+    x[, timestamp := format(timestamp, "%Y-%m-%d %H:%M:%S", tz = tz)]
     x <- x[startsWith(timestamp, sprintf("%d-", year))]
     setnames(x, "co2_flux", method)
     x

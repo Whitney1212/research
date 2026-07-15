@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "file": "runtime/03_recent_actions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "W3_fixed_tower_annual_nee_estimation"
+              "title": "03_recent_actions"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "file": "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "W3_fixed_tower_annual_nee_estimation 的反向链接列表"
+              "title": "W1-P03_fl_spatial_constraint 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "file": "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "W3_fixed_tower_annual_nee_estimation 的出链列表"
+              "title": "W1-P03_fl_spatial_constraint 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+                "file": "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "W3_fixed_tower_annual_nee_estimation 的大纲"
+              "title": "W1-P03_fl_spatial_constraint 的大纲"
             }
           }
         ]
@@ -185,33 +185,34 @@
   },
   "active": "d4dcb3dc8dac0401",
   "lastOpenFiles": [
+    "runtime/01_current_snapshot.md",
+    "runtime/00_project_memory_root_guard.md",
+    "runtime/00_light_entry.md",
+    "runtime/04_latest_window_level_raw_w_diagnostics.md",
+    "workstreams/2026-07-10_W1_FL_fixedtower_crosssite_diagnostics_addendum.md",
+    "runtime/10_step4_H3_formal_labels_log.md",
+    "workstreams/W3_fixed_tower_annual_nee_estimation.md",
+    "artifacts/03_script_registry.md",
+    "artifacts/02_deliverable_registry.md",
+    "artifacts/01_registry.md",
+    "artifacts/00_registry_guide.md",
+    "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
+    "runtime/research_paths/W1-P02_fl_ec_delivery.md",
+    "runtime/research_paths/W1-P01_complex_terrain_flux_state.md",
+    "evidence/verifications/2026-07-14_fixed_tower_core_condition_source_attribution.md",
+    "evidence/verifications/2026-07-14_fixed_tower_second_batch_difference_visualizations.md",
     "evidence/verifications/2026-07-14_nature_figure_skill_installation.md",
     "evidence/verifications/2026-07-14_fixed_tower_core_difference_visualizations.md",
     "evidence/verifications/2026-07-14_fixed_tower_hard_qc_common_window_difference_and_met.md",
     "workstreams/W2_morning_peak_workflow.md",
     "workstreams/W1_EA_EC_flux.md",
-    "workstreams/2026-07-10_W1_FL_fixedtower_crosssite_diagnostics_addendum.md",
     "workstreams/_index.md",
     "runtime/2026-07-13_fixed_tower_sigma_c_handoff.md",
     "runtime/10_step3F_FL_co2_mean_full_process_log.md",
     "runtime/09_step3E_FL_co2_mean_source_context_log.md",
     "runtime/08_step3D_wind_source_sector_log.md",
-    "runtime/07_step3_peakH1H2_log.md",
     "runtime/visual/research_paths.canvas",
-    "runtime/06_research_path_registry.md",
-    "runtime/research_paths/W1-P01_complex_terrain_flux_state.md",
     "runtime/06_research_paths.base",
-    "runtime/research_paths/W3-P02_rotation_qc_gapfill.md",
-    "runtime/research_paths/W3-P01_annual_nee_delivery.md",
-    "runtime/research_paths/W2-P03_supplementary_observation.md",
-    "runtime/research_paths/W2-P02_morning_peak_mechanism.md",
-    "runtime/research_paths/W2-P01_morning_peak_climatology.md",
-    "runtime/research_paths/W1-P04_storage_correction.md",
-    "runtime/research_paths/W1-P03_fl_spatial_constraint.md",
-    "runtime/research_paths/W1-P02_fl_ec_delivery.md",
-    "runtime/research_paths",
-    "runtime/06_step0_2_event_foundation_log.md",
-    "runtime/00_project_memory_root_guard.md",
-    "runtime/00_light_entry.md"
+    "runtime/research_paths"
   ]
 }
