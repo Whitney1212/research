@@ -248,3 +248,20 @@ tags:
 > status:: active
 > last_validated:: 2026-07-13
 > verification_ref:: [[../evidence/verifications/2026-07-13_fixed_tower_common_four_method_exchange_diagnostics_rerun]]
+## S-W3-009 2025 NEE 对齐 rotation 三风向投影重算
+
+> [!code]- 脚本属性
+> script_id:: S-W3-009
+> path_ids:: [[../runtime/research_paths/W3-P02_rotation_qc_gapfill|W3-P02]]
+> repository_path:: [rebuild_rotation_nee_aligned_projection_2025.R](../../scripts/rebuild_rotation_nee_aligned_projection_2025.R)
+> language:: R
+> purpose:: 在 2025 硬 QC 共同窗口内重算四种公共 rotation，并将相对 no_rotation 的 NEE 差异拆为 u'c'、v'c'、w'c' 三方向投影。
+> pipeline_stage:: diagnose
+> reusability:: parameterized
+> parameterized:: yes
+> self_check:: R parse、共同窗口一致性、flux/delta 投影闭合、重算与既有基准差异
+> input_artifact_ids:: [[02_deliverable_registry#A-W3-001 固定塔全量 rotation 标准化 30 min 输入 manifest|A-W3-001]]
+> output_artifact_ids:: [[02_deliverable_registry#A-W3-007 2025 硬 QC 共同窗口 rotation 三风向投影分解|A-W3-007]]
+> status:: provisional
+> last_validated:: 2026-07-16
+> verification_ref:: [[../evidence/verifications/2026-07-16_fixed_tower_nee_aligned_rotation_projection_2025]]

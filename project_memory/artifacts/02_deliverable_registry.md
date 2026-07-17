@@ -206,3 +206,18 @@ tags:
 > verification_ref:: [[../evidence/verifications/2026-07-13_fixed_tower_common_four_method_exchange_diagnostics_rerun]]
 > interpretation_boundary:: 登记的是两塔 no_rotation 目录中的代表文件；四种方法目录均有对应同键表。只使用 strict 共同有效窗口，-99999 CO2 sentinel 必须按缺测处理。
 > last_verified:: 2026-07-13
+## A-W3-007 2025 硬 QC 共同窗口 rotation 三风向投影分解
+
+> [!warning]- 交付属性
+> artifact_id:: A-W3-007
+> path_id:: [[../runtime/research_paths/W3-P02_rotation_qc_gapfill|W3-P02]]
+> artifact_class:: diagnostic_table
+> status:: provisional
+> delivery_level:: validated_internal_closure
+> script_ids:: [[03_script_registry#S-W3-009 2025 NEE 对齐 rotation 三风向投影重算|S-W3-009]]
+> input_stage:: level0_to_analysis
+> input_refs:: [[#A-W3-001 固定塔全量 rotation 标准化 30 min 输入 manifest|A-W3-001]]
+> output_uri:: `E:\Dataset_Level1\Rotation\nee_aligned_projection_2025_rebuild\four_rotation_projection_decomposition_2025.csv`
+> verification_ref:: [[../evidence/verifications/2026-07-16_fixed_tower_nee_aligned_rotation_projection_2025]]
+> interpretation_boundary:: 三方向投影在重算链内部严格闭合；rotation 方法与既有硬 QC 基准仍有窗口级差异，暂不标记为逐窗口完全对齐。
+> last_verified:: 2026-07-16

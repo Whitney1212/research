@@ -8,7 +8,7 @@
 
 - `W1`：使用共同观测口径比较 `MT/CVT/FL` 的 raw `sigma_co2`，并以 `No rotation` 与 `PF` 两个固定分面比较三站 `w_mean`；其中 PF 口径为 `MT/CVT sector_pf + FL PF_8bin_2ensemble (BPF)`。 [已核验: runtime/2026-07-10_fl_fixedtower_crosssite_progress_update.md]
 - `W2`：事件形态固定为日出后到 `pre_min_time` 整体下降、再到 `peak_time` 整体上升；下一步是人工复核 `amp > 5 ppm` 的站点日，而不是继续改事件定义。 [已核验: workstreams/W2_morning_peak_workflow.md]
-- `W3`：默认读取标准化 `*_standardized_30min.csv`，公共比较矩阵为 `no_rotation / dr / global_pf / sector_pf`；当前结果仍只能表述为 `EC-only annual NEE estimate / proxy`，不能写成最终碳收支或 `NECB`。 [已核验: workstreams/W3_fixed_tower_annual_nee_estimation.md]
+- `W3`：默认公共比较矩阵为 `no_rotation / dr / global_pf / sector_pf`。2026-07-16 已完成 2025 硬 QC 共同窗口的 `u'c' / v'c' / w'c'` 条件投影来源分解并通过独立闭合检查；结果显示关键大投影通常以协方差偏大为主，但部分状态存在系数×协方差耦合。rotation 重算与既有基准仍有窗口级差异待核，全年结果仍只能表述为 `EC-only annual NEE estimate / proxy`，不能写成最终碳收支或 `NECB`。 [已核验: workstreams/W3_fixed_tower_annual_nee_estimation.md]
 
 ## 当前阻塞与解释边界
 
@@ -20,7 +20,7 @@
 
 - W1：直接从 2026-07-10 的跨站输出与对应 evidence 开始解释，不重读或重写 W1 全部历史。 [已核验: workstreams/2026-07-10_W1_FL_fixedtower_crosssite_diagnostics_addendum.md]
 - W2：按固定事件口径人工复核 `amp > 5 ppm` 站点日，并保持单塔频率、双塔机制分类和单塔缺测集合分开。 [已核验: workstreams/W2_morning_peak_workflow.md]
-- W3：后续作图和写作直接使用标准化公共四方法总表、塔间差异表与 per-method `30min gapfilled` 明细，不回到原始 full-flux 主表。 [已核验: workstreams/W3_fixed_tower_annual_nee_estimation.md]
+- W3：逐条锁定 `preflight_top5_windows_2025.csv` 中实质偏差窗口所对应的旧成品原始文件、PF 参数/rotation-details 版本和后处理链；在此之前沿用当前重算产品内部闭合的条件投影结果，不扩展分析口径。 [已核验: workstreams/W3_fixed_tower_annual_nee_estimation.md]
 
 ## 导航
 
@@ -30,4 +30,3 @@
 - 开放问题：`runtime/02_open_questions.md`
 - 历史动作：`runtime/03_recent_actions.md`，仅追溯时读取
 - 来源索引：`evidence/00_thread_index.md`
-

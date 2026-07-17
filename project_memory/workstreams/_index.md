@@ -1,5 +1,7 @@
 # 工作流索引
 
+- `W3_fixed_tower_annual_nee_estimation.md` 已补入 2026-07-16 的 2025 硬 QC 共同窗口 rotation 三风向投影重算：公共四方法为 `no_rotation / dr / global_pf / sector_pf`，双站投影在重算链内部严格闭合；rotation 重算与既有基准仍有窗口级差异，当前交付保持 provisional，待逐窗口核验后再提升为完全对齐产品。 [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-16_fixed_tower_nee_aligned_rotation_projection_2025.md]
+
 - `W1_EA_EC_flux.md` 已补充 `2026-07-09` 的 `FL` 全量 `BPF` 重训、全量 `EC_ecpreproc` 正式交付与 pooled 全量日变化图进度；当前正式成果位置为 `E:\Dataset_Level1\Flares\BPF` 和 `E:\Dataset_Level1\Flares\EC_ecpreproc`。 [来源: 用户当前对话 2026-07-09] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-09_fl_full_bpf_ec_delivery_and_diurnal.md]
 
 - `W3_fixed_tower_annual_nee_estimation.md` 已新增为两固定塔 `MT/CVT` 2025 自然年 `EC-only annual NEE estimate / proxy` 工作流。该工作流单独维护覆盖审计、gapfilling、长缺口、筛选口径敏感性和对外表述边界，避免继续挤在 `W1/W2` 中。 [来源: 用户当前对话 2026-07-05 至 2026-07-06] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\workstreams\W3_fixed_tower_annual_nee_estimation.md]

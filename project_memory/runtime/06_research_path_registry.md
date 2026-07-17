@@ -34,6 +34,7 @@ tags:
 ## 路径关系
 
 - [[visual/research_paths.canvas|打开研究路径关系图]]
+- [[visual/06EA_research_analysis_mindmap|思维导图]]
 - 关系图只用于导航和查看依赖；研究判断仍以各路径卡及其 evidence/workstream 来源为准。
 
 ## 阶段如何推进
