@@ -25,12 +25,14 @@
             "id": "9cb2143f65729555",
             "type": "leaf",
             "state": {
-              "type": "mindmapview",
+              "type": "markdown",
               "state": {
-                "file": "runtime/visual/06EA_research_analysis_mindmap.md"
+                "file": "runtime/research_paths/W2-P01_morning_peak_climatology.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "blocks",
-              "title": "06EA_research_analysis_mindmap"
+              "icon": "lucide-file",
+              "title": "W2-P01_morning_peak_climatology"
             }
           }
         ],
@@ -198,8 +200,8 @@
   },
   "active": "9cb2143f65729555",
   "lastOpenFiles": [
-    "runtime/06_research_path_registry.md",
     "runtime/visual/06EA_research_analysis_mindmap.md",
+    "runtime/06_research_path_registry.md",
     "runtime/06_research_paths.base",
     "runtime/2026-07-13_fixed_tower_sigma_c_handoff.md",
     "runtime/2026-07-10_fl_fixedtower_crosssite_progress_update.md",

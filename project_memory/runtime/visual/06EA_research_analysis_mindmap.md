@@ -4,7 +4,7 @@ aliases:
 type: visualization
 view: mindmap
 mindmap-plugin: basic
-updated: 2026-07-16
+updated: 2026-07-20
 tags:
   - 06EA
   - visualization/mindmap
@@ -67,6 +67,7 @@ tags:
     - per-method 30 min 明细
     - EC-only proxy 表述边界
 - [[runtime/research_paths/W3-P02_rotation_qc_gapfill|W3-P02 rotation—QC—gapfill 影响机制]]
+    - u'c' / v'c' / w'c' 投影分解
     - no_rotation 下塔间差异
     - 同方法下塔间差异
     - 单塔 rotation 敏感性
