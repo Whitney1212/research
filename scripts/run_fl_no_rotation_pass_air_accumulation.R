@@ -173,12 +173,14 @@ read_toa5_wind <- function(path) {
   header <- tryCatch(names(fread(path, sep = ",", skip = 1L, header = TRUE, nrows = 0L, showProgress = FALSE)), error = function(e) character())
   need <- c("TIMESTAMP", "RECORD", "Ux", "Uy", "Uz", "diag_sonic")
   if (length(miss <- setdiff(need, header))) return(list(data = data.table(), reason = paste0("missing_raw_columns:", paste(miss, collapse = "+"))))
-  idx <- match(need, header)
-  x <- tryCatch(fread(path, sep = ",", skip = 4L, header = FALSE, select = idx, col.names = need,
+  optional <- intersect(c("CO2", "diag_irga"), header); cols <- c(need, optional); idx <- match(cols, header)
+  x <- tryCatch(fread(path, sep = ",", skip = 4L, header = FALSE, select = idx, col.names = cols,
                       colClasses = "character", na.strings = c("", "NA", "NaN", "NAN", "-9999", "-9999.0"), showProgress = FALSE),
                 error = function(e) NULL)
   if (is.null(x)) return(list(data = data.table(), reason = "raw_read_error"))
   x[, `:=`(TIMESTAMP = parse_toa5_time(TIMESTAMP), RECORD = to_num(RECORD), Ux = to_num(Ux), Uy = to_num(Uy), Uz = to_num(Uz), diag_sonic = to_num(diag_sonic), source_file = basename(path))]
+  if ("CO2" %in% names(x)) x[, CO2 := to_num(CO2)]
+  if ("diag_irga" %in% names(x)) x[, diag_irga := to_num(diag_irga)]
   x <- x[!is.na(TIMESTAMP)]
   setorder(x, TIMESTAMP, RECORD, source_file)
   x <- unique(x, by = c("TIMESTAMP", "RECORD"))

@@ -13,7 +13,8 @@ motion_cols <- c(
   "up_time_fraction_BPF", "down_time_fraction_BPF", "zero_time_fraction_BPF", "mean_w_when_up_BPF_m_s", "mean_abs_w_when_down_BPF_m_s",
   "up_time_fraction_no_rotation_common", "down_time_fraction_no_rotation_common", "zero_time_fraction_no_rotation_common", "mean_w_when_up_no_rotation_common_m_s", "mean_abs_w_when_down_no_rotation_common_m_s"
 )
-pair_required_cols <- c(pair_required_cols, motion_cols)
+co2_cols <- c("n_co2_common_valid", "co2_mean_ppm")
+pair_required_cols <- c(pair_required_cols, motion_cols, co2_cols)
 
 parse_args <- function(args) {
   o <- list(root = default_output_root, self_check = FALSE)
@@ -40,6 +41,7 @@ motion_summary <- function(w, dt) {
 pair_empty_result_with_motion <- function(has_raw_candidate) {
   x <- as.data.table(pair_empty_result(has_raw_candidate))
   x[, (motion_cols) := lapply(motion_cols, function(...) NA_real_)]
+  x[, (co2_cols) := lapply(co2_cols, function(...) NA_real_)]
   x
 }
 
@@ -75,6 +77,7 @@ pair_flux_result <- function(pass, samples, fs_hz, params, has_raw_candidate) {
   }
   samples[, w_bpf := Uz_shared - (intercept_a + slope_b_u * U_east_corrected + slope_c_v * U_north_corrected)]
   dt <- 1 / fs_hz; b <- motion_summary(samples$w_bpf[bpf_ok], dt); n <- motion_summary(samples$Uz_shared[bpf_ok], dt)
+  co2_ok <- bpf_ok & is.finite(samples$CO2) & is.finite(samples$diag_irga) & samples$diag_irga == 0
   bins <- sort(unique(samples$bin_id[bpf_ok])); t_valid <- n_bpf / fs_hz; dur <- as.numeric(difftime(pass$end_time, pass$start_time, units = "secs"))
   as.data.table(list(
     n_raw = n_raw, n_diag_sonic_zero = n_diag, n_base_valid = n_base, n_running_interpolated = n_running, n_position_in_track = n_position, n_parameter_bin = n_parameter, n_bpf_valid = n_bpf, n_common_valid = n_bpf, bpf_valid_seconds = t_valid, common_valid_seconds = t_valid, bpf_coverage_fraction = t_valid / dur, common_coverage_fraction = t_valid / dur, n_bins_covered = length(bins), bin_ids_covered = paste(bins, collapse = ";"),
@@ -82,6 +85,7 @@ pair_flux_result <- function(pass, samples, fs_hz, params, has_raw_candidate) {
     Q_up_no_rotation_common_m = n$Q_up_m, Q_down_no_rotation_common_m = n$Q_down_m, Q_net_no_rotation_common_m = n$Q_net_m, Q_gross_no_rotation_common_m = n$Q_gross_m,
     up_time_fraction_BPF = b$up_time_fraction, down_time_fraction_BPF = b$down_time_fraction, zero_time_fraction_BPF = b$zero_time_fraction, mean_w_when_up_BPF_m_s = b$mean_w_when_up_m_s, mean_abs_w_when_down_BPF_m_s = b$mean_abs_w_when_down_m_s,
     up_time_fraction_no_rotation_common = n$up_time_fraction, down_time_fraction_no_rotation_common = n$down_time_fraction, zero_time_fraction_no_rotation_common = n$zero_time_fraction, mean_w_when_up_no_rotation_common_m_s = n$mean_w_when_up_m_s, mean_abs_w_when_down_no_rotation_common_m_s = n$mean_abs_w_when_down_m_s,
+    n_co2_common_valid = sum(co2_ok), co2_mean_ppm = if (any(co2_ok)) mean(samples$CO2[co2_ok]) else NA_real_,
     BPF_closure_net_error = b$Q_net_m - sum(samples$w_bpf[bpf_ok] * dt), BPF_closure_gross_error = b$Q_gross_m - sum(abs(samples$w_bpf[bpf_ok]) * dt), no_rotation_common_closure_net_error = n$Q_net_m - sum(samples$Uz_shared[bpf_ok] * dt), no_rotation_common_closure_gross_error = n$Q_gross_m - sum(abs(samples$Uz_shared[bpf_ok]) * dt),
     bpf_qc_status = "ok", bpf_qc_reason = "ok", no_rotation_common_qc_status = "ok", no_rotation_common_qc_reason = "ok"
   ))
@@ -132,7 +136,7 @@ main <- function() {
   }
   x <- rbindlist(parts, use.names = TRUE, fill = TRUE); setorder(x, pass_uid)
   x[, `:=`(track_position_mid_m = (track_south_m + track_north_m) / 2, is_common_valid = bpf_qc_status == "ok" & no_rotation_common_qc_status == "ok")]
-  out <- cbind(x[, .(pass_uid, source_group, source_pass_id, pass_mid_time_local, direction, track_scope, track_south_m, track_north_m, track_position_mid_m, n_common_valid, common_valid_seconds, common_coverage_fraction, n_bins_covered, bin_ids_covered, bpf_qc_status, bpf_qc_reason, no_rotation_common_qc_status, no_rotation_common_qc_reason, is_common_valid)], as.data.table(method_columns(x, "no_rotation")), as.data.table(method_columns(x, "BPF")))
+  out <- cbind(x[, .(pass_uid, source_group, source_pass_id, pass_mid_time_local, direction, track_scope, track_south_m, track_north_m, track_position_mid_m, n_common_valid, common_valid_seconds, common_coverage_fraction, n_bins_covered, bin_ids_covered, n_co2_common_valid, co2_mean_ppm, bpf_qc_status, bpf_qc_reason, no_rotation_common_qc_status, no_rotation_common_qc_reason, is_common_valid)], as.data.table(method_columns(x, "no_rotation")), as.data.table(method_columns(x, "BPF")))
   validate_pair_table(out, prior)
   path <- file.path(opt$root, "tables", output_name); atomic_fwrite_pair(out, path)
   message("Wrote ", nrow(out), " pass pairs: ", path)

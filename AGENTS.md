@@ -6,6 +6,8 @@ For non-trivial tasks:
 - make one narrow change at a time
 - avoid large rewrites unless requested
 - show how to verify the result
+- before writing code, search for and reuse an existing stable script or helper; do not alter an already-used script unless explicitly requested
+- when the request is about coding practice or workflow, update the project record requirements first and leave production code unchanged
 
 Keep explanations brief unless the user asks for more detail.
 
