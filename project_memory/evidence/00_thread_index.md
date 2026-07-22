@@ -1,5 +1,7 @@
 # 证据索引
 
+- `verifications/2026-07-21_fl_no_rotation_pass_air_accumulation.md` records the completed independent FL no-rotation pass air-accumulation baseline: multicaliber pass de-duplication, local TOA5 time handling, full-pass sonic/QC/despiking, 5,177-pass inventory, 4,662 successful calculations, failure-reason boundary, closure audit, and the explicit requirement that later BPF pairing retain common sample/pass support without redefining strict passes. [verified: `D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-21_fl_no_rotation_pass_air_accumulation.md`]
+
 - `verifications/2026-07-14_nature_figure_skill_installation.md` 记录用户要求安装并纳入项目科研绘图要求的 `nature-figure` skill、GitHub 来源、实际安装路径及其 R 绘图适用范围。 [来源: 用户当前对话 2026-07-14] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-14_nature_figure_skill_installation.md]
 
 - `verifications/2026-07-14_fixed_tower_hard_qc_common_window_difference_and_met.md` 记录 2025 年两固定塔、四种 rotation、仅硬 QC 的 `12,471` 个共同半小时窗口重建，`CVT-MT` 差异及 block bootstrap，以及 MT/CVT 半小时 MET 的辐射、VPD、降雨和插值标记配对结果。[来源: 用户当前对话 2026-07-14] [已核验: D:\00 博士阶段\99 Project\06 EA\project_memory\evidence\verifications\2026-07-14_fixed_tower_hard_qc_common_window_difference_and_met.md]

@@ -4,7 +4,7 @@ aliases:
 type: registry
 registry: deliverables
 project: 06EA
-updated: 2026-07-14
+updated: 2026-07-21
 tags:
   - 06EA
   - registry/deliverable
@@ -23,13 +23,13 @@ tags:
 > artifact_class:: parameters
 > status:: verified
 > delivery_level:: stage_delivery
-> script_ids:: 
+> script_ids:: [[03_script_registry#S-W1-003 FL 0–245 m 固定 8-bin BPF 标准训练|S-W1-003]]
 > input_stage:: processed
-> input_refs:: `E:\Dataset_Level1\Flares\BPF\PF_8bin` · `E:\Dataset_Level1\Flares\BPF\PF_8bin_2ensemble`
+> input_refs:: `E:\FL_MASSBALANCE\202308\downstream_multicaliber\bundle_index.csv` · `main_complete` + 去重 `oldcode_0_245`；`batch_b_complete` 不进入主拟合
 > output_uri:: `E:\Dataset_Level1\Flares\BPF\BPF_default_parameters_for_flux.csv`
-> verification_ref:: [[../evidence/verifications/2026-07-09_fl_full_bpf_ec_delivery_and_diurnal]]
-> interpretation_boundary:: 作为后续 FL 通量运行默认 PF 参数；不等同于最终通量结果。
-> last_verified:: 2026-07-09
+> verification_ref:: [[../evidence/verifications/2026-07-21_fl_bpf_0_245_fixed8_rebuild]]
+> interpretation_boundary:: 2026-07-21 起作为后续 FL 通量运行默认 PF 参数；固定为 0–245 m / 8-bin。缺失 TOA5 日期的覆盖例外见同一核验记录；不等同于最终通量结果。
+> last_verified:: 2026-07-21
 
 ## A-W1-002 FL 全量 EC_ecpreproc 多旋转正式交付
 

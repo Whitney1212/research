@@ -4,7 +4,7 @@ aliases:
 type: registry
 registry: scripts
 project: 06EA
-updated: 2026-07-14
+updated: 2026-07-21
 tags:
   - 06EA
   - registry/script
@@ -32,6 +32,24 @@ tags:
 > status:: active
 > last_validated:: 2026-07-09
 > verification_ref:: [[../evidence/verifications/2026-07-09_fl_full_bpf_ec_delivery_and_diurnal]]
+
+## S-W1-003 FL 0–245 m 固定 8-bin BPF 标准训练
+
+> [!code]- 脚本属性
+> script_id:: S-W1-003
+> path_ids:: [[../runtime/research_paths/W1-P02_fl_ec_delivery|W1-P02]]
+> repository_path:: [run_fl_bpf_0_245_8bin.R](../../scripts/run_fl_bpf_0_245_8bin.R)
+> language:: R
+> purpose:: 以既有 PF8 高处理主链重建 FL 0–245 m 固定八等分参数；主拟合使用 main_complete 与去重 oldcode，PF2 不跨 source_group 配对。
+> pipeline_stage:: parameterize
+> reusability:: workflow
+> parameterized:: limited
+> self_check:: 固定边界、8/8 fit_ok、各 bin 输入/方向、去重、跨来源 ensemble 和残差检查。
+> input_artifact_ids:: 
+> output_artifact_ids:: [[02_deliverable_registry#A-W1-001 FL multicaliber BPF 默认参数产品|A-W1-001]]
+> status:: active
+> last_validated:: 2026-07-21
+> verification_ref:: [[../evidence/verifications/2026-07-21_fl_bpf_0_245_fixed8_rebuild]]
 
 ## S-W1-002 FL pooled 日变化图
 
